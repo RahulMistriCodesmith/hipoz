@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hipoz/Screens/profile.dart';
+import 'package:hipoz/Screens/stackex.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Profile(),
+      home: profile1(),
       debugShowCheckedModeBanner: false,
 
     );
