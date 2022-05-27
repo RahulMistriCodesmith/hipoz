@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class Textstyle1Light18 {
   static const TextStyle appbartextstyle = TextStyle(
-    fontSize: 13,
+
     fontFamily: 'AvenirLTStd-Roman',
     //color: Appcolors.greylight
   );
@@ -12,7 +12,7 @@ class Textstyle1Light18 {
 
 class Textstyle2Light18 {
   static const TextStyle appbartextstyle = TextStyle(
-    fontSize: 13,
+
     fontFamily: 'AvenirLTStd-Book',
     //color: Appcolors.greylight
   );

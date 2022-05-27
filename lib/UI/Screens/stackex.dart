@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:hipoz/Commponets/Colors.dart';
+import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
 
 
@@ -18,7 +18,7 @@ class _profile1State extends State<profile1> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Appcolors.grey1,
       appBar: AppBar(
@@ -27,7 +27,7 @@ class _profile1State extends State<profile1> {
         elevation: 0,
         actions: [
           Container(
-            margin: EdgeInsets.only(top: 5,left: 10,bottom: 5,right: 10),
+            margin: EdgeInsets.only(top: 6,left: 9,bottom: 9,right: 10),
 
             decoration: BoxDecoration(
               color: Colors.white,
@@ -36,10 +36,8 @@ class _profile1State extends State<profile1> {
             child: Image.asset('assets/Iocns/searchicon.png',scale: 3.5,),
           ),
 
-
-
           Container(
-            margin: EdgeInsets.only(top: 5,left: 10,bottom: 5,right: 10),
+            margin: EdgeInsets.only(top: 6,left: 9,bottom: 6,right: 9),
 
             decoration: BoxDecoration(
               color: Colors.white,
@@ -48,16 +46,18 @@ class _profile1State extends State<profile1> {
             child: Image.asset('assets/Iocns/messageicon.png',scale: 3.5,),
           ),
 
-
-
           Container(
-            margin: EdgeInsets.only(top: 5,left: 10,bottom: 5,right: 10),
+            margin: EdgeInsets.only(top: 6,left: 9,bottom: 6,right: 9),
 
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
             ),
-            child: Image.asset('assets/Iocns/bellicon.png',scale: 3.5,),
+            child: Image.asset('assets/Iocns/bellicon.png',scale: 4,),
+          ),
+
+          SizedBox(
+            width: 12,
           ),
 
           Stack(
@@ -67,8 +67,8 @@ class _profile1State extends State<profile1> {
                 child: Image.asset('assets/Iocns/wuicon.png',width: 40,height: 40,),
               ),
               PopupMenuButton(
+                position: PopupMenuPosition.under,
                 color: Colors.white,
-
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(16),
@@ -96,10 +96,15 @@ class _profile1State extends State<profile1> {
             ],
           ),
 
-
-          SizedBox(width: 10,)
+          SizedBox(width: 13,)
 
         ],
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: Icon(Icons.menu_rounded,color: Appcolors.grey2,size: 30),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
+        ),
       ),
 
       drawer: Drawer(),
@@ -109,7 +114,7 @@ class _profile1State extends State<profile1> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 30),
+              padding: const EdgeInsets.only(top: 15),
               child: Stack(
                 alignment: Alignment.topCenter,
                 children: <Widget>[
@@ -326,7 +331,7 @@ class _profile1State extends State<profile1> {
                                   padding: const EdgeInsets.only(left: 16,right: 16,top: 24,bottom: 24),
                                   child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium at amet, arcu velit. Sodales diam mauris tempus consequat felis, ullamcorper. Aliquam eu ornare nisl vulputate et ultrices amet quisque viverra. Elementum tempus lobortis lobortis sit sodales quam. Venenatis amet odio platea rutrum non.',
                                     style: Textstyle1Light18.appbartextstyle.copyWith(
-                                        fontSize: 14,color: Appcolors.brown1,fontWeight: FontWeight.w500),
+                                        fontSize: 14,color: Appcolors.black1,fontWeight: FontWeight.w500),
                                   ),
                                 ),
                               ],
@@ -368,21 +373,22 @@ class _profile1State extends State<profile1> {
                                           Stack(
                                             children: [
                                               Image.asset('assets/Images/seminarsimgae1.png',width: 136,height: 136,),
-                                              Positioned(
-                                                top: 100,
-                                                left: 100,
+                                              Padding(
+                                                padding: const EdgeInsets.only(top: 120,left: 95),
                                                 child: Container(
                                                   decoration: BoxDecoration(
                                                       borderRadius: BorderRadius.circular(12),
                                                       color: Appcolors.blue1
                                                   ),
                                                   child: Padding(
-                                                    padding: const EdgeInsets.only(left: 3,right: 4,top: 9.4,bottom: 7.4),
+                                                    padding: const EdgeInsets.only(left: 4,right: 4,top: 9.4,bottom: 7.4),
                                                     child: Text('50%',style: Textstyle3Light18.appbartextstyle.copyWith(
                                                         fontSize: 12,color: Colors.white),),
                                                   ),
                                                 ),
                                               ),
+
+
                                             ],
                                           ),
                                           Row(
@@ -413,16 +419,15 @@ class _profile1State extends State<profile1> {
                                           Stack(
                                             children: [
                                               Image.asset('assets/Images/seminarsimage2.png',width: 136,height: 136,),
-                                              Positioned(
-                                                top: 100,
-                                                left: 100,
+                                              Padding(
+                                                padding: const EdgeInsets.only(top: 120,left: 95),
                                                 child: Container(
                                                   decoration: BoxDecoration(
                                                       borderRadius: BorderRadius.circular(12),
                                                       color: Appcolors.blue1
                                                   ),
                                                   child: Padding(
-                                                    padding: const EdgeInsets.only(left: 3,right: 4,top: 9.4,bottom: 7.4),
+                                                    padding: const EdgeInsets.only(left: 4,right: 4,top: 9.4,bottom: 7.4),
                                                     child: Text('50%',style: Textstyle3Light18.appbartextstyle.copyWith(
                                                         fontSize: 12,color: Colors.white),),
                                                   ),
@@ -494,16 +499,15 @@ class _profile1State extends State<profile1> {
                                               Stack(
                                                 children: [
                                                   Image.asset('assets/Images/dmbimage.png',width: 136,height: 136,),
-                                                  Positioned(
-                                                    top: 100,
-                                                    left: 100,
+                                                  Padding(
+                                                    padding: const EdgeInsets.only(top: 120,left: 95),
                                                     child: Container(
                                                       decoration: BoxDecoration(
                                                           borderRadius: BorderRadius.circular(12),
                                                           color: Appcolors.blue1
                                                       ),
                                                       child: Padding(
-                                                        padding: const EdgeInsets.only(left: 3,right: 4,top: 9.4,bottom: 7.4),
+                                                        padding: const EdgeInsets.only(left: 4,right: 4,top: 9.4,bottom: 7.4),
                                                         child: Text('50%',style: Textstyle3Light18.appbartextstyle.copyWith(
                                                             fontSize: 12,color: Colors.white),),
                                                       ),
@@ -511,21 +515,7 @@ class _profile1State extends State<profile1> {
                                                   ),
                                                 ],
                                               ),
-                                              Positioned(
-                                                top: 100,
-                                                left: 100,
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                      borderRadius: BorderRadius.circular(12),
-                                                      color: Appcolors.blue1
-                                                  ),
-                                                  child: Padding(
-                                                    padding: const EdgeInsets.only(left: 3,right: 4,top: 9.4,bottom: 7.4),
-                                                    child: Text('50%',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                                        fontSize: 12,color: Colors.white),),
-                                                  ),
-                                                ),
-                                              ),
+
                                             ],
                                           ),
                                           Row(
@@ -556,16 +546,15 @@ class _profile1State extends State<profile1> {
                                           Stack(
                                             children: [
                                               Image.asset('assets/Images/innovationimagepng',width: 136,height: 136,),
-                                              Positioned(
-                                                top: 100,
-                                                left: 100,
+                                              Padding(
+                                                padding: const EdgeInsets.only(top: 120,left: 95),
                                                 child: Container(
                                                   decoration: BoxDecoration(
                                                       borderRadius: BorderRadius.circular(12),
                                                       color: Appcolors.blue1
                                                   ),
                                                   child: Padding(
-                                                    padding: const EdgeInsets.only(left: 3,right: 4,top: 9.4,bottom: 7.4),
+                                                    padding: const EdgeInsets.only(left: 4,right: 4,top: 9.4,bottom: 7.4),
                                                     child: Text('50%',style: Textstyle3Light18.appbartextstyle.copyWith(
                                                         fontSize: 12,color: Colors.white),),
                                                   ),
@@ -781,7 +770,7 @@ class _profile1State extends State<profile1> {
                                             hintText: 'Discount on the product',
                                             hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
                                                 fontSize: 14,color: Appcolors.grey2),
-                                            suffixIcon: Icon(Icons.discount_outlined),
+                                            suffixIcon: Image.asset('assets/Images/img_1.png',scale: 1.7),
                                           ),
                                         ),
                                       ),
@@ -815,7 +804,7 @@ class _profile1State extends State<profile1> {
                                             hintText: 'Discount on the product',
                                             hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
                                                 fontSize: 14,color: Appcolors.grey2),
-                                            suffixIcon: Icon(Icons.link_outlined),
+                                            suffixIcon: Image.asset('assets/Images/img.png',scale: 1.8),
                                           ),
                                         ),
                                       ),
@@ -873,8 +862,8 @@ class _profile1State extends State<profile1> {
                   )
 
                       : Column(
-                    children: const [
-                      Text('data'),
+                       children: [
+                       Text(''),
                     ],
                   )
 

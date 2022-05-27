@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:hipoz/Screens/stackex.dart';
+import 'package:flutter/services.dart';
+import 'package:hipoz/UI/Authorization/landingpage.dart';
+import 'package:hipoz/UI/Screens/stackex.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+
+  SystemChrome.setPreferredOrientations(
+      [
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown
+      ]
+  );
+
   runApp(const MyApp());
 }
 
@@ -12,7 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: profile1(),
+      home: LandingPage(),
       debugShowCheckedModeBanner: false,
 
     );
