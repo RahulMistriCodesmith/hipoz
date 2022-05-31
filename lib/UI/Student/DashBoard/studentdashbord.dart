@@ -1,0 +1,317 @@
+import 'package:flutter/material.dart';
+import 'package:hipoz/Commponets/Colors/Colors.dart';
+import 'package:hipoz/Commponets/Fonts/Fonts.dart';
+class StudentDashboard extends StatefulWidget {
+  const StudentDashboard({Key? key}) : super(key: key);
+
+  @override
+  State<StudentDashboard> createState() => _StudentDashboardState();
+}
+
+class _StudentDashboardState extends State<StudentDashboard> {
+
+  @override
+  Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
+
+    return Scaffold(
+      backgroundColor: Appcolors.brown1,
+
+      appBar: AppBar(
+        backgroundColor: Appcolors.brown1,
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        title: Row(
+          children: [
+            Image.asset('assets/Images/studentimage.png',scale: 5,),
+            SizedBox(width: width*0.65),
+            Container(
+              margin: EdgeInsets.all(7),
+              decoration: BoxDecoration(
+                color: Appcolors.brown2,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Image.asset('assets/Iocns/searchicon.png',scale: 4,),
+            ),
+          ],
+        ),
+
+      ),
+      endDrawer: Drawer(
+        backgroundColor: Appcolors.brown1,
+        child: ListView(
+          children: <Widget>[
+
+            //Here you place your menu items
+            ListTile(
+              leading: Icon(Icons.home,color: Appcolors.grey2,),
+              title: Text('Dashboard', style: Textstyle1Light18.appbartextstyle.copyWith(
+                  color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
+              onTap: () {
+                Navigator.push(context,MaterialPageRoute(builder: (context) => StudentDashboard()));
+              },
+            ),
+            Divider(height: 3.0),
+            ListTile(
+              leading: Icon(Icons.perm_identity,color: Appcolors.grey2,),
+              title: Text('Profile', style: Textstyle1Light18.appbartextstyle.copyWith(
+                  color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
+              onTap: () {
+
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.stars_outlined,color: Appcolors.grey2,),
+              title: Text('Benefit World', style: Textstyle1Light18.appbartextstyle.copyWith(
+                  color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
+              onTap: () {
+
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.emoji_events_outlined,color: Appcolors.grey2,),
+              title: Text('Event World', style: Textstyle1Light18.appbartextstyle.copyWith(
+                  color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
+              onTap: () {
+
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.message_outlined,color: Appcolors.grey2,),
+              title: Text('Messages', style: Textstyle1Light18.appbartextstyle.copyWith(
+                  color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
+              onTap: () {
+
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.notifications_outlined,color: Appcolors.grey2,),
+              title: Text('Notification', style: Textstyle1Light18.appbartextstyle.copyWith(
+                  color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
+              onTap: () {
+
+              },
+            ),
+            SizedBox(
+              height: height*0.5,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                border: Border.all(color: Appcolors.blue1),
+              ),
+              child: RaisedButton(
+                  color: Appcolors.brown1,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  child: Text('Sign out',style: Textstyle1Light18.appbartextstyle.copyWith(
+                      color: Appcolors.blue1,fontSize: 16,fontWeight: FontWeight.w800),),
+                  onPressed: (){}),
+            )
+          ],
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 24.5,right: 23.5,top: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset('assets/Images/frameimgae.png'),
+
+              SizedBox(height: 10),
+
+              Container(
+                decoration: BoxDecoration(
+                  color: Appcolors.brown2,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15.13,top: 21.65,bottom: 16),
+                  child: Column(
+
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset('assets/Images/posticon.png',scale: 4,),
+                          SizedBox(width: 12),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Österreichische Post',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                fontSize: 14,color: Colors.white
+                              ),),
+                              Text('Vienna, Austria an hour ago',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                  fontSize: 12,color: Appcolors.grey2
+                              ),),
+                            ],
+                          ),
+                          SizedBox(width: width*0.22),
+                          Image.asset('assets/Images/dotimage.png',scale: 4,),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 9.35,
+                      ),
+                      Text('We’re hiring a graphic designer...',style: Textstyle3Light18.appbartextstyle.copyWith(
+                          fontSize: 21,color: Colors.white
+                      ),),
+                      SizedBox(
+                        height: 13,
+                      ),
+                      Image.asset('assets/Images/postimage3.png'),
+                      SizedBox(height: 15,),
+                      RaisedButton(
+                          color: Appcolors.blue1,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 74.5,right: 74.5,top: 7,bottom: 7),
+                            child: Text('See more',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                fontSize: 14,color: Colors.white
+                            ),),
+                          ),
+                          onPressed: (){}),
+                    ],
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 10),
+
+              Container(
+                decoration: BoxDecoration(
+                  color: Appcolors.brown2,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15.13,top: 21.65,bottom: 16),
+                  child: Column(
+
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset('assets/Images/iconpost.png',scale: 4,),
+
+                          SizedBox(width: 12),
+
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Raiffeisen Niederösterreich',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                  fontSize: 14,color: Colors.white
+                              ),),
+                              Text('Vienna, Austria 2 hours ago',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                  fontSize: 12,color: Appcolors.grey2
+                              ),),
+                            ],
+                          ),
+                          SizedBox(width: width*0.22),
+                          Image.asset('assets/Images/dotimage.png',scale: 4,),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 17,
+                      ),
+                      Text('Post with associate link',style: Textstyle1Light18.appbartextstyle.copyWith(
+                          fontSize: 14,color: Colors.white
+                      ),),
+                      SizedBox(
+                        height: 13,
+                      ),
+
+                    ],
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 10),
+
+              Container(
+                decoration: BoxDecoration(
+                  color: Appcolors.brown2,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15.13,top: 21.65,bottom: 16),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset('assets/Images/posticon.png',scale: 4,),
+                          SizedBox(width: 12),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Österreichische Post',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                  fontSize: 14,color: Colors.white
+                              ),),
+                              Text('Vienna, Austria an hour ago',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                  fontSize: 12,color: Appcolors.grey2
+                              ),),
+                            ],
+                          ),
+                          SizedBox(width: width*0.22),
+                          Image.asset('assets/Images/dotimage.png',scale: 4,),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 9.35,
+                      ),
+                      SizedBox(
+                        height: 17,
+                      ),
+                      Text('Post with associate link',style: Textstyle1Light18.appbartextstyle.copyWith(
+                          fontSize: 14,color: Colors.white
+                      ),),
+                      SizedBox(height: 20,),
+                      Row(
+                        children: [
+                          Image.asset('assets/Images/dmbimage.png',scale: 12,),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('DMB impact talk',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                  fontSize: 14,color: Colors.white
+                              ),),
+                              Text('July 1, 2021',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                  fontSize: 12,color: Colors.white
+                              ),),
+                            ],
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 15,),
+                      RaisedButton(
+                          color: Appcolors.blue1,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 74.5,right: 74.5,top: 7,bottom: 7),
+                            child: Text('See more',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                fontSize: 14,color: Colors.white
+                            ),),
+                          ),
+                          onPressed: (){}),
+                    ],
+                  ),
+                ),
+              ),
+
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

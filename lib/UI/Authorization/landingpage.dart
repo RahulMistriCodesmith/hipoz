@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
 import 'package:hipoz/UI/Authorization/signup.dart';
+import 'package:hipoz/UI/Student/DashBoard/studentdashbord.dart';
+import 'package:hipoz/UI/Student/DashBoard/studentdrawer.dart';
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
 
@@ -157,7 +159,9 @@ class _LandingPageState extends State<LandingPage> {
                                                   ),
                                                 ),
 
-                                                onPressed: (){}
+                                                onPressed: (){
+                                                  Navigator.push(context,MaterialPageRoute(builder: (context) => StudentDashboard()));
+                                                }
                                             ),
 
                                             SizedBox(
@@ -265,7 +269,9 @@ class _LandingPageState extends State<LandingPage> {
                     ),
                     child: Text('Sign up',style: Textstyle1Light18.appbartextstyle.copyWith(
                         fontSize: 16,color: Colors.white),),
-                    onPressed: (){}
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+                    }
                 ),
 
                 SizedBox(
@@ -471,7 +477,7 @@ class _LandingPageState extends State<LandingPage> {
                             ),
                             
                             onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+
                             }
                         ),
 
