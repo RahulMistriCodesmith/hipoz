@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
+import 'package:hipoz/UI/Student/DashBoard/benefitworld.dart';
+import 'package:hipoz/UI/Student/DashBoard/eventworld.dart';
+import 'package:hipoz/UI/Student/DashBoard/profile.dart';
+import 'package:hipoz/UI/Student/DashBoard/studentmessage.dart';
+import 'package:hipoz/UI/Student/DashBoard/studentnotifications.dart';
 class StudentDashboard extends StatefulWidget {
   const StudentDashboard({Key? key}) : super(key: key);
 
@@ -40,75 +45,136 @@ class _StudentDashboardState extends State<StudentDashboard> {
       ),
       endDrawer: Drawer(
         backgroundColor: Appcolors.brown1,
+        width: width,
         child: ListView(
           children: <Widget>[
 
-            //Here you place your menu items
+            SizedBox(height: 30,),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 24,right: 24),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Appcolors.brown2,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: 'Search messages',
+                    hintStyle: Textstyle2Light18.appbartextstyle.copyWith(fontSize: 14,color: Appcolors.grey2),
+                    prefixIcon: Icon(Icons.search,color: Appcolors.grey1,),
+                  ),
+                ),
+              ),
+            ),
+
+            SizedBox(height: 45,),
+
             ListTile(
-              leading: Icon(Icons.home,color: Appcolors.grey2,),
+
               title: Text('Dashboard', style: Textstyle1Light18.appbartextstyle.copyWith(
                   color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
-              onTap: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => StudentDashboard()));
+              leading: IconButton(
+                icon: Icon(Icons.home,color: Appcolors.grey2,),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              onTap: ()
+              {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => StudentDashboard()));
               },
             ),
-            Divider(height: 3.0),
+
+            Divider(height: 3.0,color: Appcolors.brown3,),
+
             ListTile(
               leading: Icon(Icons.perm_identity,color: Appcolors.grey2,),
               title: Text('Profile', style: Textstyle1Light18.appbartextstyle.copyWith(
                   color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
               onTap: () {
-
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => Profile()));
               },
             ),
+
+            Divider(height: 3.0,color: Appcolors.brown3,),
+
             ListTile(
               leading: Icon(Icons.stars_outlined,color: Appcolors.grey2,),
               title: Text('Benefit World', style: Textstyle1Light18.appbartextstyle.copyWith(
                   color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
               onTap: () {
-
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => Benefitworld()));
               },
             ),
+
+            Divider(height: 3.0,color: Appcolors.brown3,),
+
             ListTile(
               leading: Icon(Icons.emoji_events_outlined,color: Appcolors.grey2,),
               title: Text('Event World', style: Textstyle1Light18.appbartextstyle.copyWith(
                   color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
               onTap: () {
-
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => EventWorld()));
               },
             ),
+
+            Divider(height: 3.0,color: Appcolors.brown3,),
+
             ListTile(
               leading: Icon(Icons.message_outlined,color: Appcolors.grey2,),
               title: Text('Messages', style: Textstyle1Light18.appbartextstyle.copyWith(
                   color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
               onTap: () {
-
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => StudentMessage()));
               },
             ),
+
+            Divider(height: 3.0,color: Appcolors.brown3,),
+
             ListTile(
               leading: Icon(Icons.notifications_outlined,color: Appcolors.grey2,),
               title: Text('Notification', style: Textstyle1Light18.appbartextstyle.copyWith(
                   color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
               onTap: () {
-
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => StudentNotification()));
               },
             ),
+
+            Divider(height: 3.0,color: Appcolors.brown3,),
+
             SizedBox(
-              height: height*0.5,
+              height: height*0.35,
             ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                border: Border.all(color: Appcolors.blue1),
+            Padding(
+              padding: const EdgeInsets.only(left: 24,right: 24),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  border: Border.all(color: Appcolors.blue1),
+                ),
+                child: RaisedButton(
+                    color: Appcolors.brown1,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: Text('Sign out',style: Textstyle1Light18.appbartextstyle.copyWith(
+                        color: Appcolors.blue1,fontSize: 16,fontWeight: FontWeight.w800),),
+                    onPressed: (){}),
               ),
-              child: RaisedButton(
-                  color: Appcolors.brown1,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                  child: Text('Sign out',style: Textstyle1Light18.appbartextstyle.copyWith(
-                      color: Appcolors.blue1,fontSize: 16,fontWeight: FontWeight.w800),),
-                  onPressed: (){}),
             )
           ],
         ),

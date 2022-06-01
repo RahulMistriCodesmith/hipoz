@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
+import 'package:hipoz/UI/Student/DashBoard/studentdashbord.dart';
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
 
@@ -11,99 +12,35 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   var selectedval = "about";
   final double circleRadius = 120.0;
+  static const String routeName = '/Profile';
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Appcolors.grey1,
+      backgroundColor: Appcolors.brown1,
       appBar: AppBar(
-        backgroundColor: Appcolors.grey1,
-        bottomOpacity: 0,
+        backgroundColor: Appcolors.brown1,
         elevation: 0,
-        actions: [
-          Container(
-            margin: EdgeInsets.only(top: 6,left: 9,bottom: 9,right: 10),
-
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Image.asset('assets/Iocns/searchicon.png',scale: 3.5,),
-          ),
-
-          Container(
-            margin: EdgeInsets.only(top: 6,left: 9,bottom: 6,right: 9),
-
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Image.asset('assets/Iocns/messageicon.png',scale: 3.5,),
-          ),
-
-          Container(
-            margin: EdgeInsets.only(top: 6,left: 9,bottom: 6,right: 9),
-
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Image.asset('assets/Iocns/bellicon.png',scale: 4,),
-          ),
-
-          SizedBox(
-            width: 12,
-          ),
-
-          Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Image.asset('assets/Iocns/wuicon.png',width: 40,height: 40,),
+        automaticallyImplyLeading: false,
+        title: Row(
+          children: [
+            Image.asset('assets/Images/studentimage.png',scale: 5,),
+            SizedBox(width: width*0.65),
+            Container(
+              margin: EdgeInsets.all(7),
+              decoration: BoxDecoration(
+                color: Appcolors.brown2,
+                borderRadius: BorderRadius.circular(16),
               ),
-              PopupMenuButton(
-                position: PopupMenuPosition.under,
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(16),
-                    bottomRight: Radius.circular(16),
-                    bottomLeft: Radius.circular(16),
-                  ),
-                ),
-                onSelected: (value) {
-                  setState(() {
-                  });
-                },
-                itemBuilder:(context) => [
-                  PopupMenuItem(
-                    child: Text("My profile",style: TextStyle(fontSize: 14,fontFamily: 'Sk-Modernist'),),
-
-                  ),
-                  PopupMenuItem(
-                    child: Text("Sign out",style: TextStyle(fontSize: 14,fontFamily: 'Sk-Modernist'),),
-                  ),
-
-
-                ],
-              ),
-
-            ],
-          ),
-
-          SizedBox(width: 13,)
-
-        ],
-        leading: Builder(
-          builder: (context) => IconButton(
-            icon: Icon(Icons.menu_rounded,color: Appcolors.grey2,size: 30),
-            onPressed: () => Scaffold.of(context).openDrawer(),
-          ),
+              child: Image.asset('assets/Iocns/searchicon.png',scale: 4,),
+            ),
+          ],
         ),
+
       ),
 
-      drawer: Drawer(),
+      endDrawer: StudentDashboard(),
 
       body: SingleChildScrollView(
 
@@ -118,10 +55,10 @@ class _ProfileState extends State<Profile> {
                     padding:
                     EdgeInsets.only(top: 100 ,left: 20,right: 20),  ///here we create space for the circle avatar to get ut of the box
                     child: Container(
-                      height: 300.0,
+                      height: 250.0,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15.0),
-                        color: Colors.white,
+                        color: Appcolors.brown2,
 
                       ),
                       width: double.infinity,
@@ -131,31 +68,49 @@ class _ProfileState extends State<Profile> {
                             children: <Widget>[
                               SizedBox(height: circleRadius/2,),
 
-                              Text('WU Wirtschafuniversität', style: Textstyle3Light18.appbartextstyle.copyWith(
-                                  fontSize: 24,fontWeight: FontWeight.w800
+                              Text('Olivia Jansen', style: Textstyle3Light18.appbartextstyle.copyWith(
+                                  fontSize: 24,fontWeight: FontWeight.w800,color: Colors.white
                               )),
-                              Text('Higher education', style: Textstyle2Light18.appbartextstyle.copyWith(
+                              Text('Master of Digital Marketing', style: Textstyle2Light18.appbartextstyle.copyWith(
                                   fontSize: 14,fontWeight: FontWeight.w500,color: Appcolors.grey2
                               )),
 
-                              SizedBox(
-                                height: 30.0,
+                              SizedBox(height: 4.72,),
+
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.school_outlined,color: Appcolors.grey2,),
+
+                                  SizedBox(width: 6,),
+
+                                  Text('University of California', style: Textstyle2Light18.appbartextstyle.copyWith(
+                                      fontSize: 14,fontWeight: FontWeight.w500,color: Appcolors.grey2
+                                  )),
+                                ],
                               ),
-                              Text('Welthandelspl. 1, 1020 ', style: Textstyle1Light18.appbartextstyle.copyWith(
-                                  fontSize: 14,fontWeight: FontWeight.w500,color: Appcolors.brown1
-                              )),
-                              Text('Vienna, Austria', style: Textstyle1Light18.appbartextstyle.copyWith(
-                                  fontSize: 14,fontWeight: FontWeight.w500,color: Appcolors.brown1
-                              )),
-                              Text('www.wu.ac.at', style: Textstyle1Light18.appbartextstyle.copyWith(
-                                  fontSize: 14,fontWeight: FontWeight.w500,color: Appcolors.brown1
-                              )),
+
+                              SizedBox(height: 4.72,),
+
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.place_outlined,color: Appcolors.grey2,),
+
+                                  SizedBox(width: 6,),
+
+                                  Text('California, US', style: Textstyle2Light18.appbartextstyle.copyWith(
+                                      fontSize: 14,fontWeight: FontWeight.w500,color: Appcolors.grey2
+                                  )),
+                                ],
+                              ),
+
                             ],
                           )
                       ),
                     ),
                   ),
-                  Image.asset('assets/Images/postimage.png'),
+                  Image.asset('assets/Images/postimage4.png'),
 
 
                   ///Image Avatar
@@ -166,12 +121,12 @@ class _ProfileState extends State<Profile> {
                       height: circleRadius,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.white,
+                        color: Appcolors.brown2
 
                       ),
                       child: Center(
                         child: Container(
-                          child: Image.asset('assets/Images/wuiimage1.png'),/// replace your image with the Icon
+                          child: Image.asset('assets/Images/studentimage.png',scale: 1.55),/// replace your image with the Icon
                         ),
                       ),
                     ),
@@ -186,89 +141,93 @@ class _ProfileState extends State<Profile> {
               child: Column(
 
                 children: [
-                  Row(
-                    children: [
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
 
-                      SizedBox(
-                        width: 24,
-                      ),
+                      children: [
 
-                      InkWell(
+                        SizedBox(
+                          width: 24,
+                        ),
 
-                        onTap: (){
-                          setState(() {
-                            selectedval = "about";
-                          });
-                        },
+                        InkWell(
 
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: selectedval == "about"? Appcolors.brown1: Colors.white,
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 16,top: 11,right: 16,bottom: 11),
-                            child: Text('About',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                color: selectedval == "about"? Colors.white: Appcolors.brown1,fontSize: 14,fontWeight: FontWeight.w800
-                            ),),
+                          onTap: (){
+                            setState(() {
+                              selectedval = "about";
+                            });
+                          },
+
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: selectedval == "about"? Appcolors.brown1: Appcolors.brown2,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 16,top: 11,right: 16,bottom: 11),
+                              child: Text('About',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                  color: selectedval == "about"? Colors.white: Appcolors.grey2,fontSize: 14,fontWeight: FontWeight.w800
+                              ),),
+                            ),
                           ),
                         ),
-                      ),
 
 
 
-                      SizedBox(
-                        width: 10,
-                      ),
+                        SizedBox(
+                          width: 10,
+                        ),
 
-                      InkWell(
+                        InkWell(
 
-                        onTap: (){
-                          setState(() {
-                            selectedval = "event";
-                          });
-                        },
+                          onTap: (){
+                            setState(() {
+                              selectedval = "event";
+                            });
+                          },
 
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: selectedval == "event"? Appcolors.brown1: Colors.white,
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 16,top: 11,right: 16,bottom: 11),
-                            child: Text('Event',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                color: selectedval == "event"? Colors.white: Appcolors.brown1,fontSize: 14,fontWeight: FontWeight.w800
-                            ),),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: selectedval == "event"? Appcolors.brown1: Appcolors.brown2,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 16,top: 11,right: 16,bottom: 11),
+                              child: Text('Jobs applied for',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                  color: selectedval == "event"? Colors.white: Appcolors.grey2,fontSize: 14,fontWeight: FontWeight.w800
+                              ),),
+                            ),
                           ),
                         ),
-                      ),
 
-                      SizedBox(
-                        width: 10,
-                      ),
+                        SizedBox(
+                          width: 10,
+                        ),
 
-                      InkWell(
+                        InkWell(
 
-                        onTap: (){
-                          setState(() {
-                            selectedval = "seminar";
-                          });
-                        },
+                          onTap: (){
+                            setState(() {
+                              selectedval = "seminar";
+                            });
+                          },
 
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: selectedval == "seminar"? Appcolors.brown1: Colors.white,
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 16,top: 11,right: 16,bottom: 11),
-                            child: Text('Seminar',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                color: selectedval == "seminar"? Colors.white: Appcolors.brown1,fontSize: 14,fontWeight: FontWeight.w800
-                            ),),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: selectedval == "seminar"? Appcolors.brown1: Appcolors.brown2,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 16,top: 11,right: 16,bottom: 11),
+                              child: Text('Companies you follow',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                  color: selectedval == "seminar"? Colors.white: Appcolors.grey2,fontSize: 14,fontWeight: FontWeight.w800
+                              ),),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
 
                   SizedBox(
@@ -285,7 +244,7 @@ class _ProfileState extends State<Profile> {
                           padding: const EdgeInsets.only(left: 24,right: 24),
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: Appcolors.brown2,
                               borderRadius: BorderRadius.circular(16),
                             ),
                             child: Column(
@@ -294,42 +253,76 @@ class _ProfileState extends State<Profile> {
                                   padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
                                   child: Row(
                                     children: [
-                                      Text('Description',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Appcolors.brown1),),
+                                      Text('Edit Description',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white),),
 
                                       SizedBox(
-                                        width: 140,
+                                        width: width*0.41,
                                       ),
 
-                                      Container(
-
-                                        child: RaisedButton(
-                                          color: Colors.white,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(16),
-                                          ),
-                                          onPressed: (){},
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(left: 6,top: 5,right: 6,bottom: 5),
-                                            child: Text('Edit Profile',style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                fontSize: 14,color: Appcolors.blue1),),
-                                          ),
-                                        ),
+                                      IconButton(
+                                        onPressed: (){},
+                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
                                       )
 
                                     ],
                                   ),
                                 ),
 
-                                Divider(),
+                                Divider(color: Appcolors.grey2,),
 
                                 Padding(
                                   padding: const EdgeInsets.only(left: 16,right: 16,top: 24,bottom: 24),
                                   child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium at amet, arcu velit. Sodales diam mauris tempus consequat felis, ullamcorper. Aliquam eu ornare nisl vulputate et ultrices amet quisque viverra. Elementum tempus lobortis lobortis sit sodales quam. Venenatis amet odio platea rutrum non.',
                                     style: Textstyle1Light18.appbartextstyle.copyWith(
-                                        fontSize: 14,color: Appcolors.black1,fontWeight: FontWeight.w500),
+                                        fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),
                                   ),
                                 ),
+
+                                Divider(color: Appcolors.grey2,),
+
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    IconButton(
+                                      onPressed: (){},
+                                      icon: ImageIcon(AssetImage('assets/Iocns/employee-icon.png'),color: Appcolors.grey2,),
+                                    ),
+                                    Text('Accenture scholarship 2017',
+                                      style: Textstyle1Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    IconButton(
+                                      onPressed: (){},
+                                      icon: ImageIcon(AssetImage('assets/Iocns/workicon.png'),color: Appcolors.grey2,),
+                                    ),
+                                    Text('Open to work right away',
+                                      style: Textstyle1Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    IconButton(
+                                      onPressed: (){},
+                                      icon: ImageIcon(AssetImage('assets/Iocns/dashicon.png'),color: Appcolors.grey2,),
+                                    ),
+                                    Text('Wien University studied abroad, 2019',
+                                      style: Textstyle1Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),
+                                    ),
+                                  ],
+                                ),
+
                               ],
                             ),
                           ),
@@ -339,7 +332,7 @@ class _ProfileState extends State<Profile> {
                           padding: const EdgeInsets.only(top: 8,left: 24,right: 24),
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: Appcolors.brown2,
                               borderRadius: BorderRadius.circular(16),
                             ),
                             child: Column(
@@ -348,108 +341,410 @@ class _ProfileState extends State<Profile> {
                                   padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
                                   child: Row(
                                     children: [
-                                      Text('Our seminars',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Appcolors.brown1),),
+                                      Text('Education',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white),),
 
                                       SizedBox(
-                                        width: 190,
+                                        width: width*0.52,
                                       ),
 
-                                      Text('See all',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Appcolors.brown1),),
+                                      IconButton(
+                                        onPressed: (){},
+                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
+                                      )
                                     ],
                                   ),
                                 ),
+
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20,top: 24,bottom: 24),
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 30),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Appcolors.brown1,
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 14.25,top: 11.39,bottom: 11.39),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Image.asset('assets/Images/bachelorsimage.png',scale: 4,),
+
+                                          SizedBox(
+                                            width: 15,
+                                          ),
+
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text('Bachelors in business',
+                                                style: Textstyle1Light18.appbartextstyle.copyWith(
+                                                    fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+                                              Text('University of California, 2016',
+                                                style: Textstyle1Light18.appbartextstyle.copyWith(
+                                                    fontSize: 12,color: Appcolors.grey1,fontWeight: FontWeight.w500),),
+
+                                            ],
+                                          ),
+
+                                          SizedBox(width: width*0.1,),
+
+                                          IconButton(
+                                            onPressed: (){},
+                                            icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 10,bottom: 29.65),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Appcolors.brown1,
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 14.25,top: 11.39,bottom: 11.39),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Image.asset('assets/Images/bachelorsimage.png',scale: 4,),
+
+                                          SizedBox(
+                                            width: 15,
+                                          ),
+
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text('Bachelors in business',
+                                                style: Textstyle1Light18.appbartextstyle.copyWith(
+                                                    fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+                                              Text('University of California, 2016',
+                                                style: Textstyle1Light18.appbartextstyle.copyWith(
+                                                    fontSize: 12,color: Appcolors.grey1,fontWeight: FontWeight.w500),),
+
+                                            ],
+                                          ),
+
+                                          SizedBox(width: width*0.1,),
+
+                                          IconButton(
+                                            onPressed: (){},
+                                            icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8,left: 24,right: 24),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Appcolors.brown2,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
                                   child: Row(
                                     children: [
-                                      Column(
-                                        children: [
-                                          Stack(
-                                            children: [
-                                              Image.asset('assets/Images/seminarsimgae1.png',width: 136,height: 136,),
-                                              Padding(
-                                                padding: const EdgeInsets.only(top: 120,left: 95),
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                      borderRadius: BorderRadius.circular(12),
-                                                      color: Appcolors.blue1
-                                                  ),
-                                                  child: Padding(
-                                                    padding: const EdgeInsets.only(left: 4,right: 4,top: 9.4,bottom: 7.4),
-                                                    child: Text('50%',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                                        fontSize: 12,color: Colors.white),),
-                                                  ),
-                                                ),
-                                              ),
-
-
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              Column(
-                                                children: [
-                                                  Text('Marketing & ...',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                                      fontSize: 14,color: Appcolors.brown1),),
-                                                  Text('New york, US',style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                      fontSize: 12,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                width: 15,
-                                              ),
-                                              Image.asset('assets/Iocns/saveicon.png',width: 16,height: 16,)
-                                            ],
-                                          ),
-                                        ],
-                                      ),
+                                      Text('Role expectation',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white),),
 
                                       SizedBox(
-                                        width: 30,
+                                        width: width*0.41,
                                       ),
 
-                                      Column(
+                                      IconButton(
+                                        onPressed: (){},
+                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
+                                      )
+                                    ],
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 30),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Appcolors.brown1,
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 14.25,top: 11.39,bottom: 11.39),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
-                                          Stack(
+                                          Image.asset('assets/Images/bachelorsimage.png',scale: 4,),
+
+                                          SizedBox(
+                                            width: 15,
+                                          ),
+
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
-                                              Image.asset('assets/Images/seminarsimage2.png',width: 136,height: 136,),
-                                              Padding(
-                                                padding: const EdgeInsets.only(top: 120,left: 95),
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                      borderRadius: BorderRadius.circular(12),
-                                                      color: Appcolors.blue1
-                                                  ),
-                                                  child: Padding(
-                                                    padding: const EdgeInsets.only(left: 4,right: 4,top: 9.4,bottom: 7.4),
-                                                    child: Text('50%',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                                        fontSize: 12,color: Colors.white),),
-                                                  ),
-                                                ),
-                                              ),
+                                              Text('Bachelors in business',
+                                                style: Textstyle1Light18.appbartextstyle.copyWith(
+                                                    fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+                                              Text('University of California, 2016',
+                                                style: Textstyle1Light18.appbartextstyle.copyWith(
+                                                    fontSize: 12,color: Appcolors.grey1,fontWeight: FontWeight.w500),),
+
                                             ],
                                           ),
-                                          Row(
-                                            children: [
-                                              Column(
-                                                children: [
-                                                  Text('Marketing & ...',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                                      fontSize: 14,color: Appcolors.brown1),),
-                                                  Text('New york, US',style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                      fontSize: 12,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                width: 15,
-                                              ),
-                                              Image.asset('assets/Iocns/saveicon.png',width: 16,height: 16,)
-                                            ],
-                                          ),
+
+                                          SizedBox(width: width*0.1,),
+
+                                          IconButton(
+                                            onPressed: (){},
+                                            icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
+                                          )
                                         ],
                                       ),
+                                    ),
+                                  ),
+                                ),
 
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 10,bottom: 29.65),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Appcolors.brown1,
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 14.25,top: 11.39,bottom: 11.39),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Image.asset('assets/Images/bachelorsimage.png',scale: 4,),
+
+                                          SizedBox(
+                                            width: 15,
+                                          ),
+
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text('Bachelors in business',
+                                                style: Textstyle1Light18.appbartextstyle.copyWith(
+                                                    fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+                                              Text('University of California, 2016',
+                                                style: Textstyle1Light18.appbartextstyle.copyWith(
+                                                    fontSize: 12,color: Appcolors.grey1,fontWeight: FontWeight.w500),),
+
+                                            ],
+                                          ),
+
+                                          SizedBox(width: width*0.1,),
+
+                                          IconButton(
+                                            onPressed: (){},
+                                            icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8,left: 24,right: 24),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Appcolors.brown2,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
+                                  child: Row(
+                                    children: [
+                                      Text('Scholarship',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white),),
+
+                                      SizedBox(
+                                        width: width*0.5,
+                                      ),
+
+                                      IconButton(
+                                        onPressed: (){},
+                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
+                                      )
+                                    ],
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 30),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Appcolors.brown1,
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 14.25,top: 11.39,bottom: 11.39),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Image.asset('assets/Images/accentureimage .png',scale: 4,),
+
+                                          SizedBox(
+                                            width: 15,
+                                          ),
+
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text('Accenture scholarship',
+                                                style: Textstyle1Light18.appbartextstyle.copyWith(
+                                                    fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+                                              Text('RnD scholarship - 2017',
+                                                style: Textstyle1Light18.appbartextstyle.copyWith(
+                                                    fontSize: 12,color: Appcolors.grey1,fontWeight: FontWeight.w500),),
+
+                                            ],
+                                          ),
+
+                                          SizedBox(width: width*0.14,),
+
+                                          IconButton(
+                                            onPressed: (){},
+                                            icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 10,bottom: 29.65),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Appcolors.brown1,
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 14.25,top: 11.39,bottom: 11.39),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Image.asset('assets/Images/accentureimage .png',scale: 4,),
+
+                                          SizedBox(
+                                            width: 15,
+                                          ),
+
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text('Accenture scholarship',
+                                                style: Textstyle1Light18.appbartextstyle.copyWith(
+                                                    fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+                                              Text('RnD scholarship - 2017',
+                                                style: Textstyle1Light18.appbartextstyle.copyWith(
+                                                    fontSize: 12,color: Appcolors.grey1,fontWeight: FontWeight.w500),),
+
+                                            ],
+                                          ),
+
+                                          SizedBox(width: width*0.14,),
+
+                                          IconButton(
+                                            onPressed: (){},
+                                            icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8,left: 24,right: 24),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Appcolors.brown2,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
+                                  child: Row(
+                                    children: [
+                                      Text('Language',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white),),
+
+                                      SizedBox(
+                                        width: width*0.53,
+                                      ),
+
+                                      IconButton(
+                                        onPressed: (){},
+                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
+                                      )
+                                    ],
+                                  ),
+                                ),
+
+                                Divider(color: Appcolors.grey2,),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text('English',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+
+                                      SizedBox(width: width*0.6,),
+
+                                      Text('Fluent',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                          fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
+                                    ],
+                                  ),
+                                ),
+
+                                Divider(color: Appcolors.grey2,),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Chinese',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+
+                                      SizedBox(width: width*0.59,),
+
+                                      Text('Fluent',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                          fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
                                     ],
                                   ),
                                 ),
@@ -460,10 +755,10 @@ class _ProfileState extends State<Profile> {
                         ),
 
                         Padding(
-                          padding: const EdgeInsets.only(top: 8,left: 24,right: 24,bottom: 24),
+                          padding: const EdgeInsets.only(top: 8,left: 24,right: 24),
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: Appcolors.brown2,
                               borderRadius: BorderRadius.circular(16),
                             ),
                             child: Column(
@@ -472,111 +767,259 @@ class _ProfileState extends State<Profile> {
                                   padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
                                   child: Row(
                                     children: [
-                                      Text('Our events',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Appcolors.brown1),),
+                                      Text('Skills',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white),),
 
                                       SizedBox(
-                                        width: 190,
+                                        width: width*0.6,
                                       ),
 
-                                      Text('See all',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Appcolors.brown1),),
+                                      IconButton(
+                                        onPressed: (){},
+                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
+                                      )
                                     ],
                                   ),
                                 ),
+
+                                Divider(color: Appcolors.grey2,),
+
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 20,top: 24,bottom: 24),
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Digital marketing',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+
+                                      SizedBox(width: width*0.43,),
+
+                                      Text('Expert',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                          fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
+                                    ],
+                                  ),
+                                ),
+
+                                Divider(color: Appcolors.grey2,),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Sales marketing',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+
+                                      SizedBox(width: width*0.46,),
+
+                                      Text('Expert',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                          fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
+                                    ],
+                                  ),
+                                ),
+
+                                Divider(color: Appcolors.grey2,),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Business management',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+
+                                      SizedBox(width: width*0.36,),
+
+                                      Text('Expert',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                          fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
+                                    ],
+                                  ),
+                                ),
+
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8,left: 24,right: 24),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Appcolors.brown2,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
                                   child: Row(
                                     children: [
-                                      Column(
-                                        children: [
-                                          Stack(
-                                            children: [
-                                              Stack(
-                                                children: [
-                                                  Image.asset('assets/Images/dmbimage.png',width: 136,height: 136,),
-                                                  Padding(
-                                                    padding: const EdgeInsets.only(top: 120,left: 95),
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                          borderRadius: BorderRadius.circular(12),
-                                                          color: Appcolors.blue1
-                                                      ),
-                                                      child: Padding(
-                                                        padding: const EdgeInsets.only(left: 4,right: 4,top: 9.4,bottom: 7.4),
-                                                        child: Text('50%',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                                            fontSize: 12,color: Colors.white),),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              Column(
-                                                children: [
-                                                  Text('Marketing & ...',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                                      fontSize: 14,color: Appcolors.brown1),),
-                                                  Text('New york, US',style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                      fontSize: 12,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                width: 15,
-                                              ),
-                                              Image.asset('assets/Iocns/saveicon.png',width: 16,height: 16,)
-                                            ],
-                                          ),
-                                        ],
-                                      ),
+                                      Text('Experience',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white),),
 
                                       SizedBox(
-                                        width: 30,
+                                        width: width*0.509,
                                       ),
 
-                                      Column(
+                                      IconButton(
+                                        onPressed: (){},
+                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
+                                      )
+                                    ],
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 30),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Appcolors.brown1,
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 14.25,top: 11.39,bottom: 11.39),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
                                         children: [
-                                          Stack(
+                                          Image.asset('assets/Images/assuranceimage.png',scale: 4,),
+
+                                          SizedBox(
+                                            width: 15,
+                                          ),
+
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
-                                              Image.asset('assets/Images/innovationimagepng',width: 136,height: 136,),
-                                              Padding(
-                                                padding: const EdgeInsets.only(top: 120,left: 95),
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                      borderRadius: BorderRadius.circular(12),
-                                                      color: Appcolors.blue1
-                                                  ),
-                                                  child: Padding(
-                                                    padding: const EdgeInsets.only(left: 4,right: 4,top: 9.4,bottom: 7.4),
-                                                    child: Text('50%',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                                        fontSize: 12,color: Colors.white),),
-                                                  ),
-                                                ),
-                                              ),
+                                              Text('Great assurance Co.',
+                                                style: Textstyle1Light18.appbartextstyle.copyWith(
+                                                    fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+                                              Text('Jan 2017 - Feb 2018',
+                                                style: Textstyle1Light18.appbartextstyle.copyWith(
+                                                    fontSize: 12,color: Appcolors.grey1,fontWeight: FontWeight.w500),),
+
                                             ],
                                           ),
-                                          Row(
-                                            children: [
-                                              Column(
-                                                children: [
-                                                  Text('Marketing & ...',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                                      fontSize: 14,color: Appcolors.brown1),),
-                                                  Text('New york, US',style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                      fontSize: 12,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                width: 15,
-                                              ),
-                                              Image.asset('assets/Iocns/saveicon.png',width: 16,height: 16,)
-                                            ],
-                                          ),
+
+                                          SizedBox(width: width*0.17,),
+
+                                          IconButton(
+                                            onPressed: (){},
+                                            icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
+                                          )
                                         ],
                                       ),
+                                    ),
+                                  ),
+                                ),
 
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 10,bottom: 29.65),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Appcolors.brown1,
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 14.25,top: 11.39,bottom: 11.39),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Image.asset('assets/Images/assuranceimage.png',scale: 4,),
+
+                                          SizedBox(
+                                            width: 15,
+                                          ),
+
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text('First assurance Co.',
+                                                style: Textstyle1Light18.appbartextstyle.copyWith(
+                                                    fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+                                              Text('Jan 2017 - Feb 2018',
+                                                style: Textstyle1Light18.appbartextstyle.copyWith(
+                                                    fontSize: 12,color: Appcolors.grey1,fontWeight: FontWeight.w500),),
+
+                                            ],
+                                          ),
+
+                                          SizedBox(width: width*0.2,),
+
+                                          IconButton(
+                                            onPressed: (){},
+                                            icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8,left: 24,right: 24),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Appcolors.brown2,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
+                                  child: Row(
+                                    children: [
+                                      Text('Expected salary per month',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white),),
+
+                                      SizedBox(
+                                        width: width*0.253
+                                      ),
+
+                                      IconButton(
+                                        onPressed: (){},
+                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
+                                      )
+                                    ],
+                                  ),
+                                ),
+
+                                Divider(color: Appcolors.grey2,),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Rs.5K - Rs.10K',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+
+                                      SizedBox(width: width*0.45,),
+
+                                      Text('Full time',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                          fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
+                                    ],
+                                  ),
+                                ),
+
+                                Divider(color: Appcolors.grey2,),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Rs.1K - Rs.5K',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+
+                                      SizedBox(width: width*0.47,),
+
+                                      Text('Part time',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                          fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
                                     ],
                                   ),
                                 ),

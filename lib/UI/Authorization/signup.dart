@@ -390,8 +390,8 @@ class _SignUpState extends State<SignUp> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-
-                  width: 312,
+                  padding: EdgeInsets.only(left: 145),
+                  width: 380,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
                       border: Border.all(color: Appcolors.grey1)
@@ -431,8 +431,8 @@ class _SignUpState extends State<SignUp> {
                 ),
 
                 Container(
-
-                  width: 312,
+                  padding: EdgeInsets.only(left: 135),
+                  width: 380,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
                       border: Border.all(color: Appcolors.grey1)
@@ -473,6 +473,7 @@ class _SignUpState extends State<SignUp> {
                 ),
 
                 TextField(
+
                   decoration: Inputdec1.inputDecoration.copyWith(
                     hintText: 'University Name',
                     hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
@@ -535,8 +536,8 @@ class _SignUpState extends State<SignUp> {
                 ),
 
                 Container(
-
-                  width: 312,
+                  padding: EdgeInsets.only(left: 120),
+                  width: 380,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
                       border: Border.all(color: Appcolors.grey1)
@@ -589,8 +590,8 @@ class _SignUpState extends State<SignUp> {
                 ),
 
                 Container(
-
-                  width: 312,
+                  padding: EdgeInsets.only(left: 100),
+                  width: 380,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
                       border: Border.all(color: Appcolors.grey1)
@@ -893,8 +894,8 @@ class _SignUpState extends State<SignUp> {
                 ),
 
                 Container(
-
-                  width: 312,
+                  padding: EdgeInsets.only(left: 110),
+                  width: 380,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
                       border: Border.all(color: Appcolors.grey1)
@@ -934,8 +935,8 @@ class _SignUpState extends State<SignUp> {
                 ),
 
                 Container(
-
-                  width: 312,
+                  padding: EdgeInsets.only(left: 40),
+                  width: 380,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
                       border: Border.all(color: Appcolors.grey1)
@@ -997,8 +998,8 @@ class _SignUpState extends State<SignUp> {
               children: [
 
                 Container(
-
-                  width: 312,
+                  padding: EdgeInsets.only(left: 90),
+                  width: 380,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
                       border: Border.all(color: Appcolors.grey1)
@@ -1038,8 +1039,8 @@ class _SignUpState extends State<SignUp> {
                 ),
 
                 Container(
-
-                  width: 312,
+                  padding: EdgeInsets.only(left: 135),
+                  width: 380,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
                       border: Border.all(color: Appcolors.grey1)
@@ -1079,8 +1080,8 @@ class _SignUpState extends State<SignUp> {
                 ),
 
                 Container(
-
-                  width: 312,
+                  padding: EdgeInsets.only(left: 100),
+                  width: 380,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
                       border: Border.all(color: Appcolors.grey1)
@@ -1133,8 +1134,8 @@ class _SignUpState extends State<SignUp> {
                 ),
 
                 Container(
-
-                  width: 312,
+                  padding: EdgeInsets.only(left: 100),
+                  width: 380,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
                       border: Border.all(color: Appcolors.grey1)
@@ -1208,8 +1209,8 @@ class _SignUpState extends State<SignUp> {
                 ),
 
                 Container(
-
-                  width: 312,
+                  padding: EdgeInsets.only(left: 100),
+                  width: 380,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
                       border: Border.all(color: Appcolors.grey1)
@@ -1288,8 +1289,8 @@ class _SignUpState extends State<SignUp> {
                 ),
 
                 Container(
-
-                  width: 312,
+                  padding: EdgeInsets.only(left: 90),
+                  width: 380,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
                       border: Border.all(color: Appcolors.grey1)
@@ -1334,7 +1335,7 @@ class _SignUpState extends State<SignUp> {
                   radius: Radius.circular(16),
                   dashPattern: [15, 15],
                   child: Container(
-                    padding: EdgeInsets.only(left: 90,top: 11,bottom: 10.88),
+                    padding: EdgeInsets.only(left: 75,top: 11,bottom: 10.88),
                     child: Row(
                       children: [
                         Text('Add other abroad Experience',style: Textstyle1Light18.appbartextstyle.copyWith(
@@ -1372,7 +1373,7 @@ class _SignUpState extends State<SignUp> {
                           SizedBox(
                             width: 50,
                           ),
-                          Image.asset('assets/Images/addIcon.png',scale: 3.5,),
+                          Image.asset('assets/Images/addIcon.png',scale: 3.5,color: Colors.white,),
                         ],
                       ),
                       onPressed: (){}
