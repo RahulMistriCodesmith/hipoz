@@ -1369,7 +1369,7 @@ class _SignUpState extends State<SignUp> {
                             width: 90,
                           ),
                           Text('Upload Certificate',style: Textstyle1Light18.appbartextstyle.copyWith(
-                              fontSize: 16,color: Appcolors.grey2),),
+                              fontSize: 16,color: Appcolors.grey1),),
                           SizedBox(
                             width: 50,
                           ),
