@@ -1,48 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
-import 'package:hipoz/UI/Student/DashBoard/studentdashbord.dart';
-import 'package:hipoz/UI/Student/DashBoard/studentperspective.dart';
-class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+class StudentPerspective extends StatefulWidget {
+  const StudentPerspective({Key? key}) : super(key: key);
 
   @override
-  State<Profile> createState() => _ProfileState();
+  State<StudentPerspective> createState() => _StudentPerspectiveState();
 }
 
-class _ProfileState extends State<Profile> {
+class _StudentPerspectiveState extends State<StudentPerspective> {
   var selectedval = "about";
   final double circleRadius = 120.0;
   static const String routeName = '/Profile';
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: Appcolors.brown1,
-      appBar: AppBar(
-        backgroundColor: Appcolors.brown1,
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        title: Row(
-          children: [
-            Image.asset('assets/Images/studentimage.png',scale: 5,),
-            SizedBox(width: width*0.65),
-            Container(
-              margin: EdgeInsets.all(7),
-              decoration: BoxDecoration(
-                color: Appcolors.brown2,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Image.asset('assets/Iocns/searchicon.png',scale: 4,),
-            ),
-          ],
-        ),
-
-      ),
-
-      endDrawer: StudentDashboard(),
-
       body: SingleChildScrollView(
 
         child: Column(
@@ -52,11 +27,12 @@ class _ProfileState extends State<Profile> {
               child: Stack(
                 alignment: Alignment.topCenter,
                 children: <Widget>[
+
                   Padding(
                     padding:
                     EdgeInsets.only(top: 100 ,left: 20,right: 20),  ///here we create space for the circle avatar to get ut of the box
                     child: Container(
-                      height: 250.0,
+                      height: 270.0,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15.0),
                         color: Appcolors.brown2,
@@ -69,27 +45,12 @@ class _ProfileState extends State<Profile> {
                             children: <Widget>[
                               SizedBox(height: circleRadius/2,),
 
-                              Text('Olivia Jansen', style: Textstyle3Light18.appbartextstyle.copyWith(
+                              Text('Accenture', style: Textstyle3Light18.appbartextstyle.copyWith(
                                   fontSize: 24,fontWeight: FontWeight.w800,color: Colors.white
                               )),
-                              Text('Master of Digital Marketing', style: Textstyle2Light18.appbartextstyle.copyWith(
+                              Text('Services and operations', style: Textstyle2Light18.appbartextstyle.copyWith(
                                   fontSize: 14,fontWeight: FontWeight.w500,color: Appcolors.grey2
                               )),
-
-                              SizedBox(height: 4.72,),
-
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.school_outlined,color: Appcolors.grey2,),
-
-                                  SizedBox(width: 6,),
-
-                                  Text('University of California', style: Textstyle2Light18.appbartextstyle.copyWith(
-                                      fontSize: 14,fontWeight: FontWeight.w500,color: Appcolors.grey2
-                                  )),
-                                ],
-                              ),
 
                               SizedBox(height: 4.72,),
 
@@ -100,19 +61,31 @@ class _ProfileState extends State<Profile> {
 
                                   SizedBox(width: 6,),
 
-                                  Text('California, US', style: Textstyle2Light18.appbartextstyle.copyWith(
+                                  Text('1 Grand canal square', style: Textstyle2Light18.appbartextstyle.copyWith(
                                       fontSize: 14,fontWeight: FontWeight.w500,color: Appcolors.grey2
                                   )),
                                 ],
                               ),
+
+                              SizedBox(height: 4.72,),
+
+                              Text('Dublin, Ireland', style: Textstyle2Light18.appbartextstyle.copyWith(
+                                  fontSize: 14,fontWeight: FontWeight.w500,color: Appcolors.grey2
+                              )),
+
+                              Text('www.accnture.at/karriere', style: Textstyle2Light18.appbartextstyle.copyWith(
+                                  fontSize: 14,fontWeight: FontWeight.w500,color: Appcolors.grey2
+                              )),
 
                             ],
                           )
                       ),
                     ),
                   ),
-                  Image.asset('assets/Images/postimage4.png'),
 
+
+
+                  Image.asset('assets/Images/postimage4.png'),
 
                   ///Image Avatar
                   Padding(
@@ -121,19 +94,52 @@ class _ProfileState extends State<Profile> {
                       width: circleRadius,
                       height: circleRadius,
                       decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Appcolors.brown2
+                          shape: BoxShape.circle,
+                          color: Appcolors.brown2
 
                       ),
                       child: Center(
                         child: Container(
-                          child: Image.asset('assets/Images/studentimage.png',scale: 1.55),/// replace your image with the Icon
+                          child: Image.asset('assets/Images/accentureimage .png',scale: 2),/// replace your image with the Icon
                         ),
                       ),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20,top: 20),
+
+                    child: Row(
+                      children: [
+                        InkWell(
+
+                          onTap: (){
+                            Navigator.of(context).pop();
+                          },
+
+                          child: Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Appcolors.brown1,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Icon(Icons.arrow_back_ios_outlined,color: Colors.white,size: 20,),
+                          ),
+                        ),
+                        SizedBox(width: width*0.72,),
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: Appcolors.brown1,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: ImageIcon(AssetImage('assets/Iocns/saveicon.png'),color: Colors.white,size: 20,),
+                        ),
+                      ],
+                    ),
+                  ),
 
                 ],
+
               ),
             ),
 
@@ -251,20 +257,52 @@ class _ProfileState extends State<Profile> {
                             child: Column(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
+                                  padding: const EdgeInsets.only(top: 24,left: 16,right: 16,bottom: 10),
                                   child: Row(
                                     children: [
-                                      Text('Edit Description',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Colors.white),),
+                                      Container(
+                                        padding: const EdgeInsets.only(left: 30,right: 30),
+                                        decoration: BoxDecoration(
+                                          color: Appcolors.brown2,
+                                          border: Border.all(color: Appcolors.blue1),
+                                          borderRadius: BorderRadius.circular(16),
+                                        ),
+                                        child: RaisedButton(
 
-                                      SizedBox(
-                                        width: width*0.41,
+                                          color: Appcolors.brown2,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(16),
+                                          ),
+                                          child: Text('Message',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                              fontSize: 14,color: Appcolors.blue1),),
+                                          onPressed: (){},
+                                        ),
+
                                       ),
 
-                                      IconButton(
-                                        onPressed: (){},
-                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
-                                      )
+                                      SizedBox(
+                                        width: width*0.06,
+                                      ),
+
+                                      Container(
+                                        padding: const EdgeInsets.only(left: 30,right: 30),
+                                        decoration: BoxDecoration(
+                                          color: Appcolors.brown2,
+                                          border: Border.all(color: Appcolors.blue1),
+                                          borderRadius: BorderRadius.circular(16),
+                                        ),
+                                        child: RaisedButton(
+
+                                          color: Appcolors.brown2,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(16),
+                                          ),
+                                          child: Text('Follow',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                              fontSize: 14,color: Appcolors.blue1),),
+                                          onPressed: (){},
+                                        ),
+
+                                      ),
 
                                     ],
                                   ),
@@ -274,7 +312,7 @@ class _ProfileState extends State<Profile> {
 
                                 Padding(
                                   padding: const EdgeInsets.only(left: 16,right: 16,top: 24,bottom: 24),
-                                  child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium at amet, arcu velit. Sodales diam mauris tempus consequat felis, ullamcorper. Aliquam eu ornare nisl vulputate et ultrices amet quisque viverra. Elementum tempus lobortis lobortis sit sodales quam. Venenatis amet odio platea rutrum non.',
+                                  child: Text('Accenture is a leading global consulting firm offering a broad portfolio of services and digital expertise across Strategy & Consulting, Interactive, Technology and Operations. We apply our extensive experience and specialised skills across more than 40 industries - backed by the world’s largest network of Advanced Technology and Intelligent Operations centres. With 509,000 employees serving clients in over 120 countries, we continuously drive innovation to strengthen our clients’ performance and create sustainable value for their business.',
                                     style: Textstyle1Light18.appbartextstyle.copyWith(
                                         fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),
                                   ),
@@ -287,9 +325,9 @@ class _ProfileState extends State<Profile> {
                                   children: [
                                     IconButton(
                                       onPressed: (){},
-                                      icon: ImageIcon(AssetImage('assets/Iocns/employee-icon.png'),color: Appcolors.grey2,),
+                                      icon: ImageIcon(AssetImage('assets/Iocns/branchicon.png'),color: Appcolors.blue1,),
                                     ),
-                                    Text('Accenture scholarship 2017',
+                                    Text('15 branches',
                                       style: Textstyle1Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),
                                     ),
@@ -301,9 +339,9 @@ class _ProfileState extends State<Profile> {
                                   children: [
                                     IconButton(
                                       onPressed: (){},
-                                      icon: ImageIcon(AssetImage('assets/Iocns/workicon.png'),color: Appcolors.grey2,),
+                                      icon: ImageIcon(AssetImage('assets/Iocns/employee.png'),color: Appcolors.blue1,),
                                     ),
-                                    Text('Open to work right away',
+                                    Text('100.000+ employees',
                                       style: Textstyle1Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),
                                     ),
@@ -315,9 +353,9 @@ class _ProfileState extends State<Profile> {
                                   children: [
                                     IconButton(
                                       onPressed: (){},
-                                      icon: ImageIcon(AssetImage('assets/Iocns/dashicon.png'),color: Appcolors.grey2,),
+                                      icon: ImageIcon(AssetImage('assets/Iocns/matketing.png'),color: Appcolors.blue1,),
                                     ),
-                                    Text('Wien University studied abroad, 2019',
+                                    Text('IT, Marketing, Sales',
                                       style: Textstyle1Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),
                                     ),
@@ -342,136 +380,15 @@ class _ProfileState extends State<Profile> {
                                   padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
                                   child: Row(
                                     children: [
-                                      Text('Education',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                      Text('Company product',style: Textstyle3Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Colors.white),),
 
                                       SizedBox(
-                                        width: width*0.52,
+                                        width: width*0.39,
                                       ),
-
-                                      IconButton(
-                                        onPressed: (){},
-                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
-                                      )
-                                    ],
-                                  ),
-                                ),
-
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 30),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Appcolors.brown1,
-                                      borderRadius: BorderRadius.circular(16),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 14.25,top: 11.39,bottom: 11.39),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        children: [
-                                          Image.asset('assets/Images/bachelorsimage.png',scale: 4,),
-
-                                          SizedBox(
-                                            width: 15,
-                                          ),
-
-                                          Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Text('Bachelors in business',
-                                                style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                    fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
-                                              Text('University of California, 2016',
-                                                style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                    fontSize: 12,color: Appcolors.grey1,fontWeight: FontWeight.w500),),
-
-                                            ],
-                                          ),
-
-                                          SizedBox(width: width*0.1,),
-
-                                          IconButton(
-                                            onPressed: (){},
-                                            icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 10,bottom: 29.65),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Appcolors.brown1,
-                                      borderRadius: BorderRadius.circular(16),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 14.25,top: 11.39,bottom: 11.39),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        children: [
-                                          Image.asset('assets/Images/bachelorsimage.png',scale: 4,),
-
-                                          SizedBox(
-                                            width: 15,
-                                          ),
-
-                                          Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Text('Bachelors in business',
-                                                style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                    fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
-                                              Text('University of California, 2016',
-                                                style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                    fontSize: 12,color: Appcolors.grey1,fontWeight: FontWeight.w500),),
-
-                                            ],
-                                          ),
-
-                                          SizedBox(width: width*0.1,),
-
-                                          IconButton(
-                                            onPressed: (){},
-                                            icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-
-                              ],
-                            ),
-                          ),
-                        ),
-
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8,left: 24,right: 24),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Appcolors.brown2,
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
-                                  child: Row(
-                                    children: [
-                                      Text('Role expectation',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                      Text('See all',style: Textstyle3Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Colors.white),),
 
-                                      SizedBox(
-                                        width: width*0.41,
-                                      ),
-
-                                      IconButton(
-                                        onPressed: (){},
-                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
-                                      )
                                     ],
                                   ),
                                 ),
@@ -482,32 +399,38 @@ class _ProfileState extends State<Profile> {
                                     // list of chips
                                     children: const [
                                       Chip(
-                                        label: Text('Digital marketing'),
+                                        label: Text('Property assurance'),
+                                        labelStyle: TextStyle(color: Colors.white),
                                         backgroundColor: Appcolors.purple,
                                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
                                       Chip(
-                                        label: Text('Sales marketing'),
+                                        label: Text('Cyber assurance'),
+                                        labelStyle: TextStyle(color: Colors.white),
                                         backgroundColor: Appcolors.purple,
                                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
                                       Chip(
-                                        label: Text('Business management'),
+                                        label: Text('Cargo assurance'),
+                                        labelStyle: TextStyle(color: Colors.white),
                                         backgroundColor: Appcolors.purple,
                                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
                                       Chip(
-                                        label: Text('Branding'),
+                                        label: Text('Energy assurance'),
+                                        labelStyle: TextStyle(color: Colors.white),
                                         backgroundColor: Appcolors.purple,
                                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
                                       Chip(
-                                        label: Text('Content creator'),
+                                        label: Text('Health assurance'),
+                                        labelStyle: TextStyle(color: Colors.white),
                                         backgroundColor: Appcolors.purple,
                                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
                                       Chip(
-                                        label: Text('+5',style: TextStyle(color: Colors.white),),
+                                        label: Text('+5'),
+                                        labelStyle: TextStyle(color: Colors.white),
                                         backgroundColor: Appcolors.brown1,
                                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       )
@@ -526,151 +449,241 @@ class _ProfileState extends State<Profile> {
                               borderRadius: BorderRadius.circular(16),
                             ),
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
                                   child: Row(
                                     children: [
-                                      Text('Scholarship',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                      Text('Company culture',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white),),
+
+
+                                    ],
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,top: 24,bottom: 24),
+                                  child: Text('Fun, supportive, positive',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                      fontSize: 14,color: Colors.white),),
+                                ),
+
+                              ],
+                            ),
+                          ),
+                        ),
+
+
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8,left: 24,right: 24),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Appcolors.brown2,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
+                                  child: Row(
+                                    children: [
+                                      Text('Company philosophy',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white),),
+
+                                    ],
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,top: 24,bottom: 24),
+                                  child: Text('Fun, supportive, positive',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                      fontSize: 14,color: Colors.white),),
+                                ),
+
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8,left: 24,right: 24),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Appcolors.brown2,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 16,right: 16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 24),
+                                    child: Row(
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text('Corporate responsibility and code of',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                                fontSize: 14,color: Colors.white),),
+                                            Text('business ethics',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                                fontSize: 14,color: Colors.white),),
+                                          ],
+                                        ),
+
+
+                                      ],
+                                    ),
+                                  ),
+
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 24,bottom: 24),
+                                    child: Text('Fun, supportive, positive',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                        fontSize: 14,color: Colors.white),),
+                                  ),
+
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+
+
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8,left: 24,right: 24),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Appcolors.brown2,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
+                                  child: Row(
+                                    children: [
+                                      Text('Looking for',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white),),
+
+                                      SizedBox(
+                                        width: width*0.5,
+                                      ),
+                                      Text('See all',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white),),
+
+                                    ],
+                                  ),
+                                ),
+
+                                Wrap(
+                                  // space between chips
+                                    spacing: 10,
+                                    // list of chips
+                                    children: const [
+                                      Chip(
+                                        label: Text('Bachelor’s degree'),
+                                        labelStyle: TextStyle(color: Colors.white),
+                                        backgroundColor: Appcolors.purple,
+                                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                      ),
+                                      Chip(
+                                        label: Text('Master’s degree'),
+                                        labelStyle: TextStyle(color: Colors.white),
+                                        backgroundColor: Appcolors.purple,
+                                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                      ),
+
+                                    ]),
+
+                                Divider(color: Appcolors.grey2,),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Bachelor’s degree',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+
+                                      SizedBox(width: width*0.3,),
+
+                                      Text('Sales marketing',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                          fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
+                                    ],
+                                  ),
+                                ),
+
+                                Divider(color: Appcolors.grey2,),
+
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Master’s degree',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+
+                                      SizedBox(width: width*0.152,),
+
+                                      Text('Digital marketing, Superivisor',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                          fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
+                                    ],
+                                  ),
+                                ),
+
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8,left: 24,right: 24),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Appcolors.brown2,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
+                                  child: Row(
+                                    children: [
+                                      Text('Type of job',style: Textstyle3Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Colors.white),),
 
                                       SizedBox(
                                         width: width*0.5,
                                       ),
 
-                                      IconButton(
-                                        onPressed: (){},
-                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
-                                      )
-                                    ],
-                                  ),
-                                ),
-
-                                InkWell(
-
-                                  onTap: (){
-                                    Navigator.push(context,MaterialPageRoute(builder: (context) => StudentPerspective()));
-                                  },
-
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 16,right: 16,top: 30),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: Appcolors.brown1,
-                                        borderRadius: BorderRadius.circular(16),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(left: 14.25,top: 11.39,bottom: 11.39),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Image.asset('assets/Images/accentureimage .png',scale: 4,),
-
-                                            SizedBox(
-                                              width: 15,
-                                            ),
-
-                                            Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: [
-                                                Text('Accenture scholarship',
-                                                  style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                      fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
-                                                Text('RnD scholarship - 2017',
-                                                  style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                      fontSize: 12,color: Appcolors.grey1,fontWeight: FontWeight.w500),),
-
-                                              ],
-                                            ),
-
-                                            SizedBox(width: width*0.14,),
-
-                                            IconButton(
-                                              onPressed: (){},
-                                              icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 10,bottom: 29.65),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Appcolors.brown1,
-                                      borderRadius: BorderRadius.circular(16),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 14.25,top: 11.39,bottom: 11.39),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        children: [
-                                          Image.asset('assets/Images/accentureimage .png',scale: 4,),
-
-                                          SizedBox(
-                                            width: 15,
-                                          ),
-
-                                          Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Text('Accenture scholarship',
-                                                style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                    fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
-                                              Text('RnD scholarship - 2017',
-                                                style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                    fontSize: 12,color: Appcolors.grey1,fontWeight: FontWeight.w500),),
-
-                                            ],
-                                          ),
-
-                                          SizedBox(width: width*0.14,),
-
-                                          IconButton(
-                                            onPressed: (){},
-                                            icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-
-                              ],
-                            ),
-                          ),
-                        ),
-
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8,left: 24,right: 24),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Appcolors.brown2,
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
-                                  child: Row(
-                                    children: [
-                                      Text('Language',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                      Text('See all',style: Textstyle3Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Colors.white),),
 
-                                      SizedBox(
-                                        width: width*0.53,
+                                    ],
+                                  ),
+                                ),
+
+                                Wrap(
+                                  // space between chips
+                                    spacing: 10,
+                                    // list of chips
+                                    children: const [
+                                      Chip(
+                                        label: Text('Part time'),
+                                        labelStyle: TextStyle(color: Colors.white),
+                                        backgroundColor: Appcolors.purple,
+                                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                      ),
+                                      Chip(
+                                        label: Text('Full time'),
+                                        labelStyle: TextStyle(color: Colors.white),
+                                        backgroundColor: Appcolors.purple,
+                                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
 
-                                      IconButton(
-                                        onPressed: (){},
-                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
-                                      )
-                                    ],
-                                  ),
-                                ),
+                                    ]),
 
                                 Divider(color: Appcolors.grey2,),
 
@@ -679,81 +692,12 @@ class _ProfileState extends State<Profile> {
                                   child: Row(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text('English',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
-
-                                      SizedBox(width: width*0.6,),
-
-                                      Text('Fluent',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                          fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
-                                    ],
-                                  ),
-                                ),
-
-                                Divider(color: Appcolors.grey2,),
-
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Chinese',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
-
-                                      SizedBox(width: width*0.59,),
-
-                                      Text('Fluent',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                          fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
-                                    ],
-                                  ),
-                                ),
-
-                              ],
-                            ),
-                          ),
-                        ),
-
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8,left: 24,right: 24),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Appcolors.brown2,
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
-                                  child: Row(
-                                    children: [
-                                      Text('Skills',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Colors.white),),
-
-                                      SizedBox(
-                                        width: width*0.6,
-                                      ),
-
-                                      IconButton(
-                                        onPressed: (){},
-                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
-                                      )
-                                    ],
-                                  ),
-                                ),
-
-                                Divider(color: Appcolors.grey2,),
-
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Digital marketing',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                      Text('Part time',style: Textstyle3Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
 
                                       SizedBox(width: width*0.43,),
 
-                                      Text('Expert',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                      Text('Sales marketing',style: Textstyle2Light18.appbartextstyle.copyWith(
                                           fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
                                     ],
                                   ),
@@ -766,34 +710,17 @@ class _ProfileState extends State<Profile> {
                                   child: Row(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text('Sales marketing',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                      Text('Full time',style: Textstyle3Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
 
-                                      SizedBox(width: width*0.46,),
+                                      SizedBox(width: width*0.27,),
 
-                                      Text('Expert',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                      Text('Digital marketing, Superivisor',style: Textstyle2Light18.appbartextstyle.copyWith(
                                           fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
                                     ],
                                   ),
                                 ),
 
-                                Divider(color: Appcolors.grey2,),
-
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Business management',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
-
-                                      SizedBox(width: width*0.36,),
-
-                                      Text('Expert',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                          fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
-                                    ],
-                                  ),
-                                ),
 
                               ],
                             ),
@@ -807,114 +734,136 @@ class _ProfileState extends State<Profile> {
                               color: Appcolors.brown2,
                               borderRadius: BorderRadius.circular(16),
                             ),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
-                                  child: Row(
-                                    children: [
-                                      Text('Experience',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Colors.white),),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 16,right: 16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 24),
+                                    child: Row(
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text('Looking for staff in the following',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                                fontSize: 14,color: Colors.white),),
+                                            Text('field',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                                fontSize: 14,color: Colors.white),),
+                                          ],
+                                        ),
 
-                                      SizedBox(
-                                        width: width*0.509,
-                                      ),
+                                        SizedBox(
+                                          width: width*0.159,
+                                        ),
 
-                                      IconButton(
-                                        onPressed: (){},
-                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
-                                      )
-                                    ],
-                                  ),
-                                ),
+                                        Text('See all',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Colors.white),),
 
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 30),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Appcolors.brown1,
-                                      borderRadius: BorderRadius.circular(16),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 14.25,top: 11.39,bottom: 11.39),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        children: [
-                                          Image.asset('assets/Images/assuranceimage.png',scale: 4,),
-
-                                          SizedBox(
-                                            width: 15,
-                                          ),
-
-                                          Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Text('Great assurance Co.',
-                                                style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                    fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
-                                              Text('Jan 2017 - Feb 2018',
-                                                style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                    fontSize: 12,color: Appcolors.grey1,fontWeight: FontWeight.w500),),
-
-                                            ],
-                                          ),
-
-                                          SizedBox(width: width*0.17,),
-
-                                          IconButton(
-                                            onPressed: (){},
-                                            icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
-                                          )
-                                        ],
-                                      ),
+                                      ],
                                     ),
                                   ),
-                                ),
 
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 10,bottom: 29.65),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Appcolors.brown1,
-                                      borderRadius: BorderRadius.circular(16),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 14.25,top: 11.39,bottom: 11.39),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        children: [
-                                          Image.asset('assets/Images/assuranceimage.png',scale: 4,),
+                                  Wrap(
+                                    // space between chips
+                                      spacing: 10,
+                                      // list of chips
+                                      children: const [
+                                        Chip(
+                                          label: Text('Digital marketing'),
+                                          labelStyle: TextStyle(color: Colors.white),
+                                          backgroundColor: Appcolors.purple,
+                                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                        ),
+                                        Chip(
+                                          label: Text('Sales marketing'),
+                                          labelStyle: TextStyle(color: Colors.white),
+                                          backgroundColor: Appcolors.purple,
+                                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                        ),
+                                        Chip(
+                                          label: Text('Supervisor'),
+                                          labelStyle: TextStyle(color: Colors.white),
+                                          backgroundColor: Appcolors.purple,
+                                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                        ),
 
-                                          SizedBox(
-                                            width: 15,
-                                          ),
+                                      ]),
 
-                                          Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Text('First assurance Co.',
-                                                style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                    fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
-                                              Text('Jan 2017 - Feb 2018',
-                                                style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                    fontSize: 12,color: Appcolors.grey1,fontWeight: FontWeight.w500),),
+                                  Divider(color: Appcolors.grey2,),
 
-                                            ],
-                                          ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 16,top: 16,bottom: 18),
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Digital marketing',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
 
-                                          SizedBox(width: width*0.2,),
+                                        SizedBox(width: width*0.187,),
 
-                                          IconButton(
-                                            onPressed: (){},
-                                            icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
-                                          )
-                                        ],
-                                      ),
+                                        Row(
+                                          children: [
+                                            Text('Los angeles office ',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                                fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
+                                            SizedBox(width: width*0.01,),
+                                            ImageIcon(AssetImage('assets/Iocns/iconslinkout.png'),color: Appcolors.grey2,size: 18,)
+                                          ],
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                ),
 
-                              ],
+                                  Divider(color: Appcolors.grey2,),
+
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 16,top: 16,bottom: 18),
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Sales marketing',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+
+                                        SizedBox(width: width*0.2191,),
+
+                                        Row(
+                                          children: [
+                                            Text('Washington office',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                                fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
+                                            SizedBox(width: width*0.01,),
+                                            ImageIcon(AssetImage('assets/Iocns/iconslinkout.png',),color: Appcolors.grey2,size: 18,)
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+                                  Divider(color: Appcolors.grey2,),
+
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 16,top: 16,bottom: 18),
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Supervisor',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+
+                                        SizedBox(width: width*0.294),
+
+                                        Row(
+                                          children: [
+                                            Text('Los angeles office ',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                                fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
+                                            SizedBox(width: width*0.01,),
+                                            ImageIcon(AssetImage('assets/Iocns/iconslinkout.png'),color: Appcolors.grey2,size: 18,)
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -926,67 +875,175 @@ class _ProfileState extends State<Profile> {
                               color: Appcolors.brown2,
                               borderRadius: BorderRadius.circular(16),
                             ),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
-                                  child: Row(
-                                    children: [
-                                      Text('Expected salary per month',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Colors.white),),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 16,right: 16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 24),
+                                    child: Row(
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text('Looking for who would be to work',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                                fontSize: 14,color: Colors.white),),
+                                            Text('abroad',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                                fontSize: 14,color: Colors.white),),
+                                          ],
+                                        ),
 
-                                      SizedBox(
-                                        width: width*0.253
-                                      ),
+                                        SizedBox(
+                                          width: width*0.127,
+                                        ),
 
-                                      IconButton(
-                                        onPressed: (){},
-                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
-                                      )
-                                    ],
+                                        Text('See all',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Colors.white),),
+
+                                      ],
+                                    ),
                                   ),
-                                ),
 
-                                Divider(color: Appcolors.grey2,),
+                                  Wrap(
+                                    // space between chips
+                                      spacing: 10,
+                                      // list of chips
+                                      children: const [
+                                        Chip(
+                                          label: Text('Austria'),
+                                          labelStyle: TextStyle(color: Colors.white),
+                                          backgroundColor: Appcolors.purple,
+                                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                        ),
+                                        Chip(
+                                          label: Text('Germany'),
+                                          labelStyle: TextStyle(color: Colors.white),
+                                          backgroundColor: Appcolors.purple,
+                                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                        ),
 
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Rs.5K - Rs.10K',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+                                      ]),
 
-                                      SizedBox(width: width*0.45,),
+                                  Divider(color: Appcolors.grey2,),
 
-                                      Text('Full time',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                          fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
-                                    ],
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 16,top: 16,bottom: 18),
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Austria',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+
+                                        SizedBox(width: width*0.43,),
+
+                                        Text('Sales marketing',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                            fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
+                                        SizedBox(width: width*0.01,),
+                                      ],
+                                    ),
                                   ),
-                                ),
 
-                                Divider(color: Appcolors.grey2,),
+                                  Divider(color: Appcolors.grey2,),
 
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
-                                  child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Rs.1K - Rs.5K',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 16,top: 16,bottom: 18),
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Germany',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
 
-                                      SizedBox(width: width*0.47,),
+                                        SizedBox(width: width*0.22,),
 
-                                      Text('Part time',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                          fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
-                                    ],
+                                        Text('Digital marketing, Superivisor',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                            fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
+                                        SizedBox(width: width*0.01,),
+                                      ],
+                                    ),
                                   ),
-                                ),
 
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
+
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8,left: 24,right: 24),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Appcolors.brown2,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 16,right: 16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 24),
+                                    child: Row(
+                                      children: [
+                                        Text('Language',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Colors.white),),
+
+                                        SizedBox(
+                                          width: width*0.53,
+                                        ),
+
+                                        Text('See all',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Colors.white),),
+                                      ],
+                                    ),
+                                  ),
+
+                                  Divider(color: Appcolors.grey2,),
+
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 16,top: 16,bottom: 18),
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('English',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+
+                                        SizedBox(width: width*0.555,),
+
+                                        Text('Fluent',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                            fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
+                                        SizedBox(width: width*0.01,),
+                                      ],
+                                    ),
+                                  ),
+
+                                  Divider(color: Appcolors.grey2,),
+
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 16,top: 16,bottom: 18),
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('Chinese',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
+
+                                        SizedBox(width: width*0.546),
+
+                                        Text('Fluent',style: Textstyle2Light18.appbartextstyle.copyWith(
+                                            fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
+                                        SizedBox(width: width*0.01,),
+                                      ],
+                                    ),
+                                  ),
+
+
+
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 15,),
 
                       ],
                     ),
@@ -1273,7 +1330,6 @@ class _ProfileState extends State<Profile> {
           ],
         ),
       ),
-
     );
   }
 }

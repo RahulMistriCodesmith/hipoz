@@ -386,91 +386,48 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                   ),
                                 ),
 
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 30),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Appcolors.brown1,
-                                      borderRadius: BorderRadius.circular(16),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 14.25,top: 11.39,bottom: 11.39),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        children: [
-                                          Image.asset('assets/Images/bachelorsimage.png',scale: 4,),
-
-                                          SizedBox(
-                                            width: 15,
-                                          ),
-
-                                          Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Text('Bachelors in business',
-                                                style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                    fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
-                                              Text('University of California, 2016',
-                                                style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                    fontSize: 12,color: Appcolors.grey1,fontWeight: FontWeight.w500),),
-
-                                            ],
-                                          ),
-
-                                          SizedBox(width: width*0.1,),
-
-                                          IconButton(
-                                            onPressed: (){},
-                                            icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
-                                          )
-                                        ],
+                                Wrap(
+                                  // space between chips
+                                    spacing: 10,
+                                    // list of chips
+                                    children: const [
+                                      Chip(
+                                        label: Text('Property assurance'),
+                                        labelStyle: TextStyle(color: Colors.white),
+                                        backgroundColor: Appcolors.purple,
+                                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
-                                    ),
-                                  ),
-                                ),
-
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 16,right: 16,top: 10,bottom: 29.65),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Appcolors.brown1,
-                                      borderRadius: BorderRadius.circular(16),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 14.25,top: 11.39,bottom: 11.39),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        children: [
-                                          Image.asset('assets/Images/bachelorsimage.png',scale: 4,),
-
-                                          SizedBox(
-                                            width: 15,
-                                          ),
-
-                                          Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Text('Bachelors in business',
-                                                style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                    fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
-                                              Text('University of California, 2016',
-                                                style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                    fontSize: 12,color: Appcolors.grey1,fontWeight: FontWeight.w500),),
-
-                                            ],
-                                          ),
-
-                                          SizedBox(width: width*0.1,),
-
-                                          IconButton(
-                                            onPressed: (){},
-                                            icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
-                                          )
-                                        ],
+                                      Chip(
+                                        label: Text('Cyber assurance'),
+                                        labelStyle: TextStyle(color: Colors.white),
+                                        backgroundColor: Appcolors.purple,
+                                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
-                                    ),
-                                  ),
-                                ),
+                                      Chip(
+                                        label: Text('Cargo assurance'),
+                                        labelStyle: TextStyle(color: Colors.white),
+                                        backgroundColor: Appcolors.purple,
+                                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                      ),
+                                      Chip(
+                                        label: Text('Energy assurance'),
+                                        labelStyle: TextStyle(color: Colors.white),
+                                        backgroundColor: Appcolors.purple,
+                                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                      ),
+                                      Chip(
+                                        label: Text('Health assurance'),
+                                        labelStyle: TextStyle(color: Colors.white),
+                                        backgroundColor: Appcolors.purple,
+                                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                      ),
+                                      Chip(
+                                        label: Text('+5'),
+                                        labelStyle: TextStyle(color: Colors.black),
+                                        backgroundColor: Colors.white,
+                                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                      )
+                                    ]),
 
                               ],
                             ),
@@ -637,6 +594,26 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                   ),
                                 ),
 
+                                Wrap(
+                                  // space between chips
+                                    spacing: 10,
+                                    // list of chips
+                                    children: const [
+                                      Chip(
+                                        label: Text('Bachelor’s degree'),
+                                        labelStyle: TextStyle(color: Colors.white),
+                                        backgroundColor: Appcolors.purple,
+                                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                      ),
+                                      Chip(
+                                        label: Text('Master’s degree'),
+                                        labelStyle: TextStyle(color: Colors.white),
+                                        backgroundColor: Appcolors.purple,
+                                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                      ),
+
+                                    ]),
+
                                 Divider(color: Appcolors.grey2,),
 
                                 Padding(
@@ -705,6 +682,26 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                     ],
                                   ),
                                 ),
+
+                                Wrap(
+                                  // space between chips
+                                    spacing: 10,
+                                    // list of chips
+                                    children: const [
+                                      Chip(
+                                        label: Text('Part time'),
+                                        labelStyle: TextStyle(color: Colors.white),
+                                        backgroundColor: Appcolors.purple,
+                                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                      ),
+                                      Chip(
+                                        label: Text('Full time'),
+                                        labelStyle: TextStyle(color: Colors.white),
+                                        backgroundColor: Appcolors.purple,
+                                        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                      ),
+
+                                    ]),
 
                                 Divider(color: Appcolors.grey2,),
 
@@ -785,6 +782,32 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                       ],
                                     ),
                                   ),
+
+                                  Wrap(
+                                    // space between chips
+                                      spacing: 10,
+                                      // list of chips
+                                      children: const [
+                                        Chip(
+                                          label: Text('Digital marketing'),
+                                          labelStyle: TextStyle(color: Colors.white),
+                                          backgroundColor: Appcolors.purple,
+                                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                        ),
+                                        Chip(
+                                          label: Text('Sales marketing'),
+                                          labelStyle: TextStyle(color: Colors.white),
+                                          backgroundColor: Appcolors.purple,
+                                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                        ),
+                                        Chip(
+                                          label: Text('Supervisor'),
+                                          labelStyle: TextStyle(color: Colors.white),
+                                          backgroundColor: Appcolors.purple,
+                                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                        ),
+
+                                      ]),
 
                                   Divider(color: Appcolors.grey2,),
 
@@ -901,6 +924,26 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                       ],
                                     ),
                                   ),
+
+                                  Wrap(
+                                    // space between chips
+                                      spacing: 10,
+                                      // list of chips
+                                      children: const [
+                                        Chip(
+                                          label: Text('Austria'),
+                                          labelStyle: TextStyle(color: Colors.white),
+                                          backgroundColor: Appcolors.purple,
+                                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                        ),
+                                        Chip(
+                                          label: Text('Germany'),
+                                          labelStyle: TextStyle(color: Colors.white),
+                                          backgroundColor: Appcolors.purple,
+                                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                                        ),
+
+                                      ]),
 
                                   Divider(color: Appcolors.grey2,),
 

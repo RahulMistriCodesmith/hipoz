@@ -16,12 +16,13 @@ class Appcolors{
   static const Color grey4 = Color(0xFF666666);
   static const Color grey5 = Color(0xFFC2C2C2);
   static const Color grey6 = Color(0xFF9F9FA8);
+  static const Color grey7 = Color(0xFFF5F6FB);
   static const Color brown1 = Color(0xFF1E1D2B);
   static const Color brown2 = Color(0xFF292937);
   static const Color brown3 = Color(0xFF4A4A4A);
   static const Color brown4 = Color(0xFF3F3E4A);
   static const Color blue2 = Color(0xFF9E1E1D2B);
-
+  static const Color purple = Color(0xFF7269D4);
 
 }
 

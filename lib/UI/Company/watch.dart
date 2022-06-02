@@ -64,7 +64,23 @@ class _BrownWatchState extends State<BrownWatch> {
 
               SizedBox(height: height*0.1),
 
-              Image.asset('assets/Images/watchimage.png',scale: 3,),
+              Stack(
+                children: [
+                  Image.asset('assets/Images/watchimage.png',scale: 3,),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 89,top: 98),
+                    child: Container(
+                      padding: EdgeInsets.only(left: 5,right: 5,top: 15,bottom: 10),
+                      decoration: BoxDecoration(
+                        color: Appcolors.blue1,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Text('50%',style: Textstyle3Light18.appbartextstyle.copyWith(fontSize: 18,color: Colors.white),),
+                    ),
+                  ),
+                ],
+              ),
+
               Padding(
                 padding: const EdgeInsets.only(top: 20,bottom: 38.8),
                 child: Text('Brown Watch',

@@ -4,6 +4,7 @@ import 'package:chat_bubbles/chat_bubbles.dart';
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
+import 'package:hipoz/UI/Company/companyperspective.dart';
 class CompanyMessage1 extends StatefulWidget {
   const CompanyMessage1({Key? key}) : super(key: key);
 
@@ -75,18 +76,25 @@ class _CompanyMessage1State extends State<CompanyMessage1> {
         foregroundColor: Appcolors.brown1,
         toolbarHeight: 80,
 
-        title: Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: Row(
-            children: [
-              Image.asset('assets/Images/studentimage.png',scale: 5,),
-              Padding(
-                padding: const EdgeInsets.only(left: 14),
-                child: Text('Olivia Jansen',style: Textstyle2Light18.appbartextstyle.copyWith(
-                    color: Appcolors.brown1,fontSize: 14
-                ),),
-              ),
-            ],
+        title: InkWell(
+
+          onTap: (){
+            Navigator.push(context,MaterialPageRoute(builder: (context) => CompanyPerspective()));
+          },
+
+          child: Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: Row(
+              children: [
+                Image.asset('assets/Images/studentimage.png',scale: 5,),
+                Padding(
+                  padding: const EdgeInsets.only(left: 14),
+                  child: Text('Olivia Jansen',style: Textstyle2Light18.appbartextstyle.copyWith(
+                      color: Appcolors.brown1,fontSize: 14
+                  ),),
+                ),
+              ],
+            ),
           ),
         ),
 

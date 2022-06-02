@@ -183,13 +183,15 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
           ],
         ),
       ),
+
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 24.5,right: 23.5,top: 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset('assets/Images/companydashimage.png',color: Appcolors.brown1,),
+              Image.asset('assets/Images/companydashimage.png'),
 
               SizedBox(height: 10),
 
