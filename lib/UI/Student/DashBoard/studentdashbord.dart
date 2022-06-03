@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
+import 'package:hipoz/UI/Student/DashBoard/SearchPage.dart';
 import 'package:hipoz/UI/Student/DashBoard/benefitworld.dart';
 import 'package:hipoz/UI/Student/DashBoard/eventworld.dart';
 import 'package:hipoz/UI/Student/DashBoard/profile.dart';
@@ -21,6 +22,9 @@ class _StudentDashboardState extends State<StudentDashboard> {
     'assets/Images/frameimgae.png',
   ];
 
+  Icon customIcon = const Icon(Icons.search);
+  Widget customSearchBar = const Text('My Personal Journal');
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -36,19 +40,32 @@ class _StudentDashboardState extends State<StudentDashboard> {
         title: Row(
           children: [
             Image.asset('assets/Images/studentimage.png',scale: 5,),
-            SizedBox(width: width*0.65),
+            SizedBox(width: width*0.6),
             Container(
               margin: EdgeInsets.all(7),
               decoration: BoxDecoration(
                 color: Appcolors.brown2,
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: Image.asset('assets/Iocns/searchicon.png',scale: 4,),
+
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: InkWell(
+                    onTap: (){
+
+                      setState((){
+                        Navigator.push(context,MaterialPageRoute(builder: (context) => const SearchPage()));
+                      });
+
+                    },
+                    child: Image.asset('assets/Iocns/searchicon.png',scale: 4,)),
+              ),
             ),
           ],
         ),
 
       ),
+
       endDrawer: Drawer(
         backgroundColor: Appcolors.brown1,
         width: width,
@@ -230,7 +247,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 15.13,top: 21.65,bottom: 16),
+                  padding: const EdgeInsets.only(left: 15.13,top: 21.65,bottom: 16,right: 15.13),
                   child: Column(
 
                     children: [
@@ -312,7 +329,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
                               ),),
                             ],
                           ),
-                          SizedBox(width: width*0.22),
+                          SizedBox(width: width*0.17),
                           Image.asset('assets/Images/dotimage.png',scale: 4,),
                         ],
                       ),

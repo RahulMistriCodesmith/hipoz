@@ -5,6 +5,7 @@ import 'package:hipoz/UI/Company/companybenefitworld.dart';
 import 'package:hipoz/UI/Company/companyeventword.dart';
 import 'package:hipoz/UI/Company/companymessage.dart';
 import 'package:hipoz/UI/Company/companyprofile.dart';
+import 'package:hipoz/UI/Company/companysearchpage.dart';
 import 'package:hipoz/UI/Student/DashBoard/benefitworld.dart';
 import 'package:hipoz/UI/Student/DashBoard/eventworld.dart';
 import 'package:hipoz/UI/Student/DashBoard/profile.dart';
@@ -34,13 +35,20 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
           children: [
             Image.asset('assets/Images/accentureimage .png',scale: 5,),
             SizedBox(width: width*0.62),
-            Container(
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16),
+            InkWell(
+
+              onTap: (){
+                Navigator.push(context,MaterialPageRoute(builder: (context) => const CompanySearch()));
+              },
+
+              child: Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Image.asset('assets/Iocns/searchicon.png',scale: 4,),
               ),
-              child: Image.asset('assets/Iocns/searchicon.png',scale: 4,),
             ),
           ],
         ),
