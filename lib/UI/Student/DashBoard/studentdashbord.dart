@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
@@ -14,6 +15,11 @@ class StudentDashboard extends StatefulWidget {
 }
 
 class _StudentDashboardState extends State<StudentDashboard> {
+
+  final List<String> imageList = [
+    'assets/Images/frameimgae.png',
+    'assets/Images/frameimgae.png',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -181,11 +187,40 @@ class _StudentDashboardState extends State<StudentDashboard> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left: 24.5,right: 23.5,top: 24),
+          padding: const EdgeInsets.only(left: 24.5,right: 23.5,top: 24,bottom: 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset('assets/Images/frameimgae.png'),
+              CarouselSlider.builder(
+                itemCount: imageList.length,
+                options: CarouselOptions(
+                  enlargeCenterPage: false,
+                  height: 247,
+                  autoPlay: false,
+                  reverse: false,
+                  aspectRatio: 5.0,
+                  viewportFraction: 10,
+
+                ),
+                itemBuilder: (context, i, id){
+                  //for onTap to redirect to another screen
+                  return GestureDetector(
+                    child: ClipRRect(
+
+                      child: Image.asset(
+                        imageList[i],
+                        width: width*0.9,
+
+                      ),
+                    ),
+                    onTap: (){
+
+                      var url = imageList[i];
+                      print(url.toString());
+                    },
+                  );
+                },
+              ),
 
               SizedBox(height: 10),
 

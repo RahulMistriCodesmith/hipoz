@@ -5,6 +5,7 @@ import 'package:hipoz/UI/Authorization/forgotpassword.dart';
 import 'package:hipoz/UI/Authorization/signup.dart';
 import 'package:hipoz/UI/Company/companydashboard.dart';
 import 'package:hipoz/UI/Student/DashBoard/studentdashbord.dart';
+import 'package:hipoz/UI/partner/partnersignin.dart';
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
 
@@ -281,9 +282,16 @@ class _LandingPageState extends State<LandingPage> {
                   height: 162,
                 ),
 
-                Text('Scroll for more',
-                  style: Textstyle1Light18.appbartextstyle.copyWith(
-                      fontSize: 14,color: Colors.white),
+                InkWell(
+
+                  onTap: (){
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => const PartnerSign()));
+                  },
+
+                  child: Text('Scroll for more',
+                    style: Textstyle1Light18.appbartextstyle.copyWith(
+                        fontSize: 14,color: Colors.white),
+                  ),
                 ),
                 
                 Icon(Icons.keyboard_arrow_down_rounded,color: Colors.white,),
