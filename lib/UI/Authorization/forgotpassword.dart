@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
@@ -13,7 +15,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Appcolors.brown1,

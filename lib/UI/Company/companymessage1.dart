@@ -1,4 +1,4 @@
-// ignore_for_file: unused_field, unused_element
+// ignore_for_file: unused_field, unused_element, prefer_const_constructors
 
 import 'package:chat_bubbles/chat_bubbles.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +19,7 @@ class _CompanyMessage1State extends State<CompanyMessage1> {
 
   List<String> people = [];
 
+  @override
   void initState() {
     super.initState();
     initPlatformState();

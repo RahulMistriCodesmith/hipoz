@@ -183,7 +183,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
               height: height*0.35,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 24,right: 24),
+              padding: const EdgeInsets.only(left: 24,right: 24,bottom: 15),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),

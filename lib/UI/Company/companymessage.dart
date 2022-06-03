@@ -1,9 +1,10 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
 import 'package:hipoz/UI/Company/companydashboard.dart';
 import 'package:hipoz/UI/Company/companymessage1.dart';
-import 'package:hipoz/UI/Student/DashBoard/studentmessage1.dart';
 class CompanyMessage extends StatefulWidget {
   const CompanyMessage({Key? key}) : super(key: key);
 
@@ -15,7 +16,6 @@ class _CompanyMessageState extends State<CompanyMessage> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Appcolors.greylight,
       appBar: AppBar(

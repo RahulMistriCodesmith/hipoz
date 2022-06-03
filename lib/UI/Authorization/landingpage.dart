@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, deprecated_member_use, sized_box_for_whitespace, avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
@@ -151,21 +153,21 @@ class _LandingPageState extends State<LandingPage> {
                                               height: 180,
                                             ),
 
-                                            RaisedButton (
-                                                color: Appcolors.blue1,
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.circular(100),
-                                                ),
-                                                child: Padding(
-                                                  padding: const EdgeInsets.only(left: 138,right: 138,top: 11,bottom: 11),
+                                            Container(
+                                              width: width*0.9,
+                                              child: RaisedButton (
+                                                  color: Appcolors.blue1,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.circular(100),
+                                                  ),
                                                   child: Text('Submit',style: Textstyle3Light18.appbartextstyle.copyWith(
                                                       color: Colors.white,fontSize: 16),
                                                   ),
-                                                ),
 
-                                                onPressed: (){
-                                                  Navigator.push(context,MaterialPageRoute(builder: (context) => StudentDashboard()));
-                                                }
+                                                  onPressed: (){
+                                                    Navigator.push(context,MaterialPageRoute(builder: (context) => StudentDashboard()));
+                                                  }
+                                              ),
                                             ),
 
                                             SizedBox(
@@ -459,15 +461,15 @@ class _LandingPageState extends State<LandingPage> {
                         ),
 
                         Container(
+                          decoration: BoxDecoration(
+                            color: Appcolors.brown2,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
                           child: TextField(
                             maxLines: 6,
                             decoration: Inputdec2.inputDecoration.copyWith(
                               hintText: 'Message',
                             ),
-                          ),
-                          decoration: BoxDecoration(
-                            color: Appcolors.brown2,
-                            borderRadius: BorderRadius.circular(16),
                           ),
                         ),
 
@@ -475,21 +477,21 @@ class _LandingPageState extends State<LandingPage> {
                           height: 28,
                         ),
                         
-                        RaisedButton(
-                          color: Appcolors.blue1,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(100),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 129,right: 130,top: 11,bottom: 11),
+                        Container(
+                          width: width*0.9,
+                          child: RaisedButton(
+                            color: Appcolors.blue1,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
                               child: Text('Submit',style: Textstyle3Light18.appbartextstyle.copyWith(
                                 color: Colors.white,fontSize: 16),
                               ),
-                            ),
-                            
-                            onPressed: (){
-                              Navigator.push(context,MaterialPageRoute(builder: (context) => StudentDashboard()));
-                            }
+
+                              onPressed: (){
+                                Navigator.push(context,MaterialPageRoute(builder: (context) => StudentDashboard()));
+                              }
+                          ),
                         ),
 
                       ],
@@ -503,14 +505,14 @@ class _LandingPageState extends State<LandingPage> {
                     child: Column(
                       children: [
                         Container(
+                          decoration: BoxDecoration(
+                            color: Appcolors.brown2,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
                           child: TextField(
                             decoration: Inputdec2.inputDecoration.copyWith(
                               hintText: 'Email address',
                             ),
-                          ),
-                          decoration: BoxDecoration(
-                            color: Appcolors.brown2,
-                            borderRadius: BorderRadius.circular(16),
                           ),
                         ),
 
@@ -519,6 +521,10 @@ class _LandingPageState extends State<LandingPage> {
                         ),
 
                         Container(
+                          decoration: BoxDecoration(
+                            color: Appcolors.brown2,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
                           child: TextField(
                             maxLines: 6,
                             decoration: Inputdec2.inputDecoration.copyWith(
@@ -526,31 +532,27 @@ class _LandingPageState extends State<LandingPage> {
                               hintText: 'Message',
                             ),
                           ),
-                          decoration: BoxDecoration(
-                            color: Appcolors.brown2,
-                            borderRadius: BorderRadius.circular(16),
-                          ),
                         ),
 
                         SizedBox(
                           height: 28,
                         ),
 
-                        RaisedButton(
-                            color: Appcolors.blue1,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(100),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 129,right: 130,top: 11,bottom: 11),
+                        Container(
+                          width: width*0.9,
+                          child: RaisedButton(
+                              color: Appcolors.blue1,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
                               child: Text('Submit',style: Textstyle3Light18.appbartextstyle.copyWith(
                                   color: Colors.white,fontSize: 16,),
                               ),
-                            ),
 
-                            onPressed: (){
-                              Navigator.push(context,MaterialPageRoute(builder: (context) => CompanyDashboard()));
-                            }
+                              onPressed: (){
+                                Navigator.push(context,MaterialPageRoute(builder: (context) => CompanyDashboard()));
+                              }
+                          ),
                         ),
 
                       ],

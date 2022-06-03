@@ -63,7 +63,7 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
             SizedBox(height: 30,),
 
             Padding(
-              padding: const EdgeInsets.only(left: 24,right: 24),
+              padding: const EdgeInsets.only(left: 24,right: 24,),
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -171,7 +171,7 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
               height: height*0.35,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 24,right: 24),
+              padding: const EdgeInsets.only(left: 24,right: 24,bottom: 15),
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -185,7 +185,8 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
                     ),
                     child: Text('Sign out',style: Textstyle1Light18.appbartextstyle.copyWith(
                         color: Appcolors.blue1,fontSize: 16,fontWeight: FontWeight.w800),),
-                    onPressed: (){}),
+                    onPressed: (){}
+                ),
               ),
             )
           ],

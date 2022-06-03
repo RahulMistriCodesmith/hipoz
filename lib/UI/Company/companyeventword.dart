@@ -1,9 +1,10 @@
+// ignore_for_file: deprecated_member_use, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
 import 'package:hipoz/UI/Company/comapnyeventpage.dart';
 import 'package:hipoz/UI/Company/companydashboard.dart';
-import 'package:hipoz/UI/Student/DashBoard/eventpage.dart';
 class CompanyEventWord extends StatefulWidget {
   const CompanyEventWord({Key? key}) : super(key: key);
 
