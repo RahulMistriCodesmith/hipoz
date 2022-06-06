@@ -39,6 +39,8 @@ dependencies:
   dotted_border: ^2.0.0+2
   chat_bubbles: ^1.2.0
   carousel_slider: ^4.0.0
+  image_picker: ^0.8.5+3
+  file_picker: ^3.0.4
 
 dev_dependencies:
   flutter_test:
