@@ -292,18 +292,18 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
                               ),),
                             ],
                           ),
-                          SizedBox(width: width*0.22),
+                          SizedBox(width: width*0.16),
                           Image.asset('assets/Images/dotimage.png',scale: 4,),
                         ],
                       ),
                       SizedBox(
-                        height: 17,
+                        height: height*0.01,
                       ),
                       Text('Post with associate link',style: Textstyle1Light18.appbartextstyle.copyWith(
                           fontSize: 14,color: Appcolors.brown1
                       ),),
                       SizedBox(
-                        height: 13,
+                        height: height*0.01,
                       ),
 
                     ],
@@ -338,7 +338,7 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
                               ),),
                             ],
                           ),
-                          SizedBox(width: width*0.22),
+                          SizedBox(width: width*0.245),
                           Image.asset('assets/Images/dotimage.png',scale: 4,),
                         ],
                       ),
@@ -438,7 +438,7 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
                 ),
               ),
 
-              SizedBox(height: 10),
+              SizedBox(height: height*0.02),
 
             ],
           ),

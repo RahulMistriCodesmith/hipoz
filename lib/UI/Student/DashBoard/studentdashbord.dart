@@ -267,7 +267,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
                               ),),
                             ],
                           ),
-                          SizedBox(width: width*0.22),
+                          SizedBox(width: width*0.23),
                           Image.asset('assets/Images/dotimage.png',scale: 4,),
                         ],
                       ),
@@ -375,7 +375,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
                               ),),
                             ],
                           ),
-                          SizedBox(width: width*0.22),
+                          SizedBox(width: width*0.25),
                           Image.asset('assets/Images/dotimage.png',scale: 4,),
                         ],
                       ),
@@ -388,13 +388,18 @@ class _StudentDashboardState extends State<StudentDashboard> {
                       Text('Post with associate link',style: Textstyle1Light18.appbartextstyle.copyWith(
                           fontSize: 14,color: Colors.white
                       ),),
-                      SizedBox(height: 20,),
+
+                      SizedBox(height: 20),
+
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset('assets/Images/dmbimage.png',scale: 12,),
+
                           SizedBox(
                             width: 10,
                           ),
+
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [

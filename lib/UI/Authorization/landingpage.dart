@@ -293,7 +293,7 @@ class _LandingPageState extends State<LandingPage> {
                 ),
 
                 SizedBox(
-                  height: 24,
+                  height: height*0.02,
                 ),
 
                 Padding(
@@ -329,7 +329,7 @@ class _LandingPageState extends State<LandingPage> {
                 ),
 
                 SizedBox(
-                  height: 47,
+                  height: height*0.04,
                 ),
                 
                 Container(
@@ -348,7 +348,7 @@ class _LandingPageState extends State<LandingPage> {
                 ),
 
                 SizedBox(
-                  height: 162,
+                  height: height*0.15,
                 ),
 
                 Text('Scroll for more',
@@ -359,7 +359,7 @@ class _LandingPageState extends State<LandingPage> {
                 Icon(Icons.keyboard_arrow_down_rounded,color: Colors.white,),
 
                 SizedBox(
-                  height: 86.57,
+                  height: height*0.1,
                 ),
 
                 Padding(
@@ -413,13 +413,13 @@ class _LandingPageState extends State<LandingPage> {
                 ),
 
                 SizedBox(
-                  height: 40,
+                  height: height*0.06,
                 ),
 
                 Image.asset('assets/Images/postimage1.png'),
 
                 SizedBox(
-                  height: 40,
+                  height: height*0.06,
                 ),
 
                 Padding(
@@ -439,7 +439,7 @@ class _LandingPageState extends State<LandingPage> {
                 ),
 
                 SizedBox(
-                  height: 24,
+                  height: height*0.04,
                 ),
 
                 Padding(
@@ -475,13 +475,13 @@ class _LandingPageState extends State<LandingPage> {
                 ),
 
                 SizedBox(
-                  height: 40,
+                  height: height*0.06,
                 ),
 
                 Image.asset('assets/Images/postimage2.png'),
 
                 SizedBox(
-                  height: 24,
+                  height: height*0.04,
                 ),
 
                 Padding(
@@ -498,7 +498,7 @@ class _LandingPageState extends State<LandingPage> {
                 ),
 
                 SizedBox(
-                  height: 24,
+                  height: height*0.04,
                 ),
 
                 Padding(
@@ -524,7 +524,7 @@ class _LandingPageState extends State<LandingPage> {
                       ),
 
                       SizedBox(
-                        width: 12,
+                       width: width*0.03,
                       ),
 
                       InkWell(
@@ -551,7 +551,7 @@ class _LandingPageState extends State<LandingPage> {
                 ),
 
                 SizedBox(
-                  height: 20,
+                  height: height*0.02,
                 ),
 
                 selectedval == "student"
@@ -575,7 +575,7 @@ class _LandingPageState extends State<LandingPage> {
                         ),
 
                         SizedBox(
-                          height: 16,
+                          height: height*0.02,
                         ),
 
                         Container(
@@ -592,7 +592,7 @@ class _LandingPageState extends State<LandingPage> {
                         ),
 
                         SizedBox(
-                          height: 28,
+                          height: height*0.02,
                         ),
                         
                         Container(
@@ -633,7 +633,7 @@ class _LandingPageState extends State<LandingPage> {
                         ),
 
                         SizedBox(
-                          height: 16,
+                          height: height*0.04,
                         ),
 
                         Container(
@@ -651,7 +651,7 @@ class _LandingPageState extends State<LandingPage> {
                         ),
 
                         SizedBox(
-                          height: 28,
+                          height: height*0.04,
                         ),
 
                         Container(
@@ -726,7 +726,7 @@ class _LandingPageState extends State<LandingPage> {
                             ),),
 
                             SizedBox(
-                              height: 20,
+                              height: height*0.02,
                             ),
 
                             Text('info@hipoz.com',style: Textstyle2Light18.appbartextstyle.copyWith(
@@ -741,13 +741,13 @@ class _LandingPageState extends State<LandingPage> {
                 ),
 
                 SizedBox(
-                  height: 61,
+                  height: height*0.045,
                 ),
 
                 Text('© 2021 HipoZ. All rights reserved.',style: Textstyle2Light18.appbartextstyle.copyWith(
                     color: Appcolors.grey2,fontSize: 14),),
 
-                SizedBox(height: 25,)
+                SizedBox(height: height*0.02)
 
               ],
             ),

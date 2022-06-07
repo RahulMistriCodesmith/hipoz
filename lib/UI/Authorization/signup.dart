@@ -1606,7 +1606,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           SizedBox(
-                            height: height*0.02,
+                            height: height*0.03,
                           ),
 
                           Divider(
@@ -1614,7 +1614,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           SizedBox(
-                            height: height*0.02,
+                            height: height*0.03,
                           ),
 
                           Container(
@@ -1627,11 +1627,8 @@ class _SignUpState extends State<SignUp> {
 
                             child: DropdownButtonFormField(
                               decoration: InputDecoration(
-
                                 border: InputBorder.none,
-
                                 filled: true,
-
                               ),
                               value: abroad1,
                               dropdownColor: Appcolors.brown1,
