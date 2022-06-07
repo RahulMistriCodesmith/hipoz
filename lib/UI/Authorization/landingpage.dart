@@ -21,7 +21,7 @@ class _LandingPageState extends State<LandingPage> {
   TextEditingController password = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool isChecked = false;
-  bool _isObscure = true;
+  bool _isObscure = false;
 
   @override
   Widget build(BuildContext context) {
@@ -153,7 +153,7 @@ class _LandingPageState extends State<LandingPage> {
                                                 style: TextStyle(color: Colors.white),
                                                 decoration: Inputdec1.inputDecoration.copyWith(
                                                   hintText: 'Your password',
-                                                  suffixIconColor: Colors.white,
+                                                  suffixIconColor: _isObscure ? Colors.white : Colors.white,
                                                   suffixIcon: IconButton(
                                                     icon: Icon(
                                                       _isObscure ? Icons.visibility_outlined : Icons.visibility_off_outlined,
@@ -175,8 +175,9 @@ class _LandingPageState extends State<LandingPage> {
                                                   onPressed: (){
                                                     Navigator.push(context,MaterialPageRoute(builder: (context) => ForgotPassword()));
                                                   },
-                                                  child: Text('Forgot password?',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                                      color: Colors.white,fontSize: 14),)
+                                                  child: Text('Forgot password?',
+                                                    style: Textstyle2Light18.appbartextstyle.copyWith(
+                                                      color: Colors.white,fontSize: 14,decoration: TextDecoration.underline),)
                                               ),
 
                                               SizedBox(
@@ -264,8 +265,8 @@ class _LandingPageState extends State<LandingPage> {
                           text: ' High Quality',
                           style: TextStyle(
                               color: Colors.white,
-                              fontFamily: 'AvenirLTStd-Black',
-
+                              fontFamily: 'AvenirStd-Black',
+                              fontWeight: FontWeight.w800,
                               fontSize: 36)
                       ),
                     ],
