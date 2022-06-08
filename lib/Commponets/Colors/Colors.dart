@@ -35,6 +35,7 @@ class Inputdec1 {
 
     //   focusColor: AppColor.white,
 
+
     hintStyle: Textstyle2Light18.appbartextstyle.copyWith(
         fontSize: 16,color: Appcolors.grey2),
 

@@ -7,7 +7,6 @@ import 'package:hipoz/UI/Authorization/forgotpassword.dart';
 import 'package:hipoz/UI/Authorization/signup.dart';
 import 'package:hipoz/UI/Company/companydashboard.dart';
 import 'package:hipoz/UI/Student/DashBoard/studentdashbord.dart';
-import 'package:hipoz/UI/partner/partnersignin.dart';
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
 

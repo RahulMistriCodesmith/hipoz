@@ -1,11 +1,13 @@
-// ignore_for_file: deprecated_member_use, prefer_const_constructors, avoid_print, prefer_interpolation_to_compose_strings, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, non_constant_identifier_names, unused_element
+// ignore_for_file: deprecated_member_use, prefer_const_constructors, avoid_print, prefer_interpolation_to_compose_strings, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, non_constant_identifier_names, unused_element, depend_on_referenced_packages
 
 import 'dart:io';
-
+import 'package:intl/intl.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
+import 'package:hipoz/UI/Authorization/landingpage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -21,6 +23,8 @@ class _SignUpState extends State<SignUp> {
   final _formKey = GlobalKey<FormState>();
 
   late PageController pageview;
+
+  final format = DateFormat("dd-MM-yyyy");
 
    @override
    void initState() {
@@ -53,74 +57,73 @@ class _SignUpState extends State<SignUp> {
   static var duration = 'Employment Duration';
   static var abroad1 = 'I have studied abroad';
   static var abroad2 = 'Foreign Education Duration';
+  final TextEditingController dob = TextEditingController();
 
    File? imageFile;
-   File? get XFile => imageFile;
+  File? _imageFile;
+   File? get XFile => _imageFile;
 
-  DateTime currentDate = DateTime.now();
-
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? pickedDate = await showDatePicker(
-        context: context,
-        initialDate: currentDate,
-        firstDate: DateTime(2015),
-        lastDate: DateTime(2050));
-    if (pickedDate != null && pickedDate != currentDate) {
-      setState(() {
-        currentDate = pickedDate;
-      });
-    }
-  }
+  bool shouldPop = true;
 
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    return Scaffold(
-      backgroundColor: Appcolors.brown1,
-      appBar: AppBar(
+    return WillPopScope(
+
+      onWillPop: () async {
+        return shouldPop;
+      },
+
+      child: Scaffold(
         backgroundColor: Appcolors.brown1,
-        elevation: 0,
-        toolbarHeight: 150,
-        automaticallyImplyLeading: false,
-        title: Text('Sign Up',style: Textstyle1Light18.appbartextstyle.copyWith(
-            fontSize: 36,fontWeight: FontWeight.w500,color: Colors.white),),
-        actions: [
-          Row(
-            children: [
-              Image.asset('assets/Images/screen.png'),
-              SizedBox(
-                width: 10,
-              ),
-            ],
-          ),
-        ],
-      ),
-      body: Form(
-
-        key: _formKey,
-
-        child: PageView.builder(
-          itemCount: 4,
-          itemBuilder: (context, int index) => PageView(
-              /*physics: NeverScrollableScrollPhysics(),*/
-              controller: pageview,
-              onPageChanged: (index) {
-                print('page ${index + 1}');
-              },
+        appBar: AppBar(
+          backgroundColor: Appcolors.brown1,
+          elevation: 0,
+          toolbarHeight: 150,
+          automaticallyImplyLeading: false,
+          title: Text('Sign Up',style: Textstyle1Light18.appbartextstyle.copyWith(
+              fontSize: 36,fontWeight: FontWeight.w500,color: Colors.white),),
+          actions: [
+            Row(
               children: [
-                SingleChildScrollView(
+                Image.asset('assets/Images/screen.png'),
+                SizedBox(
+                  width: 10,
+                ),
+              ],
+            ),
+          ],
+        ),
+        body: Form(
 
-                  child: Container(
-                    width: width,
-                    height: height,
+          key: _formKey,
+
+          child: PageView.builder(
+            itemCount: 4,
+            itemBuilder: (context, int index) => PageView(
+                /*physics: NeverScrollableScrollPhysics(),*/
+                controller: pageview,
+                onPageChanged: (index) {
+                  print('page ${index + 1}');
+                },
+                children: [
+                  SingleChildScrollView(
+
                     child: Padding(
                       padding: const EdgeInsets.only(top: 20,left: 24,right: 24),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter name';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
+
                             style: TextStyle(color: Colors.white),
                             decoration: Inputdec1.inputDecoration.copyWith(
                               prefixIcon: Icon(Icons.perm_identity,color: Colors.white,),
@@ -134,7 +137,13 @@ class _SignUpState extends State<SignUp> {
                             height: 42,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter name';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
                             style: TextStyle(color: Colors.white),
                             decoration: Inputdec1.inputDecoration.copyWith(
@@ -149,7 +158,13 @@ class _SignUpState extends State<SignUp> {
                             height: 42,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter email';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
                             style: TextStyle(color: Colors.white),
                             decoration: Inputdec1.inputDecoration.copyWith(
@@ -201,7 +216,13 @@ class _SignUpState extends State<SignUp> {
                             height: 15,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter password';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
                             style: TextStyle(color: Colors.white),
                             decoration: Inputdec1.inputDecoration.copyWith(
@@ -216,7 +237,13 @@ class _SignUpState extends State<SignUp> {
                             height: 42,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter password';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
                             style: TextStyle(color: Colors.white),
                             decoration: Inputdec1.inputDecoration.copyWith(
@@ -272,7 +299,9 @@ class _SignUpState extends State<SignUp> {
                               Text('Already have an account? ',style: Textstyle1Light18.appbartextstyle.copyWith(
                                   fontSize: 16,color: Colors.white),),
                               TextButton(
-                                onPressed: (){},
+                                onPressed: (){
+                                  Navigator.push(context,MaterialPageRoute(builder: (context) => LandingPage()));
+                                },
                                 child: Text('Sign In',style: Textstyle3Light18.appbartextstyle.copyWith(
                                     fontSize: 16,color: Colors.white),),)
                             ],
@@ -282,54 +311,47 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
-                ),
 
-                SingleChildScrollView(
+                  SingleChildScrollView(
 
-                  child: Container(
-                    width: width,
-                    height: height*1.05,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 24,right: 24),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
 
-                          Container(
-                            width: 100,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: Appcolors.blue1,
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            child:  imageFile == null
+                          GestureDetector(
 
-                                ? InkWell(
+                            onTap: (){
+                              _getFromGallery();
+                            },
 
-                              onTap: (){
-                                _getFromGallery();
-                              },
-                              child: Container(
-                                width: 100,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color: Appcolors.blue1,
-                                  borderRadius: BorderRadius.circular(50),
-                                ),
+                            child: Container(
+
+                              width: 100,
+                              height: 100,
+
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(100),
                               ),
-                            )
+                              child:
 
-                                : Image.file(
+                              imageFile == null
+
+                                  ? Image.asset('assets/Iocns/penicon.png',color: Colors.black,scale: 2,)
+
+                                  : Image.file(
 
 
-                              imageFile!,
+                                imageFile!,
 
-                              fit: BoxFit.cover,
+                                fit: BoxFit.fitHeight,
+
+                              ),
 
                             ),
                           ),
-
-
 
 
 
@@ -339,28 +361,53 @@ class _SignUpState extends State<SignUp> {
 
                           Row(
                             children: [
-                              Container(
-                                width: 165,
-                                height: 48,
-                                child: TextFormField(
-                                  style: TextStyle(color: Colors.white),
-                                  textAlign: TextAlign.center,
-                                  decoration: Inputdec1.inputDecoration.copyWith(
-                                      hintText: "D.O.B",
-                                      suffixIcon: InkWell(
-                                          onTap: () => _selectDate(context),
-                                          child: Icon(Icons.calendar_today_outlined,color: Colors.white,))
+                              InkWell(
+
+                                /*onTap: () => _selectDate(context),*/
+
+                                child: Container(
+                                  width: 150,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(18),
+                                      border: Border.all(color: Appcolors.grey1)
+                                  ),
+                                  child: DateTimeField(
+                                    format: format,
+                                    style: TextStyle(color: Colors.white),
+                                    decoration: Inputdec1.inputDecoration.copyWith(
+                                      suffixIcon: Icon(Icons.calendar_today_outlined,color: Colors.white,),
+                                      hintText: 'D.O.B',
+                                      hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
+                                          fontSize: 16,color: Appcolors.grey2),
+                                    ),
+                                    onShowPicker: (context, currentValue) async {
+                                      final date = await showDatePicker(
+                                          context: context,
+                                          firstDate: DateTime(1900),
+                                          initialDate: currentValue ?? DateTime.now(),
+                                          lastDate: DateTime(2100));
+                                      if (date != null) {
+                                        final time = await showTimePicker(
+                                          context: context,
+                                          initialTime:
+                                          TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
+                                        );
+                                        return DateTimeField.combine(date, time);
+                                      } else {
+                                        return currentValue;
+                                      }
+                                    },
                                   ),
                                 ),
                               ),
 
                               SizedBox(
-                                width: 20,
+                                width: width*0.04,
                               ),
 
                               Container(
-                                padding: EdgeInsets.only(left: 45),
-                                width: 165,
+
+                                width: 150,
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(18),
@@ -390,7 +437,7 @@ class _SignUpState extends State<SignUp> {
                                   }).toList(),
 
                                   hint: Align(
-                                    alignment: Alignment.centerRight,
+                                    alignment: Alignment.center,
                                     child: Text(
                                       "Gender",
                                       style: TextStyle(color: Appcolors.grey4),
@@ -403,10 +450,16 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           SizedBox(
-                            height: 42,
+                            height: height*0.02,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter address';
+                              }
+                              return null;
+                            },
                             maxLines: 7,
                             style: TextStyle(color: Colors.white),
                             decoration: Inputdec1.inputDecoration.copyWith(
@@ -425,7 +478,13 @@ class _SignUpState extends State<SignUp> {
                               Container(
                                 width: 165,
 
-                                child: TextFormField(
+                                child:  TextFormField(
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Please enter pincode';
+                                    }
+                                    return null;
+                                  },
                                   maxLines: 1,
                                   style: TextStyle(color: Colors.white),
                                   textAlign: TextAlign.center,
@@ -443,14 +502,16 @@ class _SignUpState extends State<SignUp> {
                               ),
 
                               Container(
-                                padding: EdgeInsets.only(left: 48,top: 5,bottom: 5),
-                                width: 165,
+
+                                width: 150,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(18),
                                     border: Border.all(color: Appcolors.grey1)
                                 ),
 
                                 child: DropdownButtonFormField(
+                                  isDense: true,
+
                                   decoration: InputDecoration(
 
                                     border: InputBorder.none,
@@ -469,7 +530,7 @@ class _SignUpState extends State<SignUp> {
                                   onChanged: (String? newValue) {
                                     dropdownValue1 = newValue!;
                                   },
-                                  items: <String>['City']
+                                  items: <String>['City', 'Surat', 'Navsari']
                                       .map<DropdownMenuItem<String>>((String value) {
                                     return DropdownMenuItem<String>(
                                       value: value,
@@ -492,6 +553,12 @@ class _SignUpState extends State<SignUp> {
                                 width: 165,
 
                                 child: TextFormField(
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Please enter Region';
+                                    }
+                                    return null;
+                                  },
                                   maxLines: 1,
                                   style: TextStyle(color: Colors.white),
                                   textAlign: TextAlign.center,
@@ -506,14 +573,15 @@ class _SignUpState extends State<SignUp> {
                               ),
 
                               Container(
-                                padding: EdgeInsets.only(left: 40,top: 5,bottom: 5),
-                                width: 165,
+
+                                width: 150,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(18),
                                     border: Border.all(color: Appcolors.grey1)
                                 ),
 
                                 child: DropdownButtonFormField(
+                                  isDense: true,
                                   decoration: InputDecoration(
 
                                     border: InputBorder.none,
@@ -533,7 +601,7 @@ class _SignUpState extends State<SignUp> {
                                   onChanged: (String? newValue) {
                                     dropdownValue2 = newValue!;
                                   },
-                                  items: <String>['Country']
+                                  items: <String>['Country', 'India', 'Bangladesh', 'Australia']
                                       .map<DropdownMenuItem<String>>((String value) {
                                     return DropdownMenuItem<String>(
                                       value: value,
@@ -604,7 +672,9 @@ class _SignUpState extends State<SignUp> {
                               Text('Already have an account? ',style: Textstyle1Light18.appbartextstyle.copyWith(
                                   fontSize: 16,color: Colors.white),),
                               TextButton(
-                                onPressed: (){},
+                                onPressed: (){
+                                  Navigator.push(context,MaterialPageRoute(builder: (context) => LandingPage()));
+                                },
                                 child: Text('Sign In',style: Textstyle3Light18.appbartextstyle.copyWith(
                                     fontSize: 16,color: Colors.white),),)
                             ],
@@ -615,20 +685,15 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
-                ),
 
-                SingleChildScrollView(
+                  SingleChildScrollView(
 
-                  child: Container(
-                    width: width,
-                    height: height*1.3,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 24,right: 24),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            padding: EdgeInsets.only(left: 140),
                             width: width*0.9,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(18),
@@ -654,7 +719,7 @@ class _SignUpState extends State<SignUp> {
                               onChanged: (String? newValue) {
                                 degree = newValue!;
                               },
-                              items: <String>['Degree']
+                              items: <String>['Degree', 'B.E', 'B.Com']
                                   .map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -669,7 +734,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           Container(
-                            padding: EdgeInsets.only(left: 130),
+
                             width: width*0.9,
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
@@ -694,7 +759,7 @@ class _SignUpState extends State<SignUp> {
                               onChanged: (String? newValue) {
                                 study = newValue!;
                               },
-                              items: <String>['Field of Study']
+                              items: <String>['Field of Study','Engineering', 'Accountant']
                                   .map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -709,7 +774,14 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.03,
                           ),
 
-                          TextField(
+                          TextFormField(
+
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter University name';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
                             style: TextStyle(color: Colors.white),
                             textAlign: TextAlign.center,
@@ -725,23 +797,33 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.03,
                           ),
 
-                          InkWell(
-
-                            onTap: (){_selectDate(context);},
-
-                            child: TextField(
-                              style: TextStyle(color: Colors.white),
-                              textAlign: TextAlign.center,
-                              decoration: Inputdec1.inputDecoration.copyWith(
-                                suffixIcon: InkWell(
-                                    onTap: () => _selectDate(context),
-
-                                    child: Icon(Icons.calendar_today_outlined,color: Colors.white,)),
-                                hintText: 'Graduation Date',
-                                hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                                    fontSize: 15,color: Appcolors.grey2),
-                              ),
+                          DateTimeField(
+                            format: format,
+                            style: TextStyle(color: Colors.white),
+                            textAlign: TextAlign.center,
+                            decoration: Inputdec1.inputDecoration.copyWith(
+                              suffixIcon: Icon(Icons.calendar_today_outlined,color: Colors.white,),
+                              hintText: 'Graduation Date',
+                              hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
+                                  fontSize: 16,color: Appcolors.grey2),
                             ),
+                            onShowPicker: (context, currentValue) async {
+                              final date = await showDatePicker(
+                                  context: context,
+                                  firstDate: DateTime(1900),
+                                  initialDate: currentValue ?? DateTime.now(),
+                                  lastDate: DateTime(2100));
+                              if (date != null) {
+                                final time = await showTimePicker(
+                                  context: context,
+                                  initialTime:
+                                  TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
+                                );
+                                return DateTimeField.combine(date, time);
+                              } else {
+                                return currentValue;
+                              }
+                            },
                           ),
 
                           SizedBox(
@@ -771,7 +853,13 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.03,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter Scholarship';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
                             style: TextStyle(color: Colors.white),
                             textAlign: TextAlign.center,
@@ -788,7 +876,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           Container(
-                            padding: EdgeInsets.only(left: 120),
+
                             width: width*0.9,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(18),
@@ -828,7 +916,13 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.03,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter Scholarship';
+                              }
+                              return null;
+                            },
                             textAlign: TextAlign.center,
                             maxLines: 1,
                             style: TextStyle(color: Colors.white),
@@ -845,7 +939,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           Container(
-                            padding: EdgeInsets.only(left: 100),
+
                             width: width*0.9,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(18),
@@ -885,7 +979,13 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.03,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter Scholarship';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white),
@@ -901,9 +1001,7 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.03,
                           ),
 
-                          imageFile == null
-
-                              ? Container(
+                           Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(18),
                                 border: Border.all(color: Appcolors.blue1)
@@ -927,21 +1025,10 @@ class _SignUpState extends State<SignUp> {
                                   ],
                                 ),
                                 onPressed: (){
-                                  _getFromGallery();
+
                                 }
                             ),
-                          )
-
-                              : Image.file(
-
-
-                            imageFile!,
-
-                            fit: BoxFit.fitWidth,
-
                           ),
-
-
 
                           SizedBox(
                             height: height*0.04,
@@ -992,7 +1079,9 @@ class _SignUpState extends State<SignUp> {
                               Text('Already have an account? ',style: Textstyle1Light18.appbartextstyle.copyWith(
                                   fontSize: 16,color: Colors.white),),
                               TextButton(
-                                onPressed: (){},
+                                onPressed: (){
+                                  Navigator.push(context,MaterialPageRoute(builder: (context) => LandingPage()));
+                                },
                                 child: Text('Sign In',style: Textstyle3Light18.appbartextstyle.copyWith(
                                     fontSize: 16,color: Colors.white),),)
                             ],
@@ -1002,27 +1091,42 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
-                ),
 
-                SingleChildScrollView(
+                  SingleChildScrollView(
 
-                  child: Container(
-                    width: width,
-                    height: height*1.25,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 24,right: 24),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset('assets/Images/iconpdf.png',color: Colors.white,scale: 2,),
+
 
                           SizedBox(
                             height: height*0.02,
                           ),
 
-                          imageFile == null
+                          Container(
+                            width: 100,
+                            height: 100,
+                            child: _imageFile == null
 
-                              ? Container(
+                                ? Image.asset('assets/Images/iconpdf.png',color: Colors.white,scale: 2,)
+
+                                : Image.file(
+
+
+                              _imageFile!,
+
+                              fit: BoxFit.fitWidth,
+
+                            ),
+                          ),
+
+                          SizedBox(
+                            height: height*0.025,
+                          ),
+
+                          Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(18),
                                 border: Border.all(color: Appcolors.blue1)
@@ -1038,22 +1142,19 @@ class _SignUpState extends State<SignUp> {
                                   _getFromGallery();
                                 }
                             ),
-                          )
-
-                              : Image.file(
-
-
-                            imageFile!,
-
-                            fit: BoxFit.fitWidth,
-
                           ),
 
                           SizedBox(
                             height: height*0.035,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter job type';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white),
@@ -1069,7 +1170,13 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.02,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter Interests';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white),
@@ -1085,7 +1192,13 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.02,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter location';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white),
@@ -1101,7 +1214,13 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.02,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter Industry';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white),
@@ -1117,7 +1236,13 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.02,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter Specialisation';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white),
@@ -1136,7 +1261,7 @@ class _SignUpState extends State<SignUp> {
                           Row(
                             children: [
                               Container(
-                                padding: EdgeInsets.only(left: 30),
+
                                 width: 165,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(18),
@@ -1162,7 +1287,7 @@ class _SignUpState extends State<SignUp> {
                                   onChanged: (String? newValue) {
                                     language = newValue!;
                                   },
-                                  items: <String>['Language']
+                                  items: <String>['Language', 'English', 'Hindi', 'Gujarati']
                                       .map<DropdownMenuItem<String>>((String value) {
                                     return DropdownMenuItem<String>(
                                       value: value,
@@ -1177,8 +1302,8 @@ class _SignUpState extends State<SignUp> {
                               ),
 
                               Container(
-                                padding: EdgeInsets.only(left: 30),
-                                width: 165,
+
+                                width: 150,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(18),
                                     border: Border.all(color: Appcolors.grey1)
@@ -1244,8 +1369,8 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           Container(
-                            padding: EdgeInsets.only(left: 110),
-                            width: 380,
+
+                            width: width*2,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(18),
                                 border: Border.all(color: Appcolors.grey1)
@@ -1270,7 +1395,7 @@ class _SignUpState extends State<SignUp> {
                               onChanged: (String? newValue) {
                                 salary = newValue!;
                               },
-                              items: <String>['Salary Expectations']
+                              items: <String>['Salary Expectations', '10,000 - 15,000', '15,000 - 20,000']
                                   .map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -1285,8 +1410,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           Container(
-                            padding: EdgeInsets.only(left: 55),
-                            width: 380,
+                            width: width*2,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(18),
                                 border: Border.all(color: Appcolors.grey1)
@@ -1311,7 +1435,7 @@ class _SignUpState extends State<SignUp> {
                               onChanged: (String? newValue) {
                                 abroad = newValue!;
                               },
-                              items: <String>['I would be willing to work abroad']
+                              items: <String>['I would be willing to work abroad' ,'yes', 'no']
                                   .map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -1380,7 +1504,9 @@ class _SignUpState extends State<SignUp> {
                               Text('Already have an account? ',style: Textstyle1Light18.appbartextstyle.copyWith(
                                   fontSize: 16,color: Colors.white),),
                               TextButton(
-                                onPressed: (){},
+                                onPressed: (){
+                                  Navigator.push(context,MaterialPageRoute(builder: (context) => LandingPage()));
+                                },
                                 child: Text('Sign In',style: Textstyle3Light18.appbartextstyle.copyWith(
                                     fontSize: 16,color: Colors.white),),)
                             ],
@@ -1390,13 +1516,9 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
-                ),
 
-                SingleChildScrollView(
+                  SingleChildScrollView(
 
-                  child: Container(
-                    width: width,
-                    height: height*1.45,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 24,right: 24),
                       child: Column(
@@ -1404,7 +1526,7 @@ class _SignUpState extends State<SignUp> {
                         children: [
 
                           Container(
-                            padding: EdgeInsets.only(left: 90),
+
                             width: width*2,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(18),
@@ -1430,7 +1552,7 @@ class _SignUpState extends State<SignUp> {
                               onChanged: (String? newValue) {
                                 working = newValue!;
                               },
-                              items: <String>['I am currently working']
+                              items: <String>['I am currently working', 'yes', 'no']
                                   .map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -1445,7 +1567,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           Container(
-                            padding: EdgeInsets.only(left: 135),
+
                             width: width*2,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(18),
@@ -1471,7 +1593,7 @@ class _SignUpState extends State<SignUp> {
                               onChanged: (String? newValue) {
                                 job = newValue!;
                               },
-                              items: <String>['Job Type']
+                              items: <String>['Job Type', 'developer' ,'accountant']
                                   .map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -1486,7 +1608,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           Container(
-                            padding: EdgeInsets.only(left: 100),
+
                             width: width*2,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(18),
@@ -1512,7 +1634,7 @@ class _SignUpState extends State<SignUp> {
                               onChanged: (String? newValue) {
                                 Employment = newValue!;
                               },
-                              items: <String>['Type of Employment']
+                              items: <String>['Type of Employment', 'full time' , 'part time']
                                   .map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -1526,7 +1648,13 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.02,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter some text';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white),
@@ -1543,7 +1671,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           Container(
-                            padding: EdgeInsets.only(left: 100),
+
                             width: width*2,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(18),
@@ -1569,7 +1697,7 @@ class _SignUpState extends State<SignUp> {
                               onChanged: (String? newValue) {
                                 duration = newValue!;
                               },
-                              items: <String>['Employment Duration']
+                              items: <String>['Employment Duration', '1year', '2year']
                                   .map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -1618,7 +1746,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           Container(
-                            padding: EdgeInsets.only(left: 100),
+
                             width: width*2,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(18),
@@ -1641,7 +1769,7 @@ class _SignUpState extends State<SignUp> {
                               onChanged: (String? newValue) {
                                 abroad1 = newValue!;
                               },
-                              items: <String>['I have studied abroad']
+                              items: <String>['I have studied abroad', 'yes', 'no']
                                   .map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -1655,7 +1783,13 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.02,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter name';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white),
@@ -1671,7 +1805,13 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.02,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter University';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white),
@@ -1687,7 +1827,13 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.02,
                           ),
 
-                          TextField(
+                          TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter Duration';
+                              }
+                              return null;
+                            },
                             maxLines: 1,
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white),
@@ -1704,7 +1850,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           Container(
-                            padding: EdgeInsets.only(left: 90),
+
                             width: width*2,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(18),
@@ -1730,7 +1876,7 @@ class _SignUpState extends State<SignUp> {
                               onChanged: (String? newValue) {
                                 abroad2 = newValue!;
                               },
-                              items: <String>['Foreign Education Duration']
+                              items: <String>['Foreign Education Duration', '1year', '2year', '5year']
                                   .map<DropdownMenuItem<String>>((String value) {
                                 return DropdownMenuItem<String>(
                                   value: value,
@@ -1768,9 +1914,7 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.02,
                           ),
 
-                          imageFile == null
-
-                              ? Container(
+                          Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(18),
                                 border: Border.all(color: Appcolors.grey1)
@@ -1794,18 +1938,9 @@ class _SignUpState extends State<SignUp> {
                                   ],
                                 ),
                                 onPressed: (){
-                                  _getFromGallery();
+
                                 }
                             ),
-                          )
-
-                              : Image.file(
-
-
-                            imageFile!,
-
-                            fit: BoxFit.fitWidth,
-
                           ),
 
 
@@ -1852,8 +1987,8 @@ class _SignUpState extends State<SignUp> {
                                 ),
                                 child: Text('Confirm Details',style: Textstyle3Light18.appbartextstyle.copyWith(
                                     fontSize: 14,color: Colors.white),),
-                                onPressed: ()  {
-
+                                onPressed: () {
+                                  Navigator.push(context,MaterialPageRoute(builder: (context) => LandingPage()));
                                 }
                             ),
                           ),
@@ -1875,7 +2010,9 @@ class _SignUpState extends State<SignUp> {
                               Text('Already have an account? ',style: Textstyle1Light18.appbartextstyle.copyWith(
                                   fontSize: 16,color: Colors.white),),
                               TextButton(
-                                onPressed: (){},
+                                onPressed: (){
+                                  Navigator.push(context,MaterialPageRoute(builder: (context) => LandingPage()));
+                                },
                                 child: Text('Sign In',style: Textstyle3Light18.appbartextstyle.copyWith(
                                     fontSize: 16,color: Colors.white),),)
                             ],
@@ -1885,22 +2022,35 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              ),
 
+          ),
         ),
       ),
     );
   }
-
   _getFromGallery() async {
-    PickedFile pickedFile =  ImagePicker().getImage(
+    PickedFile? pickedFile = await ImagePicker().getImage(
+
       source: ImageSource.gallery,
       maxWidth: 1800,
       maxHeight: 1800,
-    ) as PickedFile;
+
+    );
+    if (pickedFile != null) {
+      setState(() {
+
+        imageFile = File(pickedFile.path);
+        _imageFile = File(pickedFile.path);
+
+      });
+    }
   }
+
+
+
+
 
 }
 
