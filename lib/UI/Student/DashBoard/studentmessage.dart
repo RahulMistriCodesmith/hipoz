@@ -24,7 +24,9 @@ class _StudentMessageState extends State<StudentMessage> {
         title: Image.asset('assets/Images/studentimage.png',scale: 5,),
 
       ),
+
       endDrawer: StudentDashboard(),
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(top: 54,left: 24,right: 24),

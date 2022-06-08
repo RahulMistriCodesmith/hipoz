@@ -27,7 +27,7 @@ class _FilterPageState extends State<FilterPage> {
           children: [
             Image.asset('assets/Images/studentimage.png',scale: 5,),
 
-            SizedBox(width: width*0.65),
+            Expanded(child: SizedBox()),
 
             Container(
               margin: EdgeInsets.all(7),

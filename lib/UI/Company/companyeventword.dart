@@ -26,7 +26,7 @@ class _CompanyEventWordState extends State<CompanyEventWord> {
         title: Row(
           children: [
             Image.asset('assets/Images/accentureimage .png',scale: 5,),
-            SizedBox(width: width*0.62),
+            Expanded(child: SizedBox()),
             Container(
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(

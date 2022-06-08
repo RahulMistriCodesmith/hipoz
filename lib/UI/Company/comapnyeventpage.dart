@@ -37,9 +37,7 @@ class _CompanyEventState extends State<CompanyEvent> {
               ),
             ),
 
-            SizedBox(
-              width: width*0.68,
-            ),
+            Expanded(child: SizedBox()),
 
             Container(
 

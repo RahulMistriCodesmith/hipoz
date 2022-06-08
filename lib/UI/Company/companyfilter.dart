@@ -26,7 +26,7 @@ class _CompanyFilterState extends State<CompanyFilter> {
           children: [
             Image.asset('assets/Images/accentureimage .png',scale: 5,),
 
-            SizedBox(width: width*0.59),
+            Expanded(child: SizedBox()),
 
             Container(
               padding: EdgeInsets.all(10),

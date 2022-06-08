@@ -24,7 +24,7 @@ class _SearchPageState extends State<SearchPage> {
         title: Row(
           children: [
             Image.asset('assets/Images/studentimage.png',scale: 5,),
-            SizedBox(width: width*0.55),
+            Expanded(child: SizedBox()),
             Container(
               margin: EdgeInsets.all(7),
               decoration: BoxDecoration(

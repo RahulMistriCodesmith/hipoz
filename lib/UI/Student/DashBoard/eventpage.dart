@@ -36,9 +36,7 @@ class _EventPageState extends State<EventPage> {
               ),
             ),
 
-            SizedBox(
-              width: width*0.68,
-            ),
+            Expanded(child: SizedBox()),
 
             Container(
 

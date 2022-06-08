@@ -25,7 +25,7 @@ class _CompanySearchState extends State<CompanySearch> {
         title: Row(
           children: [
             Image.asset('assets/Images/accentureimage .png',scale: 5,),
-            SizedBox(width: width*0.543),
+            Expanded(child: SizedBox()),
             Container(
               margin: EdgeInsets.all(7),
               decoration: BoxDecoration(

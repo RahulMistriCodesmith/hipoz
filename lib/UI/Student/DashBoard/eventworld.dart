@@ -24,7 +24,7 @@ class _EventWorldState extends State<EventWorld> {
         title: Row(
           children: [
             Image.asset('assets/Images/studentimage.png',scale: 5,),
-            SizedBox(width: width*0.65),
+            Expanded(child: SizedBox()),
             Container(
               margin: EdgeInsets.all(7),
               decoration: BoxDecoration(

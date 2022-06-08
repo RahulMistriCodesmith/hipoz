@@ -40,7 +40,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
         title: Row(
           children: [
             Image.asset('assets/Images/studentimage.png',scale: 5,),
-            SizedBox(width: width*0.6),
+            Expanded(child: SizedBox()),
             Container(
               margin: EdgeInsets.all(7),
               decoration: BoxDecoration(

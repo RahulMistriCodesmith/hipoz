@@ -78,6 +78,7 @@ class _StudentMessage1State extends State<StudentMessage1> {
           child: Row(
             children: [
               Image.asset('assets/Images/accentureimage .png',scale: 5,),
+
               Padding(
                 padding: const EdgeInsets.only(left: 14),
                 child: Text('Accenture',style: Textstyle2Light18.appbartextstyle.copyWith(

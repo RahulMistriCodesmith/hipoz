@@ -34,7 +34,9 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
         title: Row(
           children: [
             Image.asset('assets/Images/accentureimage .png',scale: 5,),
-            SizedBox(width: width*0.62),
+            Expanded(
+                child: SizedBox()
+            ),
             InkWell(
 
               onTap: (){
