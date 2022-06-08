@@ -108,6 +108,7 @@ class _SignUpState extends State<SignUp> {
                   print('page ${index + 1}');
                 },
                 children: [
+
                   SingleChildScrollView(
 
                     child: Padding(
@@ -258,20 +259,41 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.04,
                           ),
 
-                          SmoothPageIndicator(
-                            controller: pageview,
-                            count:  5,
-                            effect:  SlideEffect(
-                                spacing:  8.0,
-                                radius:  14.0,
-                                dotWidth:  10.0,
-                                dotHeight:  10.0,
-                                paintStyle:  PaintingStyle.fill,
-                                strokeWidth:  1.0,
-                                dotColor:  Colors.white,
-                                activeDotColor:  Appcolors.blue1
-                            ),
+                          Stack(
+                            children: [
+
+                              Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 4),
+                                  child: Container(
+                                    width: width*0.2,
+                                    height: height*0.002,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+
+                              Center(
+                                child: SmoothPageIndicator(
+                                  controller: pageview,
+                                  count:  5,
+                                  effect:  SlideEffect(
+                                      spacing:  8.0,
+                                      radius:  14.0,
+                                      dotWidth:  10.0,
+                                      dotHeight:  10.0,
+                                      paintStyle:  PaintingStyle.fill,
+                                      strokeWidth:  1.0,
+                                      dotColor:  Colors.white,
+                                      activeDotColor:  Appcolors.blue1
+                                  ),
+                                ),
+                              ),
+
+                            ],
                           ),
+
+
 
                           SizedBox(
                             height: height*0.08,
@@ -627,21 +649,38 @@ class _SignUpState extends State<SignUp> {
                             ],
                           ),
 
-                          Center(
-                            child: SmoothPageIndicator(
-                              controller: pageview,
-                              count:  5,
-                              effect:  SlideEffect(
-                                  spacing:  8.0,
-                                  radius:  14.0,
-                                  dotWidth:  10.0,
-                                  dotHeight:  10.0,
-                                  paintStyle:  PaintingStyle.fill,
-                                  strokeWidth:  1.5,
-                                  dotColor:  Colors.white,
-                                  activeDotColor:  Appcolors.blue1
+                          Stack(
+                            children: [
+
+                              Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 4),
+                                  child: Container(
+                                    width: width*0.2,
+                                    height: height*0.002,
+                                    color: Colors.white,
+                                  ),
+                                ),
                               ),
-                            ),
+
+                              Center(
+                                child: SmoothPageIndicator(
+                                  controller: pageview,
+                                  count:  5,
+                                  effect:  SlideEffect(
+                                      spacing:  8.0,
+                                      radius:  14.0,
+                                      dotWidth:  10.0,
+                                      dotHeight:  10.0,
+                                      paintStyle:  PaintingStyle.fill,
+                                      strokeWidth:  1.0,
+                                      dotColor:  Colors.white,
+                                      activeDotColor:  Appcolors.blue1
+                                  ),
+                                ),
+                              ),
+
+                            ],
                           ),
 
                           SizedBox(
@@ -1034,21 +1073,38 @@ class _SignUpState extends State<SignUp> {
                             height: height*0.04,
                           ),
 
-                          Center(
-                            child: SmoothPageIndicator(
-                              controller: pageview,
-                              count:  5,
-                              effect:  SlideEffect(
-                                  spacing:  8.0,
-                                  radius:  14.0,
-                                  dotWidth:  10.0,
-                                  dotHeight:  10.0,
-                                  paintStyle:  PaintingStyle.fill,
-                                  strokeWidth:  1.5,
-                                  dotColor:  Colors.white,
-                                  activeDotColor:  Appcolors.blue1
+                          Stack(
+                            children: [
+
+                              Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 4),
+                                  child: Container(
+                                    width: width*0.2,
+                                    height: height*0.002,
+                                    color: Colors.white,
+                                  ),
+                                ),
                               ),
-                            ),
+
+                              Center(
+                                child: SmoothPageIndicator(
+                                  controller: pageview,
+                                  count:  5,
+                                  effect:  SlideEffect(
+                                      spacing:  8.0,
+                                      radius:  14.0,
+                                      dotWidth:  10.0,
+                                      dotHeight:  10.0,
+                                      paintStyle:  PaintingStyle.fill,
+                                      strokeWidth:  1.0,
+                                      dotColor:  Colors.white,
+                                      activeDotColor:  Appcolors.blue1
+                                  ),
+                                ),
+                              ),
+
+                            ],
                           ),
 
                           SizedBox(
@@ -1453,19 +1509,39 @@ class _SignUpState extends State<SignUp> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SizedBox(width: width*0.3),
-                              SmoothPageIndicator(
-                                controller: pageview,
-                                count:  5,
-                                effect:  SlideEffect(
-                                    spacing:  8.0,
-                                    radius:  14.0,
-                                    dotWidth:  10.0,
-                                    dotHeight:  10.0,
-                                    paintStyle:  PaintingStyle.fill,
-                                    strokeWidth:  1.5,
-                                    dotColor:  Colors.white,
-                                    activeDotColor:  Appcolors.blue1
-                                ),
+
+                              Stack(
+                                children: [
+
+                                  Center(
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(top: 4),
+                                      child: Container(
+                                        width: width*0.2,
+                                        height: height*0.002,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+
+                                  Center(
+                                    child: SmoothPageIndicator(
+                                      controller: pageview,
+                                      count:  5,
+                                      effect:  SlideEffect(
+                                          spacing:  8.0,
+                                          radius:  14.0,
+                                          dotWidth:  10.0,
+                                          dotHeight:  10.0,
+                                          paintStyle:  PaintingStyle.fill,
+                                          strokeWidth:  1.0,
+                                          dotColor:  Colors.white,
+                                          activeDotColor:  Appcolors.blue1
+                                      ),
+                                    ),
+                                  ),
+
+                                ],
                               ),
 
                               SizedBox(width: width*0.24),
@@ -1952,19 +2028,39 @@ class _SignUpState extends State<SignUp> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SizedBox(width: width*0.3),
-                              SmoothPageIndicator(
-                                controller: pageview,
-                                count:  5,
-                                effect:  SlideEffect(
-                                    spacing:  8.0,
-                                    radius:  14.0,
-                                    dotWidth:  10.0,
-                                    dotHeight:  10.0,
-                                    paintStyle:  PaintingStyle.fill,
-                                    strokeWidth:  1.5,
-                                    dotColor:  Colors.white,
-                                    activeDotColor:  Appcolors.blue1
-                                ),
+
+                              Stack(
+                                children: [
+
+                                  Center(
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(top: 4),
+                                      child: Container(
+                                        width: width*0.2,
+                                        height: height*0.002,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+
+                                  Center(
+                                    child: SmoothPageIndicator(
+                                      controller: pageview,
+                                      count:  5,
+                                      effect:  SlideEffect(
+                                          spacing:  5.0,
+                                          radius:  14.0,
+                                          dotWidth:  10.0,
+                                          dotHeight:  10.0,
+                                          paintStyle:  PaintingStyle.fill,
+                                          strokeWidth:  1.0,
+                                          dotColor:  Colors.white,
+                                          activeDotColor:  Appcolors.blue1
+                                      ),
+                                    ),
+                                  ),
+
+                                ],
                               ),
 
                               SizedBox(width: width*0.24),
