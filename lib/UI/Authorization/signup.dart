@@ -393,6 +393,7 @@ class _SignUpState extends State<SignUp> {
                                     border: Border.all(color: Appcolors.grey1)
                                 ),
                                 child: DateTimeField(
+
                                   format: format,
                                   style: TextStyle(color: Colors.white),
                                   decoration: Inputdec1.inputDecoration.copyWith(
