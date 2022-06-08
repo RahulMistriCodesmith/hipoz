@@ -293,8 +293,6 @@ class _SignUpState extends State<SignUp> {
                             ],
                           ),
 
-
-
                           SizedBox(
                             height: height*0.07,
                           ),
