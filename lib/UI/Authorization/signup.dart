@@ -135,7 +135,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           SizedBox(
-                            height: 42,
+                            height: height*0.03,
                           ),
 
                           TextFormField(
@@ -156,7 +156,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           SizedBox(
-                            height: 42,
+                            height: height*0.03,
                           ),
 
                           TextFormField(
@@ -177,7 +177,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           SizedBox(
-                            height: 42,
+                            height: height*0.03,
                           ),
 
                           IntlPhoneField(
@@ -214,7 +214,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           SizedBox(
-                            height: 15,
+                            height: height*0.01,
                           ),
 
                           TextFormField(
@@ -235,7 +235,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           SizedBox(
-                            height: 42,
+                            height: height*0.03,
                           ),
 
                           TextFormField(
@@ -256,7 +256,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           SizedBox(
-                            height: height*0.04,
+                            height: height*0.03,
                           ),
 
                           Stack(
@@ -296,7 +296,7 @@ class _SignUpState extends State<SignUp> {
 
 
                           SizedBox(
-                            height: height*0.08,
+                            height: height*0.07,
                           ),
 
                           RaisedButton(
@@ -312,7 +312,7 @@ class _SignUpState extends State<SignUp> {
                             }
                           ),
                           SizedBox(
-                            height: height*0.02,
+                            height: height*0.01,
                           ),
 
                           Row(
@@ -327,6 +327,10 @@ class _SignUpState extends State<SignUp> {
                                 child: Text('Sign In',style: Textstyle3Light18.appbartextstyle.copyWith(
                                     fontSize: 16,color: Colors.white),),)
                             ],
+                          ),
+
+                          SizedBox(
+                            height: height*0.01,
                           ),
 
                         ],
@@ -352,7 +356,6 @@ class _SignUpState extends State<SignUp> {
 
                               width: 100,
                               height: 100,
-
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(100),
@@ -368,7 +371,7 @@ class _SignUpState extends State<SignUp> {
 
                                 imageFile!,
 
-                                fit: BoxFit.fitHeight,
+                                fit: BoxFit.cover,
 
                               ),
 
@@ -378,48 +381,43 @@ class _SignUpState extends State<SignUp> {
 
 
                           SizedBox(
-                            height: 60,
+                            height: height*0.04,
                           ),
 
                           Row(
                             children: [
-                              InkWell(
-
-                                /*onTap: () => _selectDate(context),*/
-
-                                child: Container(
-                                  width: 150,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(18),
-                                      border: Border.all(color: Appcolors.grey1)
+                              Container(
+                                width: 150,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(18),
+                                    border: Border.all(color: Appcolors.grey1)
+                                ),
+                                child: DateTimeField(
+                                  format: format,
+                                  style: TextStyle(color: Colors.white),
+                                  decoration: Inputdec1.inputDecoration.copyWith(
+                                    suffixIcon: Icon(Icons.calendar_today_outlined,color: Colors.white,),
+                                    hintText: 'D.O.B',
+                                    hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
+                                        fontSize: 16,color: Appcolors.grey2),
                                   ),
-                                  child: DateTimeField(
-                                    format: format,
-                                    style: TextStyle(color: Colors.white),
-                                    decoration: Inputdec1.inputDecoration.copyWith(
-                                      suffixIcon: Icon(Icons.calendar_today_outlined,color: Colors.white,),
-                                      hintText: 'D.O.B',
-                                      hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                                          fontSize: 16,color: Appcolors.grey2),
-                                    ),
-                                    onShowPicker: (context, currentValue) async {
-                                      final date = await showDatePicker(
-                                          context: context,
-                                          firstDate: DateTime(1900),
-                                          initialDate: currentValue ?? DateTime.now(),
-                                          lastDate: DateTime(2100));
-                                      if (date != null) {
-                                        final time = await showTimePicker(
-                                          context: context,
-                                          initialTime:
-                                          TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
-                                        );
-                                        return DateTimeField.combine(date, time);
-                                      } else {
-                                        return currentValue;
-                                      }
-                                    },
-                                  ),
+                                  onShowPicker: (context, currentValue) async {
+                                    final date = await showDatePicker(
+                                        context: context,
+                                        firstDate: DateTime(1900),
+                                        initialDate: currentValue ?? DateTime.now(),
+                                        lastDate: DateTime(2100));
+                                    if (date != null) {
+                                      final time = await showTimePicker(
+                                        context: context,
+                                        initialTime:
+                                        TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
+                                      );
+                                      return DateTimeField.combine(date, time);
+                                    } else {
+                                      return currentValue;
+                                    }
+                                  },
                                 ),
                               ),
 
@@ -492,7 +490,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           SizedBox(
-                            height: height*0.04,
+                            height: height*0.03,
                           ),
 
                           Row(
@@ -684,7 +682,7 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           SizedBox(
-                            height: height*0.08,
+                            height: height*0.07,
                           ),
 
                           Center(
@@ -702,7 +700,7 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ),
                           SizedBox(
-                            height: height*0.02,
+                            height: height*0.01,
                           ),
 
                           Row(
