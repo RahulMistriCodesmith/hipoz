@@ -152,10 +152,9 @@ class _LandingPageState extends State<LandingPage> {
                                                 style: TextStyle(color: Colors.white),
                                                 decoration: Inputdec1.inputDecoration.copyWith(
                                                   hintText: 'Your password',
-                                                  suffixIconColor: _isObscure ? Colors.white : Colors.white,
                                                   suffixIcon: IconButton(
                                                     icon: Icon(
-                                                      _isObscure ? Icons.visibility_outlined : Icons.visibility_off_outlined,
+                                                      _isObscure ? Icons.visibility_outlined : Icons.visibility_off_outlined,color: Colors.white,size: 20,
                                                     ),
                                                     onPressed: () {
                                                       setState(() {
