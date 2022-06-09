@@ -1,3 +1,4 @@
+/*
 import 'dart:io';
 
 import 'package:dotted_border/dotted_border.dart';
@@ -21,7 +22,9 @@ class _SignUp3State extends State<SignUp3> {
 
   final _formKey = GlobalKey<FormState>();
 
-  /*late PageController signupSelectpage;*/
+  */
+/*late PageController signupSelectpage;*//*
+
 
   final format = DateFormat("dd-MM-yyyy");
 
@@ -439,7 +442,8 @@ class _SignUp3State extends State<SignUp3> {
                       ),
                     ),
 
-                    /*Center(
+                    */
+/*Center(
                       child: SmoothPageIndicator(
                         controller: signupSelectpage,
                         count:  5,
@@ -454,7 +458,8 @@ class _SignUp3State extends State<SignUp3> {
                             activeDotColor:  Appcolors.blue1
                         ),
                       ),
-                    ),*/
+                    ),*//*
+
 
                   ],
                 ),
@@ -489,10 +494,12 @@ class _SignUp3State extends State<SignUp3> {
                     Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const SignUp4(),
                       ),
                     );
-                    /*setState(() {
+                    */
+/*setState(() {
                       Utils.signupSelectpage = "page4";
                     }
-                    );*/
+                    );*//*
+
                   }
               ),
             ),
@@ -538,3 +545,4 @@ class _SignUp3State extends State<SignUp3> {
     }
   }
 }
+*/

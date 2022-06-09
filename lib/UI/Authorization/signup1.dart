@@ -1,3 +1,4 @@
+/*
 import 'dart:io';
 
 import 'package:hipoz/UI/Authorization/SignUp2.dart';
@@ -21,7 +22,9 @@ class _SignUp1State extends State<SignUp1> {
 
   final _formKey = GlobalKey<FormState>();
 
-  /*late PageController signupSelectpage;*/
+  */
+/*late PageController signupSelectpage;*//*
+
 
   final format = DateFormat("dd-MM-yyyy");
 
@@ -380,7 +383,8 @@ class _SignUp1State extends State<SignUp1> {
                     ),
                   ),
 
-                 /* Center(
+                 */
+/* Center(
                     child: SmoothPageIndicator(
                       controller: signupSelectpage,
                       count:  5,
@@ -395,7 +399,8 @@ class _SignUp1State extends State<SignUp1> {
                           activeDotColor:  Appcolors.blue1
                       ),
                     ),
-                  ),*/
+                  ),*//*
+
 
                 ],
               ),
@@ -416,10 +421,12 @@ class _SignUp1State extends State<SignUp1> {
                       Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const SignUp2(),
                         ),
                       );
-                      /*setState(() {
+                      */
+/*setState(() {
                         Utils.signupSelectpage = "page2";
                       }
-                      );*/
+                      );*//*
+
 
                     }
                 ),
@@ -468,3 +475,4 @@ class _SignUp1State extends State<SignUp1> {
     }
   }
 }
+*/

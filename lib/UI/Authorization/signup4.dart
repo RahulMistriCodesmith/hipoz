@@ -1,3 +1,4 @@
+/*
 import 'dart:io';
 
 import 'package:dotted_border/dotted_border.dart';
@@ -18,7 +19,9 @@ class SignUp4 extends StatefulWidget {
 class _SignUp4State extends State<SignUp4> {
 
 
-  /*late PageController signupSelectpage;*/
+  */
+/*late PageController signupSelectpage;*//*
+
 
   final format = DateFormat("dd-MM-yyyy");
 
@@ -511,7 +514,8 @@ class _SignUp4State extends State<SignUp4> {
                       ),
                     ),
 
-                   /* Center(
+                   */
+/* Center(
                       child: SmoothPageIndicator(
                         controller: signupSelectpage,
                         count:  5,
@@ -526,7 +530,8 @@ class _SignUp4State extends State<SignUp4> {
                             activeDotColor:  Appcolors.blue1
                         ),
                       ),
-                    ),*/
+                    ),*//*
+
 
                   ],
                 ),
@@ -589,3 +594,4 @@ class _SignUp4State extends State<SignUp4> {
     );
   }
 }
+*/
