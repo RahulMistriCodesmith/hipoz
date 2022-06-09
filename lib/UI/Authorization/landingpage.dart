@@ -565,6 +565,7 @@ class _LandingPageState extends State<LandingPage> {
                             borderRadius: BorderRadius.circular(16),
                           ),
                           child: TextField(
+                            style: TextStyle(color: Colors.white),
                             decoration: Inputdec2.inputDecoration.copyWith(
                               hintText: 'Email address',
                             ),
@@ -582,6 +583,7 @@ class _LandingPageState extends State<LandingPage> {
                             borderRadius: BorderRadius.circular(16),
                           ),
                           child: TextField(
+                            style: TextStyle(color: Colors.white),
                             maxLines: 6,
                             decoration: Inputdec2.inputDecoration.copyWith(
                               hintText: 'Message',
@@ -624,6 +626,7 @@ class _LandingPageState extends State<LandingPage> {
                             borderRadius: BorderRadius.circular(16),
                           ),
                           child: TextField(
+                            style: TextStyle(color: Colors.white),
                             decoration: Inputdec2.inputDecoration.copyWith(
                               hintText: 'Email address',
                             ),
@@ -640,6 +643,7 @@ class _LandingPageState extends State<LandingPage> {
                             borderRadius: BorderRadius.circular(16),
                           ),
                           child: TextField(
+                            style: TextStyle(color: Colors.white),
                             maxLines: 6,
                             decoration: Inputdec2.inputDecoration.copyWith(
                               counterStyle: TextStyle(color: Appcolors.grey1),
