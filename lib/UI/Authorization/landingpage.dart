@@ -239,7 +239,7 @@ class _LandingPageState extends State<LandingPage> {
 
                         });
                       },
-                      
+
                       child: Text('Sign in',style: Textstyle1Light18.appbartextstyle.copyWith(
                           fontSize: 16,fontWeight: FontWeight.w500,color: Colors.white),),
                     )
@@ -329,7 +329,7 @@ class _LandingPageState extends State<LandingPage> {
                 SizedBox(
                   height: height*0.04,
                 ),
-                
+
                 Container(
                   width: width*0.25,
                   child: RaisedButton(
@@ -353,7 +353,7 @@ class _LandingPageState extends State<LandingPage> {
                   style: Textstyle1Light18.appbartextstyle.copyWith(
                       fontSize: 14,color: Colors.white),
                 ),
-                
+
                 Icon(Icons.keyboard_arrow_down_rounded,color: Colors.white,),
 
                 SizedBox(
@@ -594,7 +594,7 @@ class _LandingPageState extends State<LandingPage> {
                         SizedBox(
                           height: height*0.02,
                         ),
-                        
+
                         Container(
                           width: width*0.9,
                           child: RaisedButton(

@@ -335,153 +335,637 @@ class _SignUpState extends State<SignUp> {
           ? Expanded(
               child: SingleChildScrollView(
 
-            child: Form(
-              key: _formKey,
+                child: Form(
+                  key: _formKey,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 24,right: 24),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+
+                        GestureDetector(
+
+                          onTap: (){
+                            _getFromGallery();
+                          },
+
+                          child: Container(
+
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                            child:
+
+                            imageFile == null
+
+                                ? Image.asset('assets/Iocns/penicon.png',color: Colors.black,scale: 2,)
+
+                                : Image.file(
+
+
+                              imageFile!,
+
+                              fit: BoxFit.cover,
+
+                            ),
+
+                          ),
+                        ),
+
+
+
+                        SizedBox(
+                          height: height*0.04,
+                        ),
+
+                        Row(
+                          children: [
+                            Container(
+                              width: 150,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(18),
+                                  border: Border.all(color: Appcolors.grey1)
+                              ),
+                              child: DateTimeField(
+
+                                format: format,
+                                style: TextStyle(color: Colors.white),
+                                decoration: Inputdec1.inputDecoration.copyWith(
+                                  suffixIcon: Icon(Icons.calendar_today_outlined,color: Colors.white,),
+                                  hintText: 'D.O.B',
+                                  hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
+                                      fontSize: 16,color: Appcolors.grey2),
+                                ),
+                                onShowPicker: (context, currentValue) async {
+                                  final date = await showDatePicker(
+                                      context: context,
+                                      firstDate: DateTime(1900),
+                                      initialDate: currentValue ?? DateTime.now(),
+                                      lastDate: DateTime(2100));
+                                  if (date != null) {
+                                    final time = await showTimePicker(
+                                      context: context,
+                                      initialTime:
+                                      TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
+                                    );
+                                    return DateTimeField.combine(date, time);
+                                  } else {
+                                    return currentValue;
+                                  }
+                                },
+                              ),
+                            ),
+
+                            SizedBox(
+                              width: width*0.04,
+                            ),
+
+                            Container(
+
+                              width: 150,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(18),
+                                  border: Border.all(color: Appcolors.grey1)
+                              ),
+
+                              child: DropdownButtonFormField(
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  filled: true,
+                                ),
+                                value: dropdownValue,
+                                dropdownColor: Appcolors.brown1,
+                                icon: const Icon(Icons.keyboard_arrow_down_outlined,color: Colors.white,),
+                                elevation: 16,
+                                style: const TextStyle(color: Colors.grey,fontSize: 15),
+                                onChanged: (String? newValue) {
+                                  dropdownValue = newValue!;
+                                },
+
+                                items: <String>['Male', 'Female']
+                                    .map<DropdownMenuItem<String>>((String value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(value),
+                                  );
+                                }).toList(),
+
+                                hint: Align(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    "Gender",
+                                    style: TextStyle(color: Appcolors.grey4),
+                                  ),
+                                ),
+                              ),
+                            ),
+
+                          ],
+                        ),
+
+                        SizedBox(
+                          height: height*0.02,
+                        ),
+
+                        TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter address';
+                            }
+                            return null;
+                          },
+                          maxLines: 7,
+                          style: TextStyle(color: Colors.white),
+                          decoration: Inputdec1.inputDecoration.copyWith(
+                            hintText: 'Address (Area and Street)',
+                            hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
+                                fontSize: 16,color: Appcolors.grey2),
+                          ),
+                        ),
+
+                        SizedBox(
+                          height: height*0.03,
+                        ),
+
+                        Row(
+                          children: [
+                            Container(
+                              width: 165,
+
+                              child:  TextFormField(
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter pincode';
+                                  }
+                                  return null;
+                                },
+                                maxLines: 1,
+                                style: TextStyle(color: Colors.white),
+                                decoration: Inputdec1.inputDecoration.copyWith(
+                                  hintText: "Pincode",
+                                  hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
+                                      fontSize: 16,color: Appcolors.grey2),
+                                  prefixIcon: Icon(Icons.location_on_outlined,color: Colors.white,size: 20,),
+                                ),
+                              ),
+                            ),
+
+                            SizedBox(
+                              width: width*0.05,
+                            ),
+
+                            Container(
+
+                              width: 150,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(18),
+                                  border: Border.all(color: Appcolors.grey1)
+                              ),
+
+                              child: DropdownButtonFormField(
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  filled: true,
+                                ),
+                                value: dropdownValue1,
+                                dropdownColor: Appcolors.brown1,
+                                icon: Padding(
+                                  padding: const EdgeInsets.only(right: 10),
+                                  child: const Icon(Icons.arrow_drop_down,),
+                                ),
+                                elevation: 16,
+                                style: const TextStyle(color: Colors.grey,fontSize: 16),
+                                onChanged: (String? newValue) {
+                                  dropdownValue1 = newValue!;
+                                },
+                                items: <String>['City', 'Surat', 'Navsari']
+                                    .map<DropdownMenuItem<String>>((String value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(value),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+
+                          ],
+                        ),
+
+                        SizedBox(
+                          height: height*0.03,
+                        ),
+
+                        Row(
+                          children: [
+                            Container(
+                              width: 165,
+
+                              child: TextFormField(
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter Region';
+                                  }
+                                  return null;
+                                },
+                                maxLines: 1,
+                                style: TextStyle(color: Colors.white),
+                                decoration: Inputdec1.inputDecoration.copyWith(
+                                  hintText: "Region",
+                                ),
+                              ),
+                            ),
+
+                            SizedBox(
+                              width: 20,
+                            ),
+
+                            Container(
+
+                              width: 150,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(18),
+                                  border: Border.all(color: Appcolors.grey1)
+                              ),
+
+                              child: DropdownButtonFormField(
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  filled: true,
+                                ),
+                                value: dropdownValue2,
+                                dropdownColor: Appcolors.brown1,
+
+                                icon: Padding(
+                                  padding: const EdgeInsets.only(right: 10),
+                                  child: const Icon(Icons.arrow_drop_down,),
+                                ),
+                                elevation: 16,
+                                style: const TextStyle(color: Colors.grey,fontSize: 15),
+                                onChanged: (String? newValue) {
+                                  dropdownValue2 = newValue!;
+                                },
+                                items: <String>['Country', 'India', 'Bangladesh', 'Australia']
+                                    .map<DropdownMenuItem<String>>((String value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(value),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+
+                          ],
+                        ),
+
+                        SizedBox(
+                          height: height*0.04,
+                        ),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            InkWell(
+                              child: Text('Skip',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                  color: Appcolors.grey4,fontSize: 16
+                              ),),
+                              onTap: (){
+                                setState(() {
+                                  Utils.signupSelectpage = "page2";
+                                });
+
+                              },
+                            ),
+                          ],
+                        ),
+
+                        Stack(
+                          children: [
+
+                            Center(
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 4),
+                                child: Container(
+                                  width: width*0.2,
+                                  height: height*0.002,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+
+                            Center(
+                              child: AnimatedSmoothIndicator(
+                                activeIndex: 1,
+                                count:  5,
+                                effect:  SlideEffect(
+                                    spacing:  8.0,
+                                    radius:  14.0,
+                                    dotWidth:  10.0,
+                                    dotHeight:  10.0,
+                                    paintStyle:  PaintingStyle.fill,
+                                    strokeWidth:  1.0,
+                                    dotColor:  Colors.white,
+                                    activeDotColor:  Appcolors.blue1
+                                ),
+                              ),
+                            ),
+
+                          ],
+                        ),
+
+                        SizedBox(
+                          height: height*0.07,
+                        ),
+
+                        Center(
+                          child: RaisedButton(
+                              color: Appcolors.blue1,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              child: Icon(Icons.keyboard_arrow_right_outlined,color: Colors.white,size: 30,),
+                              onPressed: () {
+                                setState(() {
+                                  Utils.signupSelectpage = "page2";
+                                }
+                                );
+                                print(Utils.signupSelectpage);
+                              }
+                          ),
+                        ),
+
+                        SizedBox(
+                          height: height*0.01,
+                        ),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('Already have an account? ',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                fontSize: 16,color: Colors.white),),
+                            TextButton(
+                              onPressed: (){
+                                Navigator.push(context,MaterialPageRoute(builder: (context) => LandingPage()));
+                              },
+                              child: Text('Sign In',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                  fontSize: 16,color: Colors.white),),)
+                          ],
+                        ),
+
+
+                      ],
+                    ),
+                  ),
+                ),
+              ))
+          : SizedBox(),
+
+          Utils.signupSelectpage == "page2"
+          ? Expanded(
+            child: SingleChildScrollView(
+
               child: Padding(
                 padding: const EdgeInsets.only(left: 24,right: 24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Container(
+                      width: width*0.9,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18),
+                          border: Border.all(color: Appcolors.grey1)
+                      ),
 
-                    GestureDetector(
+                      child: DropdownButtonFormField(
+                        decoration: InputDecoration(
 
-                      onTap: (){
-                        _getFromGallery();
-                      },
+                          border: InputBorder.none,
 
-                      child: Container(
-
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                        child:
-
-                        imageFile == null
-
-                            ? Image.asset('assets/Iocns/penicon.png',color: Colors.black,scale: 2,)
-
-                            : Image.file(
-
-
-                          imageFile!,
-
-                          fit: BoxFit.cover,
+                          filled: true,
 
                         ),
+                        value: degree,
+                        dropdownColor: Appcolors.brown1,
+                        icon: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: const Icon(Icons.arrow_drop_down,),
+                        ),
+                        elevation: 16,
+                        style: const TextStyle(color: Colors.grey,fontSize: 15),
+                        onChanged: (String? newValue) {
+                          degree = newValue!;
+                        },
+                        items: <String>['Degree', 'B.E', 'B.Com']
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                      ),
+                    ),
 
+                    SizedBox(
+                      height: height*0.03,
+                    ),
+
+                    Container(
+
+                      width: width*0.9,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18),
+                          border: Border.all(color: Appcolors.grey1)
+                      ),
+
+                      child: DropdownButtonFormField(
+
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          filled: true,
+                        ),
+                        value: study,
+                        dropdownColor: Appcolors.brown1,
+                        icon: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: const Icon(Icons.arrow_drop_down,),
+                        ),
+                        elevation: 16,
+                        style: const TextStyle(color: Colors.grey,fontSize: 15),
+                        onChanged: (String? newValue) {
+                          study = newValue!;
+                        },
+                        items: <String>['Field of Study','Engineering', 'Accountant']
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
                       ),
                     ),
 
 
-
                     SizedBox(
-                      height: height*0.04,
+                      height: height*0.03,
                     ),
 
-                    Row(
-                      children: [
-                        Container(
-                          width: 150,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(18),
-                              border: Border.all(color: Appcolors.grey1)
-                          ),
-                          child: DateTimeField(
+                    TextFormField(
 
-                            format: format,
-                            style: TextStyle(color: Colors.white),
-                            decoration: Inputdec1.inputDecoration.copyWith(
-                              suffixIcon: Icon(Icons.calendar_today_outlined,color: Colors.white,),
-                              hintText: 'D.O.B',
-                              hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                                  fontSize: 16,color: Appcolors.grey2),
-                            ),
-                            onShowPicker: (context, currentValue) async {
-                              final date = await showDatePicker(
-                                  context: context,
-                                  firstDate: DateTime(1900),
-                                  initialDate: currentValue ?? DateTime.now(),
-                                  lastDate: DateTime(2100));
-                              if (date != null) {
-                                final time = await showTimePicker(
-                                  context: context,
-                                  initialTime:
-                                  TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
-                                );
-                                return DateTimeField.combine(date, time);
-                              } else {
-                                return currentValue;
-                              }
-                            },
-                          ),
-                        ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter University name';
+                        }
+                        return null;
+                      },
+                      maxLines: 1,
+                      style: TextStyle(color: Colors.white),
+                      decoration: Inputdec1.inputDecoration.copyWith(
+                        hintText: 'University Name',
+                        hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
+                            fontSize: 15,color: Appcolors.grey2),
+                      ),
+                    ),
 
-                        SizedBox(
-                          width: width*0.04,
-                        ),
 
-                        Container(
+                    SizedBox(
+                      height: height*0.03,
+                    ),
 
-                          width: 150,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(18),
-                              border: Border.all(color: Appcolors.grey1)
-                          ),
-
-                          child: DropdownButtonFormField(
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              filled: true,
-                            ),
-                            value: dropdownValue,
-                            dropdownColor: Appcolors.brown1,
-                            icon: const Icon(Icons.keyboard_arrow_down_outlined,color: Colors.white,),
-                            elevation: 16,
-                            style: const TextStyle(color: Colors.grey,fontSize: 15),
-                            onChanged: (String? newValue) {
-                              dropdownValue = newValue!;
-                            },
-
-                            items: <String>['Male', 'Female']
-                                .map<DropdownMenuItem<String>>((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(value),
-                              );
-                            }).toList(),
-
-                            hint: Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                "Gender",
-                                style: TextStyle(color: Appcolors.grey4),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                      ],
+                    DateTimeField(
+                      format: format,
+                      style: TextStyle(color: Colors.white),
+                      decoration: Inputdec1.inputDecoration.copyWith(
+                        prefixIcon: Icon(Icons.calendar_today_outlined,color: Colors.white,),
+                        hintText: 'Graduation Date',
+                        hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
+                            fontSize: 16,color: Appcolors.grey2),
+                      ),
+                      onShowPicker: (context, currentValue) async {
+                        final date = await showDatePicker(
+                            context: context,
+                            firstDate: DateTime(1900),
+                            initialDate: currentValue ?? DateTime.now(),
+                            lastDate: DateTime(2100));
+                        if (date != null) {
+                          final time = await showTimePicker(
+                            context: context,
+                            initialTime:
+                            TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
+                          );
+                          return DateTimeField.combine(date, time);
+                        } else {
+                          return currentValue;
+                        }
+                      },
                     ),
 
                     SizedBox(
-                      height: height*0.02,
+                      height: height*0.03,
+                    ),
+
+                    DottedBorder(
+                      color: Appcolors.blue1,
+                      strokeWidth: 1,
+                      radius: Radius.circular(16),
+                      dashPattern: [15, 15],
+                      child: Container(
+                        padding: EdgeInsets.only(left: 105,top: 11,bottom: 10.88),
+                        child: Row(
+                          children: [
+                            Text('Add graduation history',style: TextStyle(color: Colors.white),),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Icon(Icons.add,color: Appcolors.blue1,),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(
+                      height: height*0.03,
                     ),
 
                     TextFormField(
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter address';
+                          return 'Please enter Scholarship';
                         }
                         return null;
                       },
-                      maxLines: 7,
+                      maxLines: 1,
+                      style: TextStyle(color: Colors.white),
+
+                      decoration: Inputdec1.inputDecoration.copyWith(
+                        prefixIcon: Icon(Icons.add,color: Colors.white,),
+                        hintText: 'Scholarship',
+                        hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
+                            fontSize: 15,color: Appcolors.grey2),
+                      ),
+                    ),
+
+                    SizedBox(
+                      height: height*0.03,
+                    ),
+
+                    Container(
+
+                      width: width*0.9,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18),
+                          border: Border.all(color: Appcolors.grey1)
+                      ),
+
+                      child: DropdownButtonFormField(
+                        decoration: InputDecoration(
+
+                          border: InputBorder.none,
+
+                          filled: true,
+
+                        ),
+                        value: work,
+                        dropdownColor: Appcolors.brown1,
+                        icon: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: const Icon(Icons.arrow_drop_down,),
+                        ),
+                        elevation: 16,
+                        style: const TextStyle(color: Colors.grey,fontSize: 15),
+                        onChanged: (String? newValue) {
+                          work = newValue!;
+                        },
+                        items: <String>['Work Availability']
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+
+                    SizedBox(
+                      height: height*0.03,
+                    ),
+
+                    TextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter Scholarship';
+                        }
+                        return null;
+                      },
+
+                      maxLines: 1,
                       style: TextStyle(color: Colors.white),
                       decoration: Inputdec1.inputDecoration.copyWith(
-                        hintText: 'Address (Area and Street)',
+                        prefixIcon: Icon(Icons.add,color: Colors.white,),
+                        hintText: 'Name of the scholarship',
                         hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
                             fontSize: 16,color: Appcolors.grey2),
                       ),
@@ -491,155 +975,99 @@ class _SignUpState extends State<SignUp> {
                       height: height*0.03,
                     ),
 
-                    Row(
-                      children: [
-                        Container(
-                          width: 165,
+                    Container(
 
-                          child:  TextFormField(
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter pincode';
-                              }
-                              return null;
-                            },
-                            maxLines: 1,
-                            style: TextStyle(color: Colors.white),
-                            decoration: Inputdec1.inputDecoration.copyWith(
-                              hintText: "Pincode",
-                              hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                                  fontSize: 16,color: Appcolors.grey2),
-                              prefixIcon: Icon(Icons.location_on_outlined,color: Colors.white,size: 20,),
-                            ),
-                          ),
+                      width: width*0.9,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18),
+                          border: Border.all(color: Appcolors.grey1)
+                      ),
+
+                      child: DropdownButtonFormField(
+                        decoration: InputDecoration(
+
+                          border: InputBorder.none,
+
+                          filled: true,
+
                         ),
-
-                        SizedBox(
-                          width: width*0.05,
+                        value: institution,
+                        dropdownColor: Appcolors.brown1,
+                        icon: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: const Icon(Icons.arrow_drop_down,),
                         ),
-
-                        Container(
-
-                          width: 150,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(18),
-                              border: Border.all(color: Appcolors.grey1)
-                          ),
-
-                          child: DropdownButtonFormField(
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              filled: true,
-                            ),
-                            value: dropdownValue1,
-                            dropdownColor: Appcolors.brown1,
-                            icon: Padding(
-                              padding: const EdgeInsets.only(right: 10),
-                              child: const Icon(Icons.arrow_drop_down,),
-                            ),
-                            elevation: 16,
-                            style: const TextStyle(color: Colors.grey,fontSize: 16),
-                            onChanged: (String? newValue) {
-                              dropdownValue1 = newValue!;
-                            },
-                            items: <String>['City', 'Surat', 'Navsari']
-                                .map<DropdownMenuItem<String>>((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(value),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-
-                      ],
+                        elevation: 16,
+                        style: const TextStyle(color: Colors.grey,fontSize: 15),
+                        onChanged: (String? newValue) {
+                          institution = newValue!;
+                        },
+                        items: <String>['Scholarship Institution']
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                      ),
                     ),
 
                     SizedBox(
                       height: height*0.03,
                     ),
 
-                    Row(
-                      children: [
-                        Container(
-                          width: 165,
+                    TextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter Scholarship';
+                        }
+                        return null;
+                      },
+                      maxLines: 1,
+                      style: TextStyle(color: Colors.white),
+                      decoration: Inputdec1.inputDecoration.copyWith(
+                        prefixIcon: Icon(Icons.add,color: Colors.white,),
+                        hintText: 'Scholarship Received on',
+                        hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
+                            fontSize: 16,color: Appcolors.grey2),
+                      ),
+                    ),
 
-                          child: TextFormField(
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter Region';
-                              }
-                              return null;
-                            },
-                            maxLines: 1,
-                            style: TextStyle(color: Colors.white),
-                            decoration: Inputdec1.inputDecoration.copyWith(
-                              hintText: "Region",
-                            ),
+                    SizedBox(
+                      height: height*0.03,
+                    ),
+
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18),
+                          border: Border.all(color: Appcolors.blue1)
+                      ),
+                      child: RaisedButton(
+                          color: Appcolors.brown1,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18),
                           ),
-                        ),
-
-                        SizedBox(
-                          width: 20,
-                        ),
-
-                        Container(
-
-                          width: 150,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(18),
-                              border: Border.all(color: Appcolors.grey1)
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: width*0.22,
+                              ),
+                              Text('Upload Certificate',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                  fontSize: 16,color: Appcolors.blue1),),
+                              SizedBox(
+                                width: width*0.01,
+                              ),
+                              Image.asset('assets/Images/addIcon.png',scale: 3.5,),
+                            ],
                           ),
+                          onPressed: (){
 
-                          child: DropdownButtonFormField(
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              filled: true,
-                            ),
-                            value: dropdownValue2,
-                            dropdownColor: Appcolors.brown1,
-
-                            icon: Padding(
-                              padding: const EdgeInsets.only(right: 10),
-                              child: const Icon(Icons.arrow_drop_down,),
-                            ),
-                            elevation: 16,
-                            style: const TextStyle(color: Colors.grey,fontSize: 15),
-                            onChanged: (String? newValue) {
-                              dropdownValue2 = newValue!;
-                            },
-                            items: <String>['Country', 'India', 'Bangladesh', 'Australia']
-                                .map<DropdownMenuItem<String>>((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(value),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-
-                      ],
+                          }
+                      ),
                     ),
 
                     SizedBox(
                       height: height*0.04,
-                    ),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        InkWell(
-                          child: Text('Skip',style: Textstyle1Light18.appbartextstyle.copyWith(
-                              color: Appcolors.grey4,fontSize: 16
-                          ),),
-                          onTap: (){
-                            setState(() {
-                              Utils.signupSelectpage = "page2";
-                            });
-
-                          },
-                        ),
-                      ],
                     ),
 
                     Stack(
@@ -656,28 +1084,28 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
 
-                         Center(
-                  child: AnimatedSmoothIndicator(
-                    activeIndex: 1,
-                    count:  5,
-                    effect:  SlideEffect(
-                        spacing:  8.0,
-                        radius:  14.0,
-                        dotWidth:  10.0,
-                        dotHeight:  10.0,
-                        paintStyle:  PaintingStyle.fill,
-                        strokeWidth:  1.0,
-                        dotColor:  Colors.white,
-                        activeDotColor:  Appcolors.blue1
-                    ),
-                  ),
-                ),
+                        Center(
+                          child: AnimatedSmoothIndicator(
+                            activeIndex: 2,
+                            count:  5,
+                            effect:  SlideEffect(
+                                spacing:  8.0,
+                                radius:  14.0,
+                                dotWidth:  10.0,
+                                dotHeight:  10.0,
+                                paintStyle:  PaintingStyle.fill,
+                                strokeWidth:  1.0,
+                                dotColor:  Colors.white,
+                                activeDotColor:  Appcolors.blue1
+                            ),
+                          ),
+                        ),
 
                       ],
                     ),
 
                     SizedBox(
-                      height: height*0.07,
+                      height: height*0.08,
                     ),
 
                     Center(
@@ -687,18 +1115,17 @@ class _SignUpState extends State<SignUp> {
                             borderRadius: BorderRadius.circular(100),
                           ),
                           child: Icon(Icons.keyboard_arrow_right_outlined,color: Colors.white,size: 30,),
-                          onPressed: () {
+                          onPressed: () async {
+                            /*Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const SignUp3(),),);*/
                             setState(() {
-                              Utils.signupSelectpage = "page2";
+                              Utils.signupSelectpage = "page3";
                             }
                             );
-                            print(Utils.signupSelectpage);
                           }
                       ),
                     ),
-
                     SizedBox(
-                      height: height*0.01,
+                      height: height*0.02,
                     ),
 
                     Row(
@@ -715,441 +1142,14 @@ class _SignUpState extends State<SignUp> {
                       ],
                     ),
 
-
                   ],
                 ),
               ),
-            ),
-          ))
+            ),)
           : SizedBox(),
 
-          Utils.signupSelectpage == "page2"
-              ? Expanded(
-            child: SingleChildScrollView(
-
-            child: Padding(
-              padding: const EdgeInsets.only(left: 24,right: 24),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: width*0.9,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18),
-                        border: Border.all(color: Appcolors.grey1)
-                    ),
-
-                    child: DropdownButtonFormField(
-                      decoration: InputDecoration(
-
-                        border: InputBorder.none,
-
-                        filled: true,
-
-                      ),
-                      value: degree,
-                      dropdownColor: Appcolors.brown1,
-                      icon: Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: const Icon(Icons.arrow_drop_down,),
-                      ),
-                      elevation: 16,
-                      style: const TextStyle(color: Colors.grey,fontSize: 15),
-                      onChanged: (String? newValue) {
-                        degree = newValue!;
-                      },
-                      items: <String>['Degree', 'B.E', 'B.Com']
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-
-                  SizedBox(
-                    height: height*0.03,
-                  ),
-
-                  Container(
-
-                    width: width*0.9,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18),
-                        border: Border.all(color: Appcolors.grey1)
-                    ),
-
-                    child: DropdownButtonFormField(
-
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        filled: true,
-                      ),
-                      value: study,
-                      dropdownColor: Appcolors.brown1,
-                      icon: Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: const Icon(Icons.arrow_drop_down,),
-                      ),
-                      elevation: 16,
-                      style: const TextStyle(color: Colors.grey,fontSize: 15),
-                      onChanged: (String? newValue) {
-                        study = newValue!;
-                      },
-                      items: <String>['Field of Study','Engineering', 'Accountant']
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-
-
-                  SizedBox(
-                    height: height*0.03,
-                  ),
-
-                  TextFormField(
-
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter University name';
-                      }
-                      return null;
-                    },
-                    maxLines: 1,
-                    style: TextStyle(color: Colors.white),
-                    decoration: Inputdec1.inputDecoration.copyWith(
-                      hintText: 'University Name',
-                      hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                          fontSize: 15,color: Appcolors.grey2),
-                    ),
-                  ),
-
-
-                  SizedBox(
-                    height: height*0.03,
-                  ),
-
-                  DateTimeField(
-                    format: format,
-                    style: TextStyle(color: Colors.white),
-                    decoration: Inputdec1.inputDecoration.copyWith(
-                      prefixIcon: Icon(Icons.calendar_today_outlined,color: Colors.white,),
-                      hintText: 'Graduation Date',
-                      hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                          fontSize: 16,color: Appcolors.grey2),
-                    ),
-                    onShowPicker: (context, currentValue) async {
-                      final date = await showDatePicker(
-                          context: context,
-                          firstDate: DateTime(1900),
-                          initialDate: currentValue ?? DateTime.now(),
-                          lastDate: DateTime(2100));
-                      if (date != null) {
-                        final time = await showTimePicker(
-                          context: context,
-                          initialTime:
-                          TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
-                        );
-                        return DateTimeField.combine(date, time);
-                      } else {
-                        return currentValue;
-                      }
-                    },
-                  ),
-
-                  SizedBox(
-                    height: height*0.03,
-                  ),
-
-                  DottedBorder(
-                    color: Appcolors.blue1,
-                    strokeWidth: 1,
-                    radius: Radius.circular(16),
-                    dashPattern: [15, 15],
-                    child: Container(
-                      padding: EdgeInsets.only(left: 105,top: 11,bottom: 10.88),
-                      child: Row(
-                        children: [
-                          Text('Add graduation history',style: TextStyle(color: Colors.white),),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Icon(Icons.add,color: Appcolors.blue1,),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-
-                  SizedBox(
-                    height: height*0.03,
-                  ),
-
-                  TextFormField(
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter Scholarship';
-                      }
-                      return null;
-                    },
-                    maxLines: 1,
-                    style: TextStyle(color: Colors.white),
-
-                    decoration: Inputdec1.inputDecoration.copyWith(
-                      prefixIcon: Icon(Icons.add,color: Colors.white,),
-                      hintText: 'Scholarship',
-                      hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                          fontSize: 15,color: Appcolors.grey2),
-                    ),
-                  ),
-
-                  SizedBox(
-                    height: height*0.03,
-                  ),
-
-                  Container(
-
-                    width: width*0.9,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18),
-                        border: Border.all(color: Appcolors.grey1)
-                    ),
-
-                    child: DropdownButtonFormField(
-                      decoration: InputDecoration(
-
-                        border: InputBorder.none,
-
-                        filled: true,
-
-                      ),
-                      value: work,
-                      dropdownColor: Appcolors.brown1,
-                      icon: Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: const Icon(Icons.arrow_drop_down,),
-                      ),
-                      elevation: 16,
-                      style: const TextStyle(color: Colors.grey,fontSize: 15),
-                      onChanged: (String? newValue) {
-                        work = newValue!;
-                      },
-                      items: <String>['Work Availability']
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-
-                  SizedBox(
-                    height: height*0.03,
-                  ),
-
-                  TextFormField(
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter Scholarship';
-                      }
-                      return null;
-                    },
-
-                    maxLines: 1,
-                    style: TextStyle(color: Colors.white),
-                    decoration: Inputdec1.inputDecoration.copyWith(
-                      prefixIcon: Icon(Icons.add,color: Colors.white,),
-                      hintText: 'Name of the scholarship',
-                      hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                          fontSize: 16,color: Appcolors.grey2),
-                    ),
-                  ),
-
-                  SizedBox(
-                    height: height*0.03,
-                  ),
-
-                  Container(
-
-                    width: width*0.9,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18),
-                        border: Border.all(color: Appcolors.grey1)
-                    ),
-
-                    child: DropdownButtonFormField(
-                      decoration: InputDecoration(
-
-                        border: InputBorder.none,
-
-                        filled: true,
-
-                      ),
-                      value: institution,
-                      dropdownColor: Appcolors.brown1,
-                      icon: Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: const Icon(Icons.arrow_drop_down,),
-                      ),
-                      elevation: 16,
-                      style: const TextStyle(color: Colors.grey,fontSize: 15),
-                      onChanged: (String? newValue) {
-                        institution = newValue!;
-                      },
-                      items: <String>['Scholarship Institution']
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-
-                  SizedBox(
-                    height: height*0.03,
-                  ),
-
-                  TextFormField(
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter Scholarship';
-                      }
-                      return null;
-                    },
-                    maxLines: 1,
-                    style: TextStyle(color: Colors.white),
-                    decoration: Inputdec1.inputDecoration.copyWith(
-                      prefixIcon: Icon(Icons.add,color: Colors.white,),
-                      hintText: 'Scholarship Received on',
-                      hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                          fontSize: 16,color: Appcolors.grey2),
-                    ),
-                  ),
-
-                  SizedBox(
-                    height: height*0.03,
-                  ),
-
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18),
-                        border: Border.all(color: Appcolors.blue1)
-                    ),
-                    child: RaisedButton(
-                        color: Appcolors.brown1,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18),
-                        ),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: width*0.22,
-                            ),
-                            Text('Upload Certificate',style: Textstyle1Light18.appbartextstyle.copyWith(
-                                fontSize: 16,color: Appcolors.blue1),),
-                            SizedBox(
-                              width: width*0.01,
-                            ),
-                            Image.asset('assets/Images/addIcon.png',scale: 3.5,),
-                          ],
-                        ),
-                        onPressed: (){
-
-                        }
-                    ),
-                  ),
-
-                  SizedBox(
-                    height: height*0.04,
-                  ),
-
-                  Stack(
-                    children: [
-
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 4),
-                          child: Container(
-                            width: width*0.2,
-                            height: height*0.002,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-
-                      Center(
-                child: AnimatedSmoothIndicator(
-                  activeIndex: 2,
-                  count:  5,
-                  effect:  SlideEffect(
-                      spacing:  8.0,
-                      radius:  14.0,
-                      dotWidth:  10.0,
-                      dotHeight:  10.0,
-                      paintStyle:  PaintingStyle.fill,
-                      strokeWidth:  1.0,
-                      dotColor:  Colors.white,
-                      activeDotColor:  Appcolors.blue1
-                  ),
-                ),
-              ),
-
-                    ],
-                  ),
-
-                  SizedBox(
-                    height: height*0.08,
-                  ),
-
-                  Center(
-                    child: RaisedButton(
-                        color: Appcolors.blue1,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                        child: Icon(Icons.keyboard_arrow_right_outlined,color: Colors.white,size: 30,),
-                        onPressed: () async {
-                          /*Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const SignUp3(),),);*/
-                          setState(() {
-                    Utils.signupSelectpage = "page3";
-                  }
-                  );
-                        }
-                    ),
-                  ),
-                  SizedBox(
-                    height: height*0.02,
-                  ),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Already have an account? ',style: Textstyle1Light18.appbartextstyle.copyWith(
-                          fontSize: 16,color: Colors.white),),
-                      TextButton(
-                        onPressed: (){
-                          Navigator.push(context,MaterialPageRoute(builder: (context) => LandingPage()));
-                        },
-                        child: Text('Sign In',style: Textstyle3Light18.appbartextstyle.copyWith(
-                            fontSize: 16,color: Colors.white),),)
-                    ],
-                  ),
-
-                ],
-              ),
-            ),
-          ),)
-              : SizedBox(),
-
           Utils.signupSelectpage == "page3"
-              ? Expanded(
+          ? Expanded(
             child: SingleChildScrollView(
 
             child: Padding(
@@ -1522,21 +1522,21 @@ class _SignUpState extends State<SignUp> {
                           ),
 
                           Center(
-                    child: AnimatedSmoothIndicator(
-                      activeIndex: 3,
-                      count:  5,
-                      effect:  SlideEffect(
-                          spacing:  8.0,
-                          radius:  14.0,
-                          dotWidth:  10.0,
-                          dotHeight:  10.0,
-                          paintStyle:  PaintingStyle.fill,
-                          strokeWidth:  1.0,
-                          dotColor:  Colors.white,
-                          activeDotColor:  Appcolors.blue1
-                      ),
-                    ),
-                  ),
+                            child: AnimatedSmoothIndicator(
+                              activeIndex: 3,
+                              count:  5,
+                              effect:  SlideEffect(
+                                  spacing:  8.0,
+                                  radius:  14.0,
+                                  dotWidth:  10.0,
+                                  dotHeight:  10.0,
+                                  paintStyle:  PaintingStyle.fill,
+                                  strokeWidth:  1.0,
+                                  dotColor:  Colors.white,
+                                  activeDotColor:  Appcolors.blue1
+                              ),
+                            ),
+                          ),
 
                         ],
                       ),
@@ -1572,12 +1572,13 @@ class _SignUpState extends State<SignUp> {
                         onPressed: () async {
                           /*Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const SignUp4(),),);*/
                           setState(() {
-                    Utils.signupSelectpage = "page4";
-                  }
-                  );
+                            Utils.signupSelectpage = "page4";
+                          }
+                          );
                         }
                     ),
                   ),
+
                   SizedBox(
                     height: height*0.02,
                   ),
@@ -1600,10 +1601,10 @@ class _SignUpState extends State<SignUp> {
               ),
             ),
           ),)
-              : SizedBox(),
+          : SizedBox(),
 
-          Utils.signupSelectpage == "page4"
-              ? Expanded(
+      Utils.signupSelectpage == "page4"
+       ? Expanded(
             child: SingleChildScrollView(
 
             child: Padding(
@@ -2020,9 +2021,7 @@ class _SignUpState extends State<SignUp> {
                             Image.asset('assets/Images/addIcon.png',scale: 3.5,color: Appcolors.grey1,),
                           ],
                         ),
-                        onPressed: (){
-
-                        }
+                        onPressed: (){}
                     ),
                   ),
 
@@ -2050,22 +2049,22 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ),
 
-                           Center(
-                    child: AnimatedSmoothIndicator(
-                      activeIndex: 4,
-                      count:  5,
-                      effect:  SlideEffect(
-                          spacing:  5.0,
-                          radius:  14.0,
-                          dotWidth:  10.0,
-                          dotHeight:  10.0,
-                          paintStyle:  PaintingStyle.fill,
-                          strokeWidth:  1.0,
-                          dotColor:  Colors.white,
-                          activeDotColor:  Appcolors.blue1
-                      ),
-                    ),
-                  ),
+                          Center(
+                            child: AnimatedSmoothIndicator(
+                              activeIndex: 4,
+                              count:  5,
+                              effect:  SlideEffect(
+                                  spacing:  5.0,
+                                  radius:  14.0,
+                                  dotWidth:  10.0,
+                                  dotHeight:  10.0,
+                                  paintStyle:  PaintingStyle.fill,
+                                  strokeWidth:  1.0,
+                                  dotColor:  Colors.white,
+                                  activeDotColor:  Appcolors.blue1
+                              ),
+                            ),
+                          ),
 
                         ],
                       ),
@@ -2132,7 +2131,7 @@ class _SignUpState extends State<SignUp> {
               ),
             ),
           ),)
-              : SizedBox(),
+       : SizedBox(),
 
 
         ],
