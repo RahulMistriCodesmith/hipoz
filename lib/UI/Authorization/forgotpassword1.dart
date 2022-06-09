@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
+import 'package:hipoz/UI/Authorization/landingpage.dart';
 class ForgotPassword1 extends StatefulWidget {
   const ForgotPassword1({Key? key}) : super(key: key);
 
@@ -67,8 +68,9 @@ class _ForgotPassword1State extends State<ForgotPassword1> {
                 ),
                 child: Text('Sign In',
                   style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Colors.white,fontWeight: FontWeight.w800),),
-                onPressed: (){})
-            
+                onPressed: (){
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => const LandingPage()));
+                })
           ],
         ),
       ),

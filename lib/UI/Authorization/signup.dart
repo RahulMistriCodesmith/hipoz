@@ -108,9 +108,7 @@ class _SignUpState extends State<SignUp> {
                   print('page ${index + 1}');
                 },
                 children: [
-
                   SingleChildScrollView(
-
                     child: Padding(
                       padding: const EdgeInsets.only(top: 20,left: 24,right: 24),
                       child: Column(
@@ -124,7 +122,6 @@ class _SignUpState extends State<SignUp> {
                               return null;
                             },
                             maxLines: 1,
-
                             style: TextStyle(color: Colors.white),
                             decoration: Inputdec1.inputDecoration.copyWith(
                               prefixIcon: Icon(Icons.perm_identity,color: Colors.white,),
@@ -506,7 +503,6 @@ class _SignUpState extends State<SignUp> {
                                   },
                                   maxLines: 1,
                                   style: TextStyle(color: Colors.white),
-                                  textAlign: TextAlign.center,
                                   decoration: Inputdec1.inputDecoration.copyWith(
                                     hintText: "Pincode",
                                     hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
@@ -529,14 +525,9 @@ class _SignUpState extends State<SignUp> {
                                 ),
 
                                 child: DropdownButtonFormField(
-                                  isDense: true,
-
                                   decoration: InputDecoration(
-
                                     border: InputBorder.none,
-
                                     filled: true,
-
                                   ),
                                   value: dropdownValue1,
                                   dropdownColor: Appcolors.brown1,
@@ -600,13 +591,9 @@ class _SignUpState extends State<SignUp> {
                                 ),
 
                                 child: DropdownButtonFormField(
-                                  isDense: true,
                                   decoration: InputDecoration(
-
                                     border: InputBorder.none,
-
                                     filled: true,
-
                                   ),
                                   value: dropdownValue2,
                                   dropdownColor: Appcolors.brown1,
@@ -640,9 +627,16 @@ class _SignUpState extends State<SignUp> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text('Skip',style: Textstyle1Light18.appbartextstyle.copyWith(
-                                color: Appcolors.grey4,fontSize: 16
-                              ),),
+                              InkWell(
+                                child: Text('Skip',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                  color: Appcolors.grey4,fontSize: 16
+                                ),),
+                                onTap: (){
+                                  pageview.nextPage(
+                                      duration: Duration(seconds: 1),
+                                      curve: Curves.easeInOut);
+                                },
+                              ),
                             ],
                           ),
 
@@ -1543,9 +1537,18 @@ class _SignUpState extends State<SignUp> {
 
                               SizedBox(width: width*0.24),
 
-                              Text('Skip',style: Textstyle1Light18.appbartextstyle.copyWith(
-                                  color: Appcolors.grey4,fontSize: 16
-                              ),),
+                              InkWell(
+
+                                onTap: (){
+                                  pageview.nextPage(
+                                      duration: Duration(seconds: 1),
+                                      curve: Curves.easeInOut);
+                                },
+
+                                child: Text('Skip',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                    color: Appcolors.grey4,fontSize: 16
+                                ),),
+                              ),
                             ],
                           ),
 

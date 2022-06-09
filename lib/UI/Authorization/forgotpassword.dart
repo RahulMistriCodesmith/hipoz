@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
 import 'package:hipoz/UI/Authorization/forgotpassword1.dart';
+import 'package:hipoz/UI/Authorization/landingpage.dart';
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);
 
@@ -12,6 +13,8 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
+
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -43,57 +46,86 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 24,right: 24,top: 100),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              TextField(
-                decoration: Inputdec1.inputDecoration.copyWith(
-                  prefixIcon: Icon(Icons.perm_identity,color: Colors.white,),
-                  hintText: 'First Name',
-                  hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                      fontSize: 16,color: Appcolors.grey2),
-                ),
-              ),
+      body: Form(
 
-              Padding(
-                padding: const EdgeInsets.only(top: 29,bottom: 29),
-                child: Text('or',style: Textstyle1Light18.appbartextstyle.copyWith(
-                    fontSize: 16,color: Appcolors.grey2),),
-              ),
+        key: _formKey,
 
-              TextField(
-                decoration: Inputdec1.inputDecoration.copyWith(
-                  prefixIcon: Icon(Icons.perm_identity,color: Colors.white,),
-                  hintText: 'First Name',
-                  hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                      fontSize: 16,color: Appcolors.grey2),
-                ),
-              ),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 24,right: 24,top: 100),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter name';
+                    }
+                    return null;
+                  },
+                  maxLines: 1,
 
-              SizedBox(height: height*0.2,),
-
-              RaisedButton(
-                  color: Appcolors.blue1,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(100),
+                  style: TextStyle(color: Colors.white),
+                  decoration: Inputdec1.inputDecoration.copyWith(
+                    prefixIcon: Icon(Icons.perm_identity,color: Colors.white,),
+                    hintText: 'First Name',
+                    hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
+                        fontSize: 16,color: Appcolors.grey2),
                   ),
-                  child: Icon(Icons.arrow_forward_ios_outlined,color: Colors.white,size: 17,),
-                  onPressed: (){
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => const ForgotPassword1()));
-                  }
-              ),
+                ),
 
-              TextButton(
-
-                  child: Text('Go back',style: Textstyle1Light18.appbartextstyle.copyWith(
+                Padding(
+                  padding: const EdgeInsets.only(top: 29,bottom: 29),
+                  child: Text('or',style: Textstyle1Light18.appbartextstyle.copyWith(
                       fontSize: 16,color: Appcolors.grey2),),
-                  onPressed: (){}
-              ),
+                ),
 
-            ],
+                TextFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter email';
+                    }
+                    return null;
+                  },
+                  maxLines: 1,
+                  style: TextStyle(color: Colors.white),
+                  decoration: Inputdec1.inputDecoration.copyWith(
+                    prefixIcon: Icon(Icons.mail_outline,color: Colors.white,),
+                    hintText: 'Email Address',
+                    hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
+                        fontSize: 16,color: Appcolors.grey2),
+                  ),
+                ),
+
+                SizedBox(height: height*0.2,),
+
+                RaisedButton(
+                    color: Appcolors.blue1,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: Icon(Icons.arrow_forward_ios_outlined,color: Colors.white,size: 17,),
+                    onPressed: (){
+
+                      if (_formKey.currentState!.validate()) {
+                        Navigator.push(context,MaterialPageRoute(builder: (context) => const ForgotPassword1()));
+
+                      }
+
+                    }
+                ),
+
+                TextButton(
+
+                    child: Text('Go back',style: Textstyle1Light18.appbartextstyle.copyWith(
+                        fontSize: 16,color: Appcolors.grey2),),
+                    onPressed: (){
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => const LandingPage()));
+                    }
+                ),
+
+              ],
+            ),
           ),
         ),
       ),
