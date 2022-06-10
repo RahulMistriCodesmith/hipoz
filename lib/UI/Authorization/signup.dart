@@ -363,29 +363,32 @@ class _SignUpState extends State<SignUp> {
                             _getFromGallery();
                           },
 
-                          child: Container(
+                          child: ClipRRect(
+                            borderRadius:
+                            BorderRadius.circular(100),
+                            child: Container(
 
-                            width: 100,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(100),
+                              width: 100,
+                              height: 100,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              child:
+
+                              imageFile == null
+
+                                  ? Image.asset('assets/Iocns/penicon.png',color: Colors.black,scale: 2,)
+
+                                  : Image.file(
+
+                                imageFile!,
+
+                                fit: BoxFit.cover,
+
+                              ),
+
                             ),
-                            child:
-
-                            imageFile == null
-
-                                ? Image.asset('assets/Iocns/penicon.png',color: Colors.black,scale: 2,)
-
-                                : Image.file(
-
-
-                              imageFile!,
-
-                              fit: BoxFit.cover,
-
-                            ),
-
                           ),
                         ),
 
@@ -1338,20 +1341,24 @@ class _SignUpState extends State<SignUp> {
                     height: height*0.02,
                   ),
 
-                  Container(
-                    width: 100,
-                    height: 100,
-                    child: _imageFile == null
+                  ClipRRect(
+                    borderRadius:
+                    BorderRadius.circular(100),
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      child: _imageFile == null
 
-                        ? Image.asset('assets/Images/iconpdf.png',color: Colors.white,scale: 2,)
+                          ? Image.asset('assets/Images/iconpdf.png',color: Colors.white,scale: 2,)
 
-                        : Image.file(
+                          : Image.file(
 
 
-                      _imageFile!,
+                        _imageFile!,
 
-                      fit: BoxFit.fitWidth,
+                        fit: BoxFit.fitWidth,
 
+                      ),
                     ),
                   ),
 
