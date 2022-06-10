@@ -121,7 +121,7 @@ class _LandingPageState extends State<LandingPage> {
                                                 ),),
 
                                               SizedBox(
-                                                height: 27,
+                                                height: 15,
                                               ),
 
                                               TextField(
@@ -142,7 +142,7 @@ class _LandingPageState extends State<LandingPage> {
                                                 ),),
 
                                               SizedBox(
-                                                height: 27,
+                                                height: 15,
                                               ),
 
                                               TextField(
@@ -166,7 +166,7 @@ class _LandingPageState extends State<LandingPage> {
                                               ),
 
                                               SizedBox(
-                                                height: 30,
+                                                height: 15,
                                               ),
 
                                               TextButton(
@@ -179,7 +179,7 @@ class _LandingPageState extends State<LandingPage> {
                                               ),
 
                                               SizedBox(
-                                                height: height*0.09,
+                                                height: height*0.15,
                                               ),
 
                                               Container(
@@ -195,13 +195,13 @@ class _LandingPageState extends State<LandingPage> {
                                                     ),
 
                                                     onPressed: (){
-                                if(email.text == "student@gmail.com" && password.text == "123"){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => StudentDashboard()));
+                                                      if(email.text == "student@gmail.com" && password.text == "123"){
+                                                        Navigator.push(context, MaterialPageRoute(builder: (context) => StudentDashboard()));
 
-                                }
-                                else if(email.text == "company@gmail.com"  && password.text == "123"){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => CompanyDashboard()));
-                                                    }}
+                                                      }
+                                                      else if(email.text == "company@gmail.com"  && password.text == "123"){
+                                                        Navigator.push(context, MaterialPageRoute(builder: (context) => CompanyDashboard()));
+                                                      }}
                                                 ),
                                               ),
 
@@ -634,7 +634,7 @@ class _LandingPageState extends State<LandingPage> {
                         ),
 
                         SizedBox(
-                          height: height*0.04,
+                          height: height*0.02,
                         ),
 
                         Container(
@@ -653,7 +653,7 @@ class _LandingPageState extends State<LandingPage> {
                         ),
 
                         SizedBox(
-                          height: height*0.04,
+                          height: height*0.02,
                         ),
 
                         Container(
