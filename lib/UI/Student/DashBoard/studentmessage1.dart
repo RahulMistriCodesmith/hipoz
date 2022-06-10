@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element, unused_field, prefer_const_constructors
+
 import 'package:chat_bubbles/chat_bubbles.dart';
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
@@ -16,6 +18,7 @@ class _StudentMessage1State extends State<StudentMessage1> {
 
   List<String> people = [];
 
+  @override
   void initState() {
     super.initState();
     initPlatformState();
@@ -144,8 +147,6 @@ class _StudentMessage1State extends State<StudentMessage1> {
                     suffixIcon: Icon(Icons.attach_file_outlined,color: Colors.white,),
 
                   ),
-
-
 
                   onChanged: (String value) => setState(() {}),
 

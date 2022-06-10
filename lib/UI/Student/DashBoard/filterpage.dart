@@ -1,7 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
-import 'package:hipoz/UI/Company/companydashboard.dart';
 import 'package:hipoz/UI/Student/DashBoard/studentdashbord.dart';
 class FilterPage extends StatefulWidget {
   const FilterPage({Key? key}) : super(key: key);

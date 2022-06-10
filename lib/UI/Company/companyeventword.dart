@@ -86,11 +86,22 @@ class _CompanyEventWordState extends State<CompanyEventWord> {
                           height: 20,
                         ),
 
-                        Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu amet enim pellentesque cras id vulputate. Dapibus.',
-                          style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 11,color: Appcolors.grey3),),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Lorem ipsum dolor sit amet,',
+                              style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 11,color: Appcolors.grey3),),
+                            Text('consectetur adipiscing elit. Arcu amet',
+                              style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 11,color: Appcolors.grey3),),
+                            Text('enim pellentesque cras id vulputate.',
+                              style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 11,color: Appcolors.grey3),),
+                            Text(' Dapibus.',
+                              style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 11,color: Appcolors.grey3),),
+                          ],
+                        ),
 
                         SizedBox(
-                          height: 30,
+                          height: 20,
                         ),
 
                         Row(
@@ -100,14 +111,17 @@ class _CompanyEventWordState extends State<CompanyEventWord> {
                                 child: Text('Learn more',
                                   style: Textstyle3Light18.appbartextstyle.copyWith(fontSize: 12,color: Appcolors.blue1),)),
                             SizedBox(width: 16,),
-                            RaisedButton(
-                                color: Appcolors.blue1,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                child: Text('Get now',
-                                  style: Textstyle3Light18.appbartextstyle.copyWith(fontSize: 12,color: Colors.white),),
-                                onPressed: (){}
+                            Container(
+                              width: width*0.3,
+                              child: RaisedButton(
+                                  color: Appcolors.blue1,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(16),
+                                  ),
+                                  child: Text('Get now',
+                                    style: Textstyle3Light18.appbartextstyle.copyWith(fontSize: 12,color: Colors.white),),
+                                  onPressed: (){}
+                              ),
                             ),
                           ],
                         ),
@@ -125,9 +139,7 @@ class _CompanyEventWordState extends State<CompanyEventWord> {
                     Text('Event world',
                       style: Textstyle3Light18.appbartextstyle.copyWith(fontSize: 24,color: Appcolors.brown1),),
 
-                    SizedBox(
-                      width: width*0.4,
-                    ),
+                    Expanded(child: SizedBox()),
 
                     Text('Sort',
                       style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Appcolors.grey4),),
@@ -291,9 +303,7 @@ class _CompanyEventWordState extends State<CompanyEventWord> {
                           ],
                         ),
 
-                        SizedBox(width: width*0.3,),
-
-
+                        Expanded(child: SizedBox()),
 
                         IconButton(
                           onPressed: (){},
@@ -336,8 +346,7 @@ class _CompanyEventWordState extends State<CompanyEventWord> {
                         ],
                       ),
 
-                      SizedBox(width: width*0.365,),
-
+                      Expanded(child: SizedBox()),
 
                       IconButton(
                         onPressed: (){},

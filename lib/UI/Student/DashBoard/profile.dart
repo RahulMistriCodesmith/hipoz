@@ -150,7 +150,7 @@ class _ProfileState extends State<Profile> {
                           width: 24,
                         ),
 
-                        InkWell(
+                        GestureDetector(
 
                           onTap: (){
                             setState(() {
@@ -178,7 +178,7 @@ class _ProfileState extends State<Profile> {
                           width: 10,
                         ),
 
-                        InkWell(
+                        GestureDetector(
 
                           onTap: (){
                             setState(() {
@@ -204,7 +204,7 @@ class _ProfileState extends State<Profile> {
                           width: 10,
                         ),
 
-                        InkWell(
+                        GestureDetector(
 
                           onTap: (){
                             setState(() {
@@ -253,20 +253,22 @@ class _ProfileState extends State<Profile> {
                                         Text('Edit Description',style: Textstyle3Light18.appbartextstyle.copyWith(
                                             fontSize: 14,color: Colors.white),),
 
-                                        SizedBox(
-                                          width: width*0.41,
-                                        ),
+                                        Expanded(child: SizedBox()),
 
                                         IconButton(
                                           onPressed: (){},
                                           icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Colors.white,),
-                                        )
+                                        ),
+
 
                                       ],
                                     ),
                                   ),
 
-                                  Divider(color: Appcolors.grey2,),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 20,right: 20),
+                                    child: Divider(color: Appcolors.grey2,),
+                                  ),
 
                                   Padding(
                                     padding: const EdgeInsets.only(left: 16,right: 16,top: 24,bottom: 24),
@@ -276,7 +278,10 @@ class _ProfileState extends State<Profile> {
                                     ),
                                   ),
 
-                                  Divider(color: Appcolors.grey2,),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 20,right: 20),
+                                    child: Divider(color: Appcolors.grey2,),
+                                  ),
 
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -341,9 +346,7 @@ class _ProfileState extends State<Profile> {
                                         Text('Education',style: Textstyle3Light18.appbartextstyle.copyWith(
                                             fontSize: 14,color: Colors.white),),
 
-                                        SizedBox(
-                                          width: width*0.52,
-                                        ),
+                                        Expanded(child: SizedBox()),
 
                                         IconButton(
                                           onPressed: (){},
@@ -384,12 +387,14 @@ class _ProfileState extends State<Profile> {
                                               ],
                                             ),
 
-                                            SizedBox(width: width*0.1,),
+                                            Expanded(child: SizedBox()),
 
                                             IconButton(
                                               onPressed: (){},
                                               icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
-                                            )
+                                            ),
+                                            SizedBox(width: width*0.02,)
+
                                           ],
                                         ),
                                       ),
@@ -427,12 +432,13 @@ class _ProfileState extends State<Profile> {
                                               ],
                                             ),
 
-                                            SizedBox(width: width*0.1,),
+                                            Expanded(child: SizedBox()),
 
                                             IconButton(
                                               onPressed: (){},
                                               icon: ImageIcon(AssetImage('assets/Images/dotimage.png'),size: 17,color: Colors.white,),
-                                            )
+                                            ),
+                                            SizedBox(width: width*0.02,)
                                           ],
                                         ),
                                       ),
@@ -460,9 +466,7 @@ class _ProfileState extends State<Profile> {
                                         Text('Role expectation',style: Textstyle3Light18.appbartextstyle.copyWith(
                                             fontSize: 14,color: Colors.white),),
 
-                                        SizedBox(
-                                          width: width*0.41,
-                                        ),
+                                        Expanded(child: SizedBox()),
 
                                         IconButton(
                                           onPressed: (){},
@@ -537,9 +541,7 @@ class _ProfileState extends State<Profile> {
                                         Text('Scholarship',style: Textstyle3Light18.appbartextstyle.copyWith(
                                             fontSize: 14,color: Colors.white),),
 
-                                        SizedBox(
-                                          width: width*0.5,
-                                        ),
+                                        Expanded(child: SizedBox()),
 
                                         IconButton(
                                           onPressed: (){},
@@ -586,7 +588,7 @@ class _ProfileState extends State<Profile> {
                                                 ],
                                               ),
 
-                                              SizedBox(width: width*0.14,),
+                                              Expanded(child: SizedBox()),
 
                                               IconButton(
                                                 onPressed: (){},
@@ -630,7 +632,7 @@ class _ProfileState extends State<Profile> {
                                               ],
                                             ),
 
-                                            SizedBox(width: width*0.14,),
+                                            Expanded(child: SizedBox()),
 
                                             IconButton(
                                               onPressed: (){},
@@ -663,9 +665,7 @@ class _ProfileState extends State<Profile> {
                                         Text('Language',style: Textstyle3Light18.appbartextstyle.copyWith(
                                             fontSize: 14,color: Colors.white),),
 
-                                        SizedBox(
-                                          width: width*0.53,
-                                        ),
+                                        Expanded(child: SizedBox()),
 
                                         IconButton(
                                           onPressed: (){},
@@ -675,17 +675,20 @@ class _ProfileState extends State<Profile> {
                                     ),
                                   ),
 
-                                  Divider(color: Appcolors.grey2,),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 20,right: 20),
+                                    child: Divider(color: Appcolors.grey2,),
+                                  ),
 
                                   Padding(
-                                    padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
+                                    padding: const EdgeInsets.only(left: 16,right: 20,top: 16,bottom: 18),
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text('English',style: Textstyle3Light18.appbartextstyle.copyWith(
                                             fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
 
-                                        SizedBox(width: width*0.6,),
+                                        Expanded(child: SizedBox()),
 
                                         Text('Fluent',style: Textstyle2Light18.appbartextstyle.copyWith(
                                             fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
@@ -693,17 +696,20 @@ class _ProfileState extends State<Profile> {
                                     ),
                                   ),
 
-                                  Divider(color: Appcolors.grey2,),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 20,right: 20),
+                                    child: Divider(color: Appcolors.grey2,),
+                                  ),
 
                                   Padding(
-                                    padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
+                                    padding: const EdgeInsets.only(left: 16,right: 20,top: 16,bottom: 18),
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text('Chinese',style: Textstyle3Light18.appbartextstyle.copyWith(
                                             fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
 
-                                        SizedBox(width: width*0.59,),
+                                        Expanded(child: SizedBox()),
 
                                         Text('Fluent',style: Textstyle2Light18.appbartextstyle.copyWith(
                                             fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
@@ -732,9 +738,7 @@ class _ProfileState extends State<Profile> {
                                         Text('Skills',style: Textstyle3Light18.appbartextstyle.copyWith(
                                             fontSize: 14,color: Colors.white),),
 
-                                        SizedBox(
-                                          width: width*0.6,
-                                        ),
+                                        Expanded(child: SizedBox()),
 
                                         IconButton(
                                           onPressed: (){},
@@ -744,7 +748,10 @@ class _ProfileState extends State<Profile> {
                                     ),
                                   ),
 
-                                  Divider(color: Appcolors.grey2,),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 16,right: 16),
+                                    child: Divider(color: Appcolors.grey2,),
+                                  ),
 
                                   Padding(
                                     padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
@@ -754,7 +761,7 @@ class _ProfileState extends State<Profile> {
                                         Text('Digital marketing',style: Textstyle3Light18.appbartextstyle.copyWith(
                                             fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
 
-                                        SizedBox(width: width*0.43,),
+                                        Expanded(child: SizedBox()),
 
                                         Text('Expert',style: Textstyle2Light18.appbartextstyle.copyWith(
                                             fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
@@ -762,7 +769,10 @@ class _ProfileState extends State<Profile> {
                                     ),
                                   ),
 
-                                  Divider(color: Appcolors.grey2,),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 16,right: 16),
+                                    child: Divider(color: Appcolors.grey2,),
+                                  ),
 
                                   Padding(
                                     padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
@@ -772,7 +782,7 @@ class _ProfileState extends State<Profile> {
                                         Text('Sales marketing',style: Textstyle3Light18.appbartextstyle.copyWith(
                                             fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
 
-                                        SizedBox(width: width*0.46,),
+                                        Expanded(child: SizedBox()),
 
                                         Text('Expert',style: Textstyle2Light18.appbartextstyle.copyWith(
                                             fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
@@ -780,7 +790,10 @@ class _ProfileState extends State<Profile> {
                                     ),
                                   ),
 
-                                  Divider(color: Appcolors.grey2,),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 16,right: 16),
+                                    child: Divider(color: Appcolors.grey2,),
+                                  ),
 
                                   Padding(
                                     padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
@@ -790,7 +803,7 @@ class _ProfileState extends State<Profile> {
                                         Text('Business management',style: Textstyle3Light18.appbartextstyle.copyWith(
                                             fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
 
-                                        SizedBox(width: width*0.36,),
+                                        Expanded(child: SizedBox()),
 
                                         Text('Expert',style: Textstyle2Light18.appbartextstyle.copyWith(
                                             fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
@@ -819,9 +832,7 @@ class _ProfileState extends State<Profile> {
                                         Text('Experience',style: Textstyle3Light18.appbartextstyle.copyWith(
                                             fontSize: 14,color: Colors.white),),
 
-                                        SizedBox(
-                                          width: width*0.509,
-                                        ),
+                                        Expanded(child: SizedBox()),
 
                                         IconButton(
                                           onPressed: (){},
@@ -862,7 +873,7 @@ class _ProfileState extends State<Profile> {
                                               ],
                                             ),
 
-                                            SizedBox(width: width*0.17,),
+                                            Expanded(child: SizedBox()),
 
                                             IconButton(
                                               onPressed: (){},
@@ -905,7 +916,7 @@ class _ProfileState extends State<Profile> {
                                               ],
                                             ),
 
-                                            SizedBox(width: width*0.2,),
+                                            Expanded(child: SizedBox()),
 
                                             IconButton(
                                               onPressed: (){},
@@ -938,9 +949,7 @@ class _ProfileState extends State<Profile> {
                                         Text('Expected salary per month',style: Textstyle3Light18.appbartextstyle.copyWith(
                                             fontSize: 14,color: Colors.white),),
 
-                                        SizedBox(
-                                          width: width*0.253
-                                        ),
+                                        Expanded(child: SizedBox()),
 
                                         IconButton(
                                           onPressed: (){},
@@ -950,7 +959,10 @@ class _ProfileState extends State<Profile> {
                                     ),
                                   ),
 
-                                  Divider(color: Appcolors.grey2,),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 16,right: 16),
+                                    child: Divider(color: Appcolors.grey2,),
+                                  ),
 
                                   Padding(
                                     padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
@@ -960,7 +972,7 @@ class _ProfileState extends State<Profile> {
                                         Text('Rs.5K - Rs.10K',style: Textstyle3Light18.appbartextstyle.copyWith(
                                             fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
 
-                                        SizedBox(width: width*0.45,),
+                                        Expanded(child: SizedBox()),
 
                                         Text('Full time',style: Textstyle2Light18.appbartextstyle.copyWith(
                                             fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
@@ -968,7 +980,10 @@ class _ProfileState extends State<Profile> {
                                     ),
                                   ),
 
-                                  Divider(color: Appcolors.grey2,),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 16,right: 16),
+                                    child: Divider(color: Appcolors.grey2,),
+                                  ),
 
                                   Padding(
                                     padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
@@ -978,7 +993,7 @@ class _ProfileState extends State<Profile> {
                                         Text('Rs.1K - Rs.5K',style: Textstyle3Light18.appbartextstyle.copyWith(
                                             fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),),
 
-                                        SizedBox(width: width*0.47,),
+                                        Expanded(child: SizedBox()),
 
                                         Text('Part time',style: Textstyle2Light18.appbartextstyle.copyWith(
                                             fontSize: 12,color: Colors.white,fontWeight: FontWeight.w500),),
@@ -1001,254 +1016,7 @@ class _ProfileState extends State<Profile> {
                       ? Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 24,right: 24),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Appcolors.brown2,
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 24,left: 16,right: 16),
-                                    child: Row(
-                                      children: [
-                                        Text('Description',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                            fontSize: 14,color: Colors.white),),
-
-                                        RaisedButton(
-                                          color: Colors.white,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(16),
-                                          ),
-                                          onPressed: (){},
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(left: 6,top: 5,right: 6,bottom: 5),
-                                            child: Text('Edit Profile',style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                fontSize: 14,color: Appcolors.blue1),),
-                                          ),
-                                        ),
-
-                                        SizedBox(
-                                          width: 140,
-                                        )
-
-                                      ],
-                                    ),
-                                  ),
-
-                                  Divider(color: Appcolors.grey4,),
-
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 16,right: 16,top: 24,bottom: 24),
-                                    child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium at amet, arcu velit. Sodales diam mauris tempus consequat felis, ullamcorper. Aliquam eu ornare nisl vulputate et ultrices amet quisque viverra. Elementum tempus lobortis lobortis sit sodales quam. Venenatis amet odio platea rutrum non.',
-                                      style: Textstyle1Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Colors.white,fontWeight: FontWeight.w500),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-
-
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8,left: 24,right: 24,bottom: 24),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Appcolors.brown2,
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 20,top: 20,bottom: 20),
-                                    child: Text('Add Coupon',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                        fontSize: 14,color: Colors.white),),
-                                  ),
-
-                                  Divider(),
-
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14),
-                                    child: Row(
-                                      children: [
-                                        Text('Title',style: Textstyle4Light18.appbartextstyle.copyWith(
-                                            fontSize: 14,color: Colors.white),),
-                                        SizedBox(
-                                          width: 40,
-                                        ),
-                                        Container(
-                                          padding: EdgeInsets.only(left: 10),
-                                          width: width*0.6,
-                                          decoration: BoxDecoration(
-                                            border: Border.all(color: Appcolors.grey2),
-                                            borderRadius: BorderRadius.circular(16),
-                                          ),
-                                          child: TextField(
-                                            decoration: InputDecoration(
-                                              border: InputBorder.none,
-                                              hintText: 'Title of the product',
-                                              hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                                                  fontSize: 14,color: Appcolors.grey2),
-                                            ),
-                                          ),
-                                        ),
-
-                                      ],
-                                    ),
-                                  ),
-
-                                  Divider(),
-
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.only(bottom: 150),
-                                          child: Text('Description',style: Textstyle4Light18.appbartextstyle.copyWith(
-                                            fontSize: 14,color: Colors.white,),),
-                                        ),
-                                        SizedBox(
-                                          width: 5,
-                                        ),
-                                        Container(
-                                          padding: EdgeInsets.only(left: 10),
-                                          width: width*0.57,
-                                          decoration: BoxDecoration(
-                                            border: Border.all(color: Appcolors.grey2),
-                                            borderRadius: BorderRadius.circular(16),
-                                          ),
-                                          child: TextField(
-                                            maxLines: 8,
-                                            decoration: InputDecoration(
-                                              border: InputBorder.none,
-                                              hintText: 'Title of the product',
-                                              hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                                                  fontSize: 14,color: Appcolors.grey2),
-                                            ),
-                                          ),
-                                        ),
-
-                                      ],
-                                    ),
-                                  ),
-
-                                  Divider(),
-
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14),
-                                    child: Row(
-                                      children: [
-                                        Text('Discount',style: Textstyle4Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Colors.white,),),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        Container(
-                                          padding: EdgeInsets.only(left: 10),
-                                          width: width*0.57,
-                                          decoration: BoxDecoration(
-                                            border: Border.all(color: Appcolors.grey2),
-                                            borderRadius: BorderRadius.circular(16),
-                                          ),
-                                          child: TextField(
-
-                                            decoration: InputDecoration(
-                                              border: InputBorder.none,
-                                              hintText: 'Discount on the product',
-                                              hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                                                  fontSize: 14,color: Appcolors.grey2),
-                                              suffixIcon: Image.asset('assets/Images/img_1.png',scale: 1.7),
-                                            ),
-                                          ),
-                                        ),
-
-                                      ],
-                                    ),
-                                  ),
-
-                                  Divider(),
-
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14),
-                                    child: Row(
-                                      children: [
-                                        Text('Link',style: Textstyle4Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Colors.white,),),
-                                        SizedBox(
-                                          width: 50,
-                                        ),
-                                        Container(
-                                          padding: EdgeInsets.only(left: 10),
-                                          width: width*0.58,
-                                          decoration: BoxDecoration(
-                                            border: Border.all(color: Appcolors.grey2),
-                                            borderRadius: BorderRadius.circular(16),
-                                          ),
-                                          child: TextField(
-
-                                            decoration: InputDecoration(
-                                              border: InputBorder.none,
-                                              hintText: 'Discount on the product',
-                                              hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                                                  fontSize: 14,color: Appcolors.grey2),
-                                              suffixIcon: Image.asset('assets/Images/img.png',scale: 1.8),
-                                            ),
-                                          ),
-                                        ),
-
-                                      ],
-                                    ),
-                                  ),
-
-                                  Divider(),
-
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 16,bottom: 20),
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(16),
-                                              border: Border.all(color: Appcolors.blue1)
-                                          ),
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(top: 7,bottom: 7,left: 15,right: 15),
-                                            child: Text('Upload Product Photo',
-                                              style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                  fontSize: 14,color: Appcolors.blue1,fontWeight: FontWeight.w800),),
-                                          ),
-                                        ),
-
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-
-                                        RaisedButton(
-                                          color: Appcolors.blue1,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(40),
-                                          ),
-                                          child: Text('Post',
-                                            style: Textstyle1Light18.appbartextstyle.copyWith(
-                                                fontSize: 14,color: Colors.white,fontWeight: FontWeight.w700),),
-                                          onPressed: (){},
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-
-                                ],
-                              ),
-                            ),
-                          ),
-
+                          Text(''),
                         ],
                       )
 

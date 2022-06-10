@@ -1,7 +1,10 @@
+// ignore_for_file: prefer_const_constructors, deprecated_member_use, avoid_print
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
+import 'package:hipoz/UI/Authorization/landingpage.dart';
 import 'package:hipoz/UI/Student/DashBoard/SearchPage.dart';
 import 'package:hipoz/UI/Student/DashBoard/benefitworld.dart';
 import 'package:hipoz/UI/Student/DashBoard/eventworld.dart';
@@ -212,7 +215,10 @@ class _StudentDashboardState extends State<StudentDashboard> {
                     ),
                     child: Text('Sign out',style: Textstyle1Light18.appbartextstyle.copyWith(
                         color: Appcolors.blue1,fontSize: 16,fontWeight: FontWeight.w800),),
-                    onPressed: (){}),
+                    onPressed: (){
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => const LandingPage()));
+                    }
+                    ),
               ),
             )
           ],
@@ -283,8 +289,9 @@ class _StudentDashboardState extends State<StudentDashboard> {
                               ),),
                             ],
                           ),
-                          SizedBox(width: width*0.23),
+                          Expanded(child: SizedBox()),
                           Image.asset('assets/Images/dotimage.png',scale: 4,),
+                          SizedBox(width: width*0.03,)
                         ],
                       ),
                       SizedBox(
@@ -345,8 +352,9 @@ class _StudentDashboardState extends State<StudentDashboard> {
                               ),),
                             ],
                           ),
-                          SizedBox(width: width*0.17),
+                          Expanded(child: SizedBox()),
                           Image.asset('assets/Images/dotimage.png',scale: 4,),
+                          SizedBox(width: width*0.06,)
                         ],
                       ),
                       SizedBox(
@@ -391,8 +399,9 @@ class _StudentDashboardState extends State<StudentDashboard> {
                               ),),
                             ],
                           ),
-                          SizedBox(width: width*0.25),
+                          Expanded(child: SizedBox()),
                           Image.asset('assets/Images/dotimage.png',scale: 4,),
+                          SizedBox(width: width*0.07,),
                         ],
                       ),
                       SizedBox(
@@ -442,6 +451,56 @@ class _StudentDashboardState extends State<StudentDashboard> {
                             ),),
                           ),
                           onPressed: (){}),
+                    ],
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 10,),
+
+              Container(
+                decoration: BoxDecoration(
+                  color: Appcolors.brown2,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15.13,top: 21.65,bottom: 16),
+                  child: Column(
+
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset('assets/Images/posticon2.png',scale: 4,),
+
+                          SizedBox(width: 12),
+
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Huawei',style: Textstyle3Light18.appbartextstyle.copyWith(
+                                  fontSize: 14,color: Colors.white
+                              ),),
+                              Text('Shenzen, China, 5 hours ago',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                  fontSize: 12,color: Appcolors.grey2
+                              ),),
+                            ],
+                          ),
+                          Expanded(child: SizedBox()),
+                          Image.asset('assets/Images/dotimage.png',scale: 4,),
+                          SizedBox(width: width*0.05,)
+                        ],
+                      ),
+                      SizedBox(
+                        height: 17,
+                      ),
+                      Text('Post with associate link',style: Textstyle1Light18.appbartextstyle.copyWith(
+                          fontSize: 14,color: Colors.white
+                      ),),
+                      SizedBox(
+                        height: 13,
+                      ),
+
                     ],
                   ),
                 ),

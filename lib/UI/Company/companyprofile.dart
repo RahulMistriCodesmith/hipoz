@@ -288,9 +288,7 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                       Text('Edit Description',style: Textstyle3Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Appcolors.brown1),),
 
-                                      SizedBox(
-                                        width: width*0.41,
-                                      ),
+                                      Expanded(child: SizedBox()),
 
                                       IconButton(
                                         onPressed: (){},
@@ -301,7 +299,10 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                   ),
                                 ),
 
-                                Divider(color: Appcolors.grey2,),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16),
+                                  child: Divider(color: Appcolors.grey2,),
+                                ),
 
                                 Padding(
                                   padding: const EdgeInsets.only(left: 16,right: 16,top: 24,bottom: 24),
@@ -311,7 +312,10 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                   ),
                                 ),
 
-                                Divider(color: Appcolors.grey2,),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16),
+                                  child: Divider(color: Appcolors.grey2,),
+                                ),
 
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -376,13 +380,11 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                       Text('Company product',style: Textstyle3Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Appcolors.brown1),),
 
-                                      SizedBox(
-                                        width: width*0.39,
-                                      ),
+                                      Expanded(child: SizedBox()),
 
                                       IconButton(
                                         onPressed: (){},
-                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Appcolors.brown1,),
+                                        icon: ImageIcon(AssetImage('assets/Iocns/penicon.png'),size: 17,color: Appcolors.grey2,),
                                       )
                                     ],
                                   ),
@@ -395,41 +397,43 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                     children: const [
                                       Chip(
                                         label: Text('Property assurance'),
-                                        labelStyle: TextStyle(color: Colors.white),
+                                        labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                         backgroundColor: Appcolors.purple,
                                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
                                       Chip(
                                         label: Text('Cyber assurance'),
-                                        labelStyle: TextStyle(color: Colors.white),
+                                        labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                         backgroundColor: Appcolors.purple,
                                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
                                       Chip(
                                         label: Text('Cargo assurance'),
-                                        labelStyle: TextStyle(color: Colors.white),
+                                        labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                         backgroundColor: Appcolors.purple,
                                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
                                       Chip(
                                         label: Text('Energy assurance'),
-                                        labelStyle: TextStyle(color: Colors.white),
+                                        labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                         backgroundColor: Appcolors.purple,
                                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
                                       Chip(
                                         label: Text('Health assurance'),
-                                        labelStyle: TextStyle(color: Colors.white),
+                                        labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                         backgroundColor: Appcolors.purple,
                                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
                                       Chip(
                                         label: Text('+5'),
-                                        labelStyle: TextStyle(color: Colors.black),
+                                        labelStyle: TextStyle(color: Colors.black,fontFamily: 'Avenir'),
                                         backgroundColor: Colors.white,
                                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       )
                                     ]),
+
+                                SizedBox(height: 15,)
 
                               ],
                             ),
@@ -453,9 +457,7 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                       Text('Company culture',style: Textstyle3Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Appcolors.brown1),),
 
-                                      SizedBox(
-                                        width: width*0.41,
-                                      ),
+                                      Expanded(child: SizedBox()),
 
                                       IconButton(
                                         onPressed: (){},
@@ -494,9 +496,7 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                       Text('Company philosophy',style: Textstyle3Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Appcolors.brown1),),
 
-                                      SizedBox(
-                                        width: width*0.351,
-                                      ),
+                                      Expanded(child: SizedBox()),
 
                                       IconButton(
                                         onPressed: (){},
@@ -543,9 +543,7 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                           ],
                                         ),
 
-                                        SizedBox(
-                                          width: width*0.09,
-                                        ),
+                                        Expanded(child: SizedBox()),
 
                                         IconButton(
                                           onPressed: (){},
@@ -584,9 +582,7 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                       Text('Looking for',style: Textstyle3Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Appcolors.brown1),),
 
-                                      SizedBox(
-                                        width: width*0.5,
-                                      ),
+                                      Expanded(child: SizedBox()),
 
                                       IconButton(
                                         onPressed: (){},
@@ -603,51 +599,57 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                     children: const [
                                       Chip(
                                         label: Text('Bachelor’s degree'),
-                                        labelStyle: TextStyle(color: Colors.white),
+                                        labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                         backgroundColor: Appcolors.purple,
                                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
                                       Chip(
                                         label: Text('Master’s degree'),
-                                        labelStyle: TextStyle(color: Colors.white),
+                                        labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                         backgroundColor: Appcolors.purple,
                                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
 
                                     ]),
 
-                                Divider(color: Appcolors.grey2,),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16),
+                                  child: Divider(color: Appcolors.grey2,),
+                                ),
 
                                 Padding(
                                   padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
                                   child: Row(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text('Bachelor’s degree',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                      Text('Bachelor’s degree',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Appcolors.brown1,),),
 
-                                      SizedBox(width: width*0.3,),
+                                      Expanded(child: SizedBox()),
 
                                       Text('Sales marketing',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                          fontSize: 12,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                          fontSize: 12,color: Appcolors.grey2,fontWeight: FontWeight.w500),),
                                     ],
                                   ),
                                 ),
 
-                                Divider(color: Appcolors.grey2,),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16),
+                                  child: Divider(color: Appcolors.grey2,),
+                                ),
 
                                 Padding(
                                   padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 18),
                                   child: Row(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text('Master’s degree',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                      Text('Master’s degree',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Appcolors.brown1,),),
 
-                                      SizedBox(width: width*0.152,),
+                                      Expanded(child: SizedBox()),
 
                                       Text('Digital marketing, Superivisor',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                          fontSize: 12,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                          fontSize: 12,color: Appcolors.grey2,),),
                                     ],
                                   ),
                                 ),
@@ -673,9 +675,7 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                       Text('Type of job',style: Textstyle3Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Appcolors.brown1),),
 
-                                      SizedBox(
-                                        width: width*0.5,
-                                      ),
+                                      Expanded(child: SizedBox()),
 
                                       IconButton(
                                         onPressed: (){},
@@ -692,13 +692,13 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                     children: const [
                                       Chip(
                                         label: Text('Part time'),
-                                        labelStyle: TextStyle(color: Colors.white),
+                                        labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                         backgroundColor: Appcolors.purple,
                                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
                                       Chip(
                                         label: Text('Full time'),
-                                        labelStyle: TextStyle(color: Colors.white),
+                                        labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                         backgroundColor: Appcolors.purple,
                                         padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                       ),
@@ -712,13 +712,13 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                   child: Row(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text('Part time',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                      Text('Part time',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Appcolors.brown1,),),
 
-                                      SizedBox(width: width*0.43,),
+                                      Expanded(child: SizedBox()),
 
                                       Text('Sales marketing',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                          fontSize: 12,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                          fontSize: 12,color: Appcolors.grey2,fontWeight: FontWeight.w500),),
                                     ],
                                   ),
                                 ),
@@ -730,13 +730,13 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                   child: Row(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text('Full time',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                          fontSize: 14,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                      Text('Full time',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                          fontSize: 14,color: Appcolors.brown1,),),
 
-                                      SizedBox(width: width*0.27,),
+                                      Expanded(child: SizedBox()),
 
                                       Text('Digital marketing, Superivisor',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                          fontSize: 12,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                          fontSize: 12,color: Appcolors.grey2,fontWeight: FontWeight.w500),),
                                     ],
                                   ),
                                 ),
@@ -773,9 +773,7 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                           ],
                                         ),
 
-                                        SizedBox(
-                                          width: width*0.159,
-                                        ),
+                                        Expanded(child: SizedBox()),
 
                                         IconButton(
                                           onPressed: (){},
@@ -792,19 +790,19 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                       children: const [
                                         Chip(
                                           label: Text('Digital marketing'),
-                                          labelStyle: TextStyle(color: Colors.white),
+                                          labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                           backgroundColor: Appcolors.purple,
                                           padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                         ),
                                         Chip(
                                           label: Text('Sales marketing'),
-                                          labelStyle: TextStyle(color: Colors.white),
+                                          labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                           backgroundColor: Appcolors.purple,
                                           padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                         ),
                                         Chip(
                                           label: Text('Supervisor'),
-                                          labelStyle: TextStyle(color: Colors.white),
+                                          labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                           backgroundColor: Appcolors.purple,
                                           padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                         ),
@@ -818,15 +816,15 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text('Digital marketing',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                            fontSize: 14,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                        Text('Digital marketing',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Appcolors.brown1,),),
 
-                                        SizedBox(width: width*0.187,),
+                                        Expanded(child: SizedBox()),
 
                                         Row(
                                           children: [
                                             Text('Los angeles office ',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                                fontSize: 12,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                                fontSize: 12,color: Appcolors.grey2,fontWeight: FontWeight.w500),),
                                             SizedBox(width: width*0.01,),
                                             ImageIcon(AssetImage('assets/Iocns/iconslinkout.png'),color: Appcolors.grey2,size: 18,)
                                           ],
@@ -842,15 +840,15 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text('Sales marketing',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                            fontSize: 14,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                        Text('Sales marketing',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Appcolors.brown1,),),
 
-                                        SizedBox(width: width*0.2191,),
+                                        Expanded(child: SizedBox()),
 
                                         Row(
                                           children: [
                                             Text('Washington office',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                                fontSize: 12,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                                fontSize: 12,color: Appcolors.grey2,),),
                                             SizedBox(width: width*0.01,),
                                             ImageIcon(AssetImage('assets/Iocns/iconslinkout.png',),color: Appcolors.grey2,size: 18,)
                                           ],
@@ -866,15 +864,15 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text('Supervisor',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                            fontSize: 14,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                        Text('Supervisor',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Appcolors.brown1,),),
 
-                                        SizedBox(width: width*0.294),
+                                        Expanded(child: SizedBox()),
 
                                         Row(
                                           children: [
                                             Text('Los angeles office ',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                                fontSize: 12,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                                fontSize: 12,color: Appcolors.grey2),),
                                             SizedBox(width: width*0.01,),
                                             ImageIcon(AssetImage('assets/Iocns/iconslinkout.png'),color: Appcolors.grey2,size: 18,)
                                           ],
@@ -915,9 +913,7 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                           ],
                                         ),
 
-                                        SizedBox(
-                                          width: width*0.127,
-                                        ),
+                                        Expanded(child: SizedBox()),
 
                                         IconButton(
                                           onPressed: (){},
@@ -934,13 +930,13 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                       children: const [
                                         Chip(
                                           label: Text('Austria'),
-                                          labelStyle: TextStyle(color: Colors.white),
+                                          labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                           backgroundColor: Appcolors.purple,
                                           padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                         ),
                                         Chip(
                                           label: Text('Germany'),
-                                          labelStyle: TextStyle(color: Colors.white),
+                                          labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                           backgroundColor: Appcolors.purple,
                                           padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                         ),
@@ -954,13 +950,13 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text('Austria',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                            fontSize: 14,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                        Text('Austria',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Appcolors.brown1,),),
 
-                                        SizedBox(width: width*0.43,),
+                                        Expanded(child: SizedBox()),
 
                                         Text('Sales marketing',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                            fontSize: 12,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                            fontSize: 12,color: Appcolors.grey2,fontWeight: FontWeight.w500),),
                                         SizedBox(width: width*0.01,),
                                       ],
                                     ),
@@ -973,13 +969,13 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text('Germany',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                            fontSize: 14,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                        Text('Germany',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Appcolors.brown1,),),
 
-                                        SizedBox(width: width*0.22,),
+                                        Expanded(child: SizedBox()),
 
                                         Text('Digital marketing, Superivisor',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                            fontSize: 12,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                            fontSize: 12,color: Appcolors.grey2,),),
                                         SizedBox(width: width*0.01,),
                                       ],
                                     ),
@@ -1010,9 +1006,7 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                         Text('Language',style: Textstyle3Light18.appbartextstyle.copyWith(
                                             fontSize: 14,color: Appcolors.brown1),),
 
-                                        SizedBox(
-                                          width: width*0.53,
-                                        ),
+                                        Expanded(child: SizedBox()),
 
                                         IconButton(
                                           onPressed: (){},
@@ -1029,13 +1023,13 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text('English',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                            fontSize: 14,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                        Text('English',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Appcolors.brown1,),),
 
-                                        SizedBox(width: width*0.555,),
+                                        Expanded(child: SizedBox()),
 
                                         Text('Fluent',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                            fontSize: 12,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                            fontSize: 12,color: Appcolors.grey2),),
                                         SizedBox(width: width*0.01,),
                                       ],
                                     ),
@@ -1048,13 +1042,13 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text('Chinese',style: Textstyle3Light18.appbartextstyle.copyWith(
-                                            fontSize: 14,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                        Text('Chinese',style: Textstyle1Light18.appbartextstyle.copyWith(
+                                            fontSize: 14,color: Appcolors.brown1,),),
 
-                                        SizedBox(width: width*0.546),
+                                        Expanded(child: SizedBox()),
 
                                         Text('Fluent',style: Textstyle2Light18.appbartextstyle.copyWith(
-                                            fontSize: 12,color: Appcolors.brown1,fontWeight: FontWeight.w500),),
+                                            fontSize: 12,color: Appcolors.brown1,),),
                                         SizedBox(width: width*0.01,),
                                       ],
                                     ),
@@ -1101,20 +1095,21 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                       Text('Edit Description',style: Textstyle3Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Appcolors.brown1),),
 
-                                      SizedBox(
-                                        width: width*0.41,
-                                      ),
+                                      Expanded(child: SizedBox()),
 
                                       IconButton(
                                         onPressed: (){},
-                                        icon: ImageIcon(AssetImage('assets/Iocns/dotsicon.png'),size: 17,color: Appcolors.brown1,),
+                                        icon: ImageIcon(AssetImage('assets/Iocns/dotsicon.png'),size: 17,color: Appcolors.grey2,),
                                       )
 
                                     ],
                                   ),
                                 ),
 
-                                Divider(color: Appcolors.grey2,),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16),
+                                  child: Divider(color: Appcolors.grey2,),
+                                ),
 
                                 Padding(
                                   padding: const EdgeInsets.only(left: 16,right: 16,top: 24,bottom: 24),
@@ -1124,7 +1119,10 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                   ),
                                 ),
 
-                                Divider(color: Appcolors.grey2,),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16),
+                                  child: Divider(color: Appcolors.grey2,),
+                                ),
 
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -1191,17 +1189,20 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                       fontSize: 14,color: Appcolors.brown1),),
                                 ),
 
-                                Divider(),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16),
+                                  child: Divider(),
+                                ),
 
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14),
+                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14,right: 16),
                                   child: Row(
                                     children: [
                                       Text('Job Title',style: Textstyle4Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Appcolors.brown1),),
-                                      SizedBox(
-                                        width: 20.64,
-                                      ),
+
+                                      Expanded(child: SizedBox()),
+                                      
                                       Container(
                                         padding: EdgeInsets.only(left: 10),
                                         width: width*0.6,
@@ -1223,17 +1224,18 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                   ),
                                 ),
 
-                                Divider(),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16),
+                                  child: Divider(),
+                                ),
 
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14),
+                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14,right: 16),
                                   child: Row(
                                     children: [
                                       Text('Location',style: Textstyle4Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Appcolors.brown1),),
-                                      SizedBox(
-                                        width: 21.64,
-                                      ),
+                                      Expanded(child: SizedBox()),
                                       Container(
                                         padding: EdgeInsets.only(left: 10),
                                         width: width*0.6,
@@ -1275,7 +1277,7 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                 Divider(),
 
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14),
+                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14,right: 16),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
@@ -1284,9 +1286,7 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                         child: Text('Description',style: Textstyle4Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Appcolors.brown1,),),
                                       ),
-                                      SizedBox(
-                                        width: 5,
-                                      ),
+                                      Expanded(child: SizedBox()),
                                       Container(
                                         padding: EdgeInsets.only(left: 10),
                                         width: width*0.57,
@@ -1309,17 +1309,18 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                   ),
                                 ),
 
-                                Divider(),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16),
+                                  child: Divider(),
+                                ),
 
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14),
+                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14,right: 16),
                                   child: Row(
                                     children: [
                                       Text('Job Type',style: Textstyle4Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Appcolors.brown1),),
-                                      SizedBox(
-                                        width: 21.64,
-                                      ),
+                                      Expanded(child: SizedBox()),
                                       Container(
                                         padding: EdgeInsets.only(left: 10),
                                         width: width*0.6,
@@ -1358,17 +1359,18 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                   ),
                                 ),
 
-                                Divider(),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16),
+                                  child: Divider(),
+                                ),
 
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14),
+                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14,right: 16),
                                   child: Row(
                                     children: [
                                       Text('Field',style: Textstyle4Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Appcolors.brown1),),
-                                      SizedBox(
-                                        width: 50,
-                                      ),
+                                      Expanded(child: SizedBox()),
                                       Container(
                                         padding: EdgeInsets.only(left: 10),
                                         width: width*0.6,
@@ -1407,17 +1409,18 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                   ),
                                 ),
 
-                                Divider(),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16),
+                                  child: Divider(),
+                                ),
 
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14),
+                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14,right: 16),
                                   child: Row(
                                     children: [
                                       Text('Skills',style: Textstyle4Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Appcolors.brown1),),
-                                      SizedBox(
-                                        width: 50,
-                                      ),
+                                      Expanded(child: SizedBox()),
                                       Container(
                                         padding: EdgeInsets.only(left: 10),
                                         width: width*0.6,
@@ -1456,17 +1459,18 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                   ),
                                 ),
 
-                                Divider(),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16),
+                                  child: Divider(),
+                                ),
 
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14),
+                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14,right: 16),
                                   child: Row(
                                     children: [
                                       Text('Experience',style: Textstyle4Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Appcolors.brown1),),
-                                      SizedBox(
-                                        width: 10.97,
-                                      ),
+                                      Expanded(child: SizedBox()),
                                       Container(
                                         padding: EdgeInsets.only(left: 10),
                                         width: width*0.6,
@@ -1505,17 +1509,18 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                   ),
                                 ),
 
-                                Divider(),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16),
+                                  child: Divider(),
+                                ),
 
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14),
+                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14,right: 16),
                                   child: Row(
                                     children: [
                                       Text('Languages',style: Textstyle4Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Appcolors.brown1),),
-                                      SizedBox(
-                                        width: 11.60,
-                                      ),
+                                      Expanded(child: SizedBox()),
                                       Container(
                                         padding: EdgeInsets.only(left: 10),
                                         width: width*0.6,
@@ -1554,17 +1559,18 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                   ),
                                 ),
 
-                                Divider(),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16),
+                                  child: Divider(),
+                                ),
 
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14),
+                                  padding: const EdgeInsets.only(left: 16,top: 13.26,bottom: 14,right: 16),
                                   child: Row(
                                     children: [
                                       Text('Pay Rate',style: Textstyle4Light18.appbartextstyle.copyWith(
                                           fontSize: 14,color: Appcolors.brown1),),
-                                      SizedBox(
-                                        width: 21.64,
-                                      ),
+                                      Expanded(child: SizedBox()),
                                       Container(
                                         padding: EdgeInsets.only(left: 10),
                                         width: width*0.6,
@@ -1603,7 +1609,10 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                   ),
                                 ),
 
-                                Divider(),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 16,right: 16),
+                                  child: Divider(),
+                                ),
 
                                 Center(
                                   child: RaisedButton(

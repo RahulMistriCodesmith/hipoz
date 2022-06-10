@@ -1,15 +1,14 @@
+// ignore_for_file: deprecated_member_use, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
+import 'package:hipoz/UI/Authorization/landingpage.dart';
 import 'package:hipoz/UI/Company/companybenefitworld.dart';
 import 'package:hipoz/UI/Company/companyeventword.dart';
 import 'package:hipoz/UI/Company/companymessage.dart';
 import 'package:hipoz/UI/Company/companyprofile.dart';
 import 'package:hipoz/UI/Company/companysearchpage.dart';
-import 'package:hipoz/UI/Student/DashBoard/benefitworld.dart';
-import 'package:hipoz/UI/Student/DashBoard/eventworld.dart';
-import 'package:hipoz/UI/Student/DashBoard/profile.dart';
-import 'package:hipoz/UI/Student/DashBoard/studentmessage.dart';
 import 'package:hipoz/UI/Student/DashBoard/studentnotifications.dart';
 class CompanyDashboard extends StatefulWidget {
   const CompanyDashboard({Key? key}) : super(key: key);
@@ -186,9 +185,8 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
 
             Divider(height: 3.0,color: Appcolors.brown3,),
 
-            SizedBox(
-              height: height*0.35,
-            ),
+            SizedBox(height: height*0.27),
+
             Padding(
               padding: const EdgeInsets.only(left: 24,right: 24,bottom: 15),
               child: Container(
@@ -204,7 +202,9 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
                     ),
                     child: Text('Sign out',style: Textstyle1Light18.appbartextstyle.copyWith(
                         color: Appcolors.blue1,fontSize: 16,fontWeight: FontWeight.w800),),
-                    onPressed: (){}
+                    onPressed: (){
+                      Navigator.push(context,MaterialPageRoute(builder: (context) => const LandingPage()));
+                    }
                 ),
               ),
             )
@@ -229,7 +229,7 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 17,top: 21.65,bottom: 16,right: 17),
+                  padding: const EdgeInsets.only(left: 20,top: 21.65,bottom: 16,right: 20),
                   child: Column(
 
                     children: [
@@ -249,7 +249,7 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
                               ),),
                             ],
                           ),
-                          SizedBox(width: width*0.22),
+                          Expanded(child: SizedBox()),
                           Image.asset('assets/Images/dotimage.png',scale: 4,),
                         ],
                       ),
@@ -289,7 +289,7 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 15.13,top: 21.65,bottom: 16),
+                  padding: const EdgeInsets.only(left: 20,top: 21.65,bottom: 16,right: 20),
                   child: Column(
 
                     children: [
@@ -311,7 +311,7 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
                               ),),
                             ],
                           ),
-                          SizedBox(width: width*0.16),
+                          Expanded(child: SizedBox()),
                           Image.asset('assets/Images/dotimage.png',scale: 4,),
                         ],
                       ),
@@ -338,7 +338,7 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 15.13,top: 21.65,bottom: 16),
+                  padding: const EdgeInsets.only(left: 20,right: 20,top: 21.65,bottom: 16),
                   child: Column(
                     children: [
                       Row(
@@ -357,21 +357,20 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
                               ),),
                             ],
                           ),
-                          SizedBox(width: width*0.245),
+                          Expanded(child: SizedBox()),
                           Image.asset('assets/Images/dotimage.png',scale: 4,),
                         ],
                       ),
                       SizedBox(
-                        height: 9.35,
-                      ),
-                      SizedBox(
                         height: 17,
                       ),
+
                       Text('Post with associate link',style: Textstyle1Light18.appbartextstyle.copyWith(
                           fontSize: 14,color: Appcolors.brown1
                       ),),
                       SizedBox(height: 20,),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset('assets/Images/dmbimage.png',scale: 12,),
                           SizedBox(
@@ -416,7 +415,7 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 15.13,top: 21.65,bottom: 16),
+                  padding: const EdgeInsets.only(left: 20,top: 21.65,bottom: 16,right: 20),
                   child: Column(
 
                     children: [
@@ -438,7 +437,7 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
                               ),),
                             ],
                           ),
-                          SizedBox(width: width*0.25),
+                          Expanded(child: SizedBox()),
                           Image.asset('assets/Images/dotimage.png',scale: 4,),
                         ],
                       ),

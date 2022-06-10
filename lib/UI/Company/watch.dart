@@ -97,18 +97,31 @@ class _BrownWatchState extends State<BrownWatch> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio ornare vel vulputate placerat. Ipsum ut pellentesque risus convallis metus ornare magna quis at.',
-                    style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Appcolors.brown1),),
+                  child: Column(
+                    children: [
+                      Text('Lorem ipsum dolor sit amet, consectetur',
+                        style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Appcolors.brown1),),
+                      Text('adipiscing elit. Odio ornare vel vulputate',
+                        style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Appcolors.brown1),),
+                      Text('placerat. Ipsum ut pellentesque risus',
+                        style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Appcolors.brown1),),
+                      Text('convallis metus ornare magna quis at.',
+                        style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Appcolors.brown1),),
+                    ],
+                  ),
                 ),
               ),
-              RaisedButton(
-                color: Appcolors.blue1,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                  child: Text('Redeem',
-                    style: Textstyle3Light18.appbartextstyle.copyWith(fontSize: 18,color: Colors.white),),
-                  onPressed: (){})
+              Container(
+                width: width*0.3,
+                child: RaisedButton(
+                  color: Appcolors.blue1,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: Text('Redeem',
+                      style: Textstyle3Light18.appbartextstyle.copyWith(fontSize: 18,color: Colors.white),),
+                    onPressed: (){}),
+              )
             ],
           ),
         ),

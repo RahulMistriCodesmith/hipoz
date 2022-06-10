@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
@@ -68,18 +70,26 @@ class _EventPageState extends State<EventPage> {
               child: Text('Salzburg Summit Talk',
                 style: Textstyle3Light18.appbartextstyle.copyWith(fontSize: 24,color: Colors.white),),
             ),
-            
-            Padding(
-              padding: const EdgeInsets.only(left: 24,right: 24),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Appcolors.brown2,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 23,right: 23,top: 18,bottom: 18),
-                  child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio ornare vel vulputate placerat. Ipsum ut pellentesque risus convallis metus ornare magna quis at.',
-                    style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Colors.white),),
+
+            Container(
+              width: width*0.878,
+              decoration: BoxDecoration(
+                color: Appcolors.brown2,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 23,right: 23,top: 18,bottom: 18),
+                child: Column(
+                  children: [
+                    Text('Lorem ipsum dolor sit amet, consectetur',
+                      style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Colors.white),),
+                    Text('adipiscing elit. Odio ornare vel vulputate',
+                      style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Colors.white),),
+                    Text('placerat. Ipsum ut pellentesque risus',
+                      style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Colors.white),),
+                    Text('convallis metus ornare magna quis at.',
+                      style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Colors.white),),
+                  ],
                 ),
               ),
             ),

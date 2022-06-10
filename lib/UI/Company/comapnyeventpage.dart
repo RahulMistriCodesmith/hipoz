@@ -73,14 +73,25 @@ class _CompanyEventState extends State<CompanyEvent> {
             Padding(
               padding: const EdgeInsets.only(left: 24,right: 24),
               child: Container(
+                width: width*0.878,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 23,right: 23,top: 18,bottom: 18),
-                  child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio ornare vel vulputate placerat. Ipsum ut pellentesque risus convallis metus ornare magna quis at.',
-                    style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Appcolors.brown1),),
+                  child: Column(
+                    children: [
+                      Text('Lorem ipsum dolor sit amet, consectetur',
+                        style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Appcolors.brown1),),
+                      Text('adipiscing elit. Odio ornare vel vulputate',
+                        style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Appcolors.brown1),),
+                      Text('placerat. Ipsum ut pellentesque risus',
+                        style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Appcolors.brown1),),
+                      Text('convallis metus ornare magna quis at.',
+                        style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Appcolors.brown1),),
+                    ],
+                  ),
                 ),
               ),
             ),

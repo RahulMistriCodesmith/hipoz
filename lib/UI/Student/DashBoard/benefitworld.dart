@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:hipoz/Commponets/Colors/Colors.dart';
 import 'package:hipoz/Commponets/Fonts/Fonts.dart';
@@ -83,11 +85,22 @@ class _BenefitworldState extends State<Benefitworld> {
                           height: 20,
                         ),
 
-                        Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu amet enim pellentesque cras id vulputate. Dapibus.',
-                          style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 11,color: Appcolors.grey3),),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Lorem ipsum dolor sit amet,',
+                              style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 11,color: Appcolors.grey3),),
+                            Text('consectetur adipiscing elit. Arcu',
+                              style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 11,color: Appcolors.grey3),),
+                            Text('amet enim pellentesque cras id',
+                              style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 11,color: Appcolors.grey3),),
+                            Text('vulputate. Dapibus.',
+                              style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 11,color: Appcolors.grey3),),
+                          ],
+                        ),
 
                         SizedBox(
-                          height: 30,
+                          height: 20,
                         ),
 
                         Row(
@@ -97,14 +110,17 @@ class _BenefitworldState extends State<Benefitworld> {
                                 child: Text('Learn more',
                                   style: Textstyle3Light18.appbartextstyle.copyWith(fontSize: 12,color: Appcolors.blue1),)),
                             SizedBox(width: 16,),
-                            RaisedButton(
-                                color: Appcolors.blue1,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                child: Text('Get now',
-                                  style: Textstyle3Light18.appbartextstyle.copyWith(fontSize: 12,color: Colors.white),),
-                                onPressed: (){}
+                            Container(
+                              width: width*0.35,
+                              child: RaisedButton(
+                                  color: Appcolors.blue1,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(16),
+                                  ),
+                                  child: Text('Get now',
+                                    style: Textstyle3Light18.appbartextstyle.copyWith(fontSize: 12,color: Colors.white),),
+                                  onPressed: (){}
+                              ),
                             ),
                           ],
                         ),
@@ -122,9 +138,7 @@ class _BenefitworldState extends State<Benefitworld> {
                     Text('Benefit world',
                       style: Textstyle3Light18.appbartextstyle.copyWith(fontSize: 24,color: Colors.white),),
 
-                    SizedBox(
-                      width: width*0.4,
-                    ),
+                    Expanded(child: SizedBox()),
 
                     Text('Sort',
                       style: Textstyle1Light18.appbartextstyle.copyWith(fontSize: 14,color: Appcolors.grey2),),
@@ -338,7 +352,7 @@ class _BenefitworldState extends State<Benefitworld> {
                         ],
                       ),
 
-                      SizedBox(width: width*0.3,),
+                      Expanded(child: SizedBox()),
 
                       Container(
                         decoration: BoxDecoration(
@@ -392,7 +406,7 @@ class _BenefitworldState extends State<Benefitworld> {
                         ],
                       ),
 
-                      SizedBox(width: width*0.3,),
+                      Expanded(child: SizedBox()),
 
                       Container(
                         decoration: BoxDecoration(
