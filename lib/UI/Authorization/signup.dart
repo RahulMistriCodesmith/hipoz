@@ -107,7 +107,7 @@ class _SignUpState extends State<SignUp> {
         children: [
 
           Utils.signupSelectpage == "page0"
-         ? Expanded(
+          ? Expanded(
 
            child: SingleChildScrollView(
 
@@ -921,7 +921,7 @@ class _SignUpState extends State<SignUp> {
                       },
 
                       child: AnimatedContainer(
-                        duration: Duration(seconds: 1),
+                        duration: Duration(microseconds: 50),
                         width: width*0.9,
                         height: height*0.07,
                         decoration: BoxDecoration(
@@ -1034,7 +1034,7 @@ class _SignUpState extends State<SignUp> {
                         });
                       },
                       child: AnimatedContainer(
-                        duration: Duration(seconds: 1),
+                        duration: Duration(microseconds: 50),
                         width: width*0.9,
                         height: height*0.07,
                         decoration: BoxDecoration(
@@ -1390,7 +1390,7 @@ class _SignUpState extends State<SignUp> {
                     },
 
                     child: AnimatedContainer(
-                      duration: Duration(seconds: 1),
+                      duration: Duration(microseconds: 50),
                       width: width*0.9,
                       height: height*0.07,
                       decoration: BoxDecoration(
@@ -1400,7 +1400,7 @@ class _SignUpState extends State<SignUp> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(width: width*0.27,),
+                          SizedBox(width: width*0.29,),
                           Text('Job Type',style: Textstyle1Light18.appbartextstyle.copyWith(
                               fontSize: 16,color: Appcolors.grey2),),
 
@@ -1446,7 +1446,7 @@ class _SignUpState extends State<SignUp> {
                     },
 
                     child: AnimatedContainer(
-                      duration: Duration(seconds: 1),
+                      duration: Duration(microseconds: 50),
                       width: width*0.9,
                       height: height*0.07,
                       decoration: BoxDecoration(
@@ -1456,11 +1456,11 @@ class _SignUpState extends State<SignUp> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(width: width*0.27,),
+                          SizedBox(width: width*0.29,),
                           Text('Interests',style: Textstyle1Light18.appbartextstyle.copyWith(
                               fontSize: 16,color: Appcolors.grey2),),
 
-                          SizedBox(width: width*0.23,),
+                          SizedBox(width: width*0.26,),
 
                           Icon(Icons.add,color: Colors.white,),
                         ],
@@ -1501,7 +1501,7 @@ class _SignUpState extends State<SignUp> {
                     },
 
                     child: AnimatedContainer(
-                      duration: Duration(seconds: 1),
+                      duration: Duration(microseconds: 50),
                       width: width*0.9,
                       height: height*0.07,
                       decoration: BoxDecoration(
@@ -1557,7 +1557,7 @@ class _SignUpState extends State<SignUp> {
                     },
 
                     child: AnimatedContainer(
-                      duration: Duration(seconds: 1),
+                      duration: Duration(microseconds: 50),
                       width: width*0.9,
                       height: height*0.07,
                       decoration: BoxDecoration(
@@ -1567,7 +1567,7 @@ class _SignUpState extends State<SignUp> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(width: width*0.29,),
+                          SizedBox(width: width*0.3,),
                           Text('Industry',style: Textstyle1Light18.appbartextstyle.copyWith(
                               fontSize: 16,color: Appcolors.grey2),),
 
@@ -1612,7 +1612,7 @@ class _SignUpState extends State<SignUp> {
                     },
 
                     child: AnimatedContainer(
-                      duration: Duration(seconds: 1),
+                      duration: Duration(microseconds: 50),
                       width: width*0.9,
                       height: height*0.07,
                       decoration: BoxDecoration(
@@ -1626,7 +1626,7 @@ class _SignUpState extends State<SignUp> {
                           Text('Specialisation',style: Textstyle1Light18.appbartextstyle.copyWith(
                               fontSize: 16,color: Appcolors.grey2),),
 
-                          SizedBox(width: width*0.25,),
+                          SizedBox(width: width*0.23,),
 
                           Icon(Icons.add,color: Colors.white,),
                         ],
@@ -2100,7 +2100,7 @@ class _SignUpState extends State<SignUp> {
                       },
 
                       child: AnimatedContainer(
-                        duration: Duration(seconds: 1),
+                        duration: Duration(microseconds: 50),
                         width: width*0.9,
                         height: height*0.07,
                         decoration: BoxDecoration(
@@ -2270,7 +2270,7 @@ class _SignUpState extends State<SignUp> {
                       },
 
                       child: AnimatedContainer(
-                        duration: Duration(seconds: 1),
+                        duration: Duration(microseconds: 50),
                         width: width*0.9,
                         height: height*0.07,
                         decoration: BoxDecoration(
@@ -2318,7 +2318,7 @@ class _SignUpState extends State<SignUp> {
                       },
 
                       child: AnimatedContainer(
-                        duration: Duration(seconds: 1),
+                        duration: Duration(microseconds: 50),
                         width: width*0.9,
                         height: height*0.07,
                         decoration: BoxDecoration(
@@ -2366,7 +2366,7 @@ class _SignUpState extends State<SignUp> {
                       },
 
                       child: AnimatedContainer(
-                        duration: Duration(seconds: 1),
+                        duration: Duration(microseconds: 50),
                         width: width*0.9,
                         height: height*0.07,
                         decoration: BoxDecoration(

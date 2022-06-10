@@ -19,6 +19,7 @@ class CompanyDashboard extends StatefulWidget {
 }
 
 class _CompanyDashboardState extends State<CompanyDashboard> {
+  var selectedval = 'color';
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -62,6 +63,23 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
         child: ListView(
           children: <Widget>[
 
+            Padding(
+              padding: const EdgeInsets.only(left: 27,top: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Image.asset('assets/Images/accentureimage .png',scale: 4.5,),
+                  Expanded(child: SizedBox()),
+                  InkWell(
+                      onTap: (){
+                        Navigator.of(context).pop();
+                      },
+                      child: Icon(Icons.clear,color: Colors.white,)),
+                  SizedBox(width: width*0.06,),
+                ],
+              ),
+            ),
+
             SizedBox(height: 30,),
 
             Padding(
@@ -74,7 +92,6 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
                 child: TextField(
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: 'Search messages',
                     hintStyle: Textstyle2Light18.appbartextstyle.copyWith(fontSize: 14,color: Appcolors.grey2),
                     prefixIcon: Icon(Icons.search,color: Appcolors.grey1,),
                   ),
@@ -87,9 +104,9 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
             ListTile(
 
               title: Text('Dashboard', style: Textstyle1Light18.appbartextstyle.copyWith(
-                  color: Appcolors.grey5,fontSize: 16,fontWeight: FontWeight.w800),),
+                  color: selectedval == 'color' ? Appcolors.blue1 : Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
               leading: IconButton(
-                icon: Icon(Icons.home,color: Appcolors.grey5,),
+                icon: Icon(Icons.home_outlined,color: selectedval == 'color' ? Appcolors.blue1 : Appcolors.grey2),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },

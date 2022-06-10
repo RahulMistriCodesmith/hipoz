@@ -61,7 +61,6 @@ class _ProfileState extends State<Profile> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15.0),
                         color: Appcolors.brown2,
-
                       ),
                       width: double.infinity,
                       child: Padding(
@@ -480,26 +479,31 @@ class _ProfileState extends State<Profile> {
                                       children: const [
                                         Chip(
                                           label: Text('Digital marketing'),
+                                          labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                           backgroundColor: Appcolors.purple,
                                           padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                         ),
                                         Chip(
                                           label: Text('Sales marketing'),
+                                          labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                           backgroundColor: Appcolors.purple,
                                           padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                         ),
                                         Chip(
                                           label: Text('Business management'),
+                                          labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                           backgroundColor: Appcolors.purple,
                                           padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                         ),
                                         Chip(
                                           label: Text('Branding'),
+                                          labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                           backgroundColor: Appcolors.purple,
                                           padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                         ),
                                         Chip(
                                           label: Text('Content creator'),
+                                          labelStyle: TextStyle(color: Colors.white,fontFamily: 'Avenir'),
                                           backgroundColor: Appcolors.purple,
                                           padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                         ),
@@ -509,6 +513,8 @@ class _ProfileState extends State<Profile> {
                                           padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                                         )
                                       ]),
+
+                                  SizedBox(height: 15,),
 
                                 ],
                               ),

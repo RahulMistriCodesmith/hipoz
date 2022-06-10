@@ -19,8 +19,8 @@ class _LandingPageState extends State<LandingPage> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  bool isChecked = false;
-  bool _isObscure = false;
+  bool isChecked = true;
+  bool _isObscure = true;
 
   @override
   Widget build(BuildContext context) {

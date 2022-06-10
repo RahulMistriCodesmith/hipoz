@@ -17,6 +17,7 @@ class StudentDashboard extends StatefulWidget {
 
 class _StudentDashboardState extends State<StudentDashboard> {
 
+  var selectedval = 'color';
   final List<String> imageList = [
     'assets/Images/frameimgae.png',
     'assets/Images/frameimgae.png',
@@ -71,6 +72,23 @@ class _StudentDashboardState extends State<StudentDashboard> {
         width: width,
         child: ListView(
           children: <Widget>[
+            
+            Padding(
+              padding: const EdgeInsets.only(left: 27,top: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Image.asset('assets/Images/studentimage.png',scale: 4.5,),
+                  Expanded(child: SizedBox()),
+                  InkWell(
+                      onTap: (){
+                        Navigator.of(context).pop();
+                      },
+                      child: Icon(Icons.clear,color: Colors.white,)),
+                  SizedBox(width: width*0.06,),
+                ],
+              ),
+            ),
 
             SizedBox(height: 30,),
 
@@ -84,7 +102,6 @@ class _StudentDashboardState extends State<StudentDashboard> {
                 child: TextField(
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: 'Search messages',
                     hintStyle: Textstyle2Light18.appbartextstyle.copyWith(fontSize: 14,color: Appcolors.grey2),
                     prefixIcon: Icon(Icons.search,color: Appcolors.grey1,),
                   ),
@@ -97,16 +114,15 @@ class _StudentDashboardState extends State<StudentDashboard> {
             ListTile(
 
               title: Text('Dashboard', style: Textstyle1Light18.appbartextstyle.copyWith(
-                  color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
+                  color: selectedval == 'color' ? Appcolors.blue1 : Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
               leading: IconButton(
-                icon: Icon(Icons.home,color: Appcolors.grey2,),
+                icon: Icon(Icons.home_outlined,color: selectedval == 'color' ? Appcolors.blue1 : Appcolors.grey2,),
                 onPressed: () {
-                  Navigator.of(context).pop();
+
                 },
               ),
               onTap: ()
               {
-                Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => StudentDashboard()));
               },
@@ -115,11 +131,11 @@ class _StudentDashboardState extends State<StudentDashboard> {
             Divider(height: 3.0,color: Appcolors.brown3,),
 
             ListTile(
-              leading: Icon(Icons.perm_identity,color: Appcolors.grey2,),
+              leading: Icon(Icons.perm_identity,color: selectedval == 'color' ? Appcolors.grey2 : Appcolors.blue1),
               title: Text('Profile', style: Textstyle1Light18.appbartextstyle.copyWith(
-                  color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
+                  color: selectedval == 'color' ? Appcolors.grey2 : Appcolors.blue1,fontSize: 16,fontWeight: FontWeight.w800),),
               onTap: () {
-                Navigator.of(context).pop();
+
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => Profile()));
               },
@@ -128,9 +144,9 @@ class _StudentDashboardState extends State<StudentDashboard> {
             Divider(height: 3.0,color: Appcolors.brown3,),
 
             ListTile(
-              leading: Icon(Icons.stars_outlined,color: Appcolors.grey2,),
+              leading: Icon(Icons.stars_outlined,color: selectedval == 'color' ? Appcolors.grey2 : Appcolors.blue1),
               title: Text('Benefit World', style: Textstyle1Light18.appbartextstyle.copyWith(
-                  color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
+                  color: selectedval == 'color' ? Appcolors.grey2 : Appcolors.blue1,fontSize: 16,fontWeight: FontWeight.w800),),
               onTap: () {
                 Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
@@ -141,11 +157,11 @@ class _StudentDashboardState extends State<StudentDashboard> {
             Divider(height: 3.0,color: Appcolors.brown3,),
 
             ListTile(
-              leading: Icon(Icons.emoji_events_outlined,color: Appcolors.grey2,),
+              leading: Icon(Icons.emoji_events_outlined,color: selectedval == 'color' ? Appcolors.grey2 : Appcolors.blue1),
               title: Text('Event World', style: Textstyle1Light18.appbartextstyle.copyWith(
-                  color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
+                  color: selectedval == 'color' ? Appcolors.grey2 : Appcolors.blue1,fontSize: 16,fontWeight: FontWeight.w800),),
               onTap: () {
-                Navigator.of(context).pop();
+
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => EventWorld()));
               },
@@ -154,11 +170,11 @@ class _StudentDashboardState extends State<StudentDashboard> {
             Divider(height: 3.0,color: Appcolors.brown3,),
 
             ListTile(
-              leading: Icon(Icons.message_outlined,color: Appcolors.grey2,),
+              leading: Icon(Icons.message_outlined,color: selectedval == 'color' ? Appcolors.grey2 : Appcolors.blue1),
               title: Text('Messages', style: Textstyle1Light18.appbartextstyle.copyWith(
-                  color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
+                  color: selectedval == 'color' ? Appcolors.grey2 : Appcolors.blue1,fontSize: 16,fontWeight: FontWeight.w800),),
               onTap: () {
-                Navigator.of(context).pop();
+
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => StudentMessage()));
               },
@@ -167,11 +183,11 @@ class _StudentDashboardState extends State<StudentDashboard> {
             Divider(height: 3.0,color: Appcolors.brown3,),
 
             ListTile(
-              leading: Icon(Icons.notifications_outlined,color: Appcolors.grey2,),
+              leading: Icon(Icons.notifications_outlined,color: selectedval == 'color' ? Appcolors.grey2 : Appcolors.blue1),
               title: Text('Notification', style: Textstyle1Light18.appbartextstyle.copyWith(
-                  color: Appcolors.grey2,fontSize: 16,fontWeight: FontWeight.w800),),
+                  color: selectedval == 'color' ? Appcolors.grey2 : Appcolors.blue1,fontSize: 16,fontWeight: FontWeight.w800),),
               onTap: () {
-                Navigator.of(context).pop();
+
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => StudentNotification()));
               },
@@ -180,7 +196,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
             Divider(height: 3.0,color: Appcolors.brown3,),
 
             SizedBox(
-              height: height*0.35,
+              height: height*0.25,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 24,right: 24,bottom: 15),
