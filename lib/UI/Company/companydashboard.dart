@@ -54,7 +54,15 @@ class _CompanyDashboardState extends State<CompanyDashboard> {
             ),
           ],
         ),
-
+        actions: [
+          Builder(
+            builder: (context) => IconButton(
+              icon: ImageIcon(AssetImage('assets/Iocns/drawericon.png'),size: 20,color: Appcolors.grey2,),
+              onPressed: () => Scaffold.of(context).openEndDrawer(),
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            ),
+          ),
+        ],
       ),
       endDrawer: Drawer(
         backgroundColor: Appcolors.greylight,

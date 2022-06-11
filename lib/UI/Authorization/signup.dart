@@ -36,6 +36,7 @@ class _SignUpState extends State<SignUp> {
   void initState() {
     super.initState();
     _controller.addListener(() => _extension = _controller.text);
+
     Utils.signupSelectpage = "page0";
   }
 
@@ -60,23 +61,6 @@ class _SignUpState extends State<SignUp> {
     });
   }
 
-  void _clearCachedFiles() {
-    FilePicker.platform.clearTemporaryFiles().then((result) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          backgroundColor: result! ? Colors.green : Colors.red,
-          content: Text((result
-              ? 'Temporary files removed with success.'
-              : 'Failed to clean temporary files')),
-        ),
-      );
-    });
-  }
-
-  void _selectFolder() {
-    FilePicker.platform.getDirectoryPath().then((value) {
-    });
-  }
 
   bool collapsed = true;
   bool collapsed1 = true;
@@ -133,7 +117,6 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-
 
     return Scaffold(
       backgroundColor: Appcolors.brown1,
@@ -235,6 +218,7 @@ class _SignUpState extends State<SignUp> {
                         height: height*0.03,
                       ),
 
+
                       IntlPhoneField(
                         flagsButtonMargin: EdgeInsets.only(left: 20),
                         style: TextStyle(color: Colors.white),
@@ -247,7 +231,6 @@ class _SignUpState extends State<SignUp> {
                             borderRadius: BorderRadius.all(Radius.circular(18)),
                           ),
                           filled: true,
-
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(18)),
                             borderSide: BorderSide(width: 2,color: Appcolors.grey2),
@@ -258,8 +241,8 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
                         dropdownIconPosition: IconPosition.trailing,
-                        dropdownIcon: Icon(Icons.keyboard_arrow_down_outlined,color: Colors.white,),
-                        initialCountryCode: 'US',
+                        dropdownIcon: Icon(Icons.keyboard_arrow_down_outlined,color: Appcolors.grey2),
+                        initialCountryCode: 'IN',
                         onChanged: (phone) {
                           print(phone.completeNumber);
                         },
@@ -361,7 +344,11 @@ class _SignUpState extends State<SignUp> {
                           onPressed: () async {
                             /*Navigator.push(context,MaterialPageRoute(builder: (BuildContext context) => const SignUp1(),),);*/
                             setState(() {
-                              Utils.signupSelectpage = "page1";
+                              if (_formKey.currentState!.validate()) {
+
+                                Utils.signupSelectpage = "page1";
+                              }
+
                             }
                             );
 
@@ -444,8 +431,6 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
 
-
-
                         SizedBox(
                           height: height*0.04,
                         ),
@@ -459,7 +444,6 @@ class _SignUpState extends State<SignUp> {
                                   border: Border.all(color: Appcolors.grey1)
                               ),*/
                               child: DateTimeField(
-
                                 format: format,
                                 style: TextStyle(color: Colors.white),
                                 decoration: Inputdec1.inputDecoration.copyWith(
@@ -468,12 +452,16 @@ class _SignUpState extends State<SignUp> {
                                   hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
                                       fontSize: 16,color: Appcolors.grey2),
                                 ),
+
                                 onShowPicker: (context, currentValue) async {
+
                                   final date = await showDatePicker(
                                       context: context,
                                       firstDate: DateTime(1900),
                                       initialDate: currentValue ?? DateTime.now(),
-                                      lastDate: DateTime(2100));
+                                      lastDate: DateTime(2100),
+                                  );
+
                                   if (date != null) {
                                     final time = await showTimePicker(
                                       context: context,
@@ -484,7 +472,9 @@ class _SignUpState extends State<SignUp> {
                                   } else {
                                     return currentValue;
                                   }
+
                                 },
+
                               ),
                             ),
 
@@ -762,10 +752,13 @@ class _SignUpState extends State<SignUp> {
                               child: Icon(Icons.keyboard_arrow_right_outlined,color: Colors.white,size: 30,),
                               onPressed: () {
                                 setState(() {
-                                  Utils.signupSelectpage = "page2";
+                                  if (_formKey.currentState!.validate()) {
+
+                                    Utils.signupSelectpage = "page2";
+                                  }
+
                                 }
                                 );
-                                print(Utils.signupSelectpage);
                               }
                           ),
                         ),
@@ -1018,24 +1011,6 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
 
-                   /* TextFormField(
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter Scholarship';
-                        }
-                        return null;
-                      },
-                      maxLines: 1,
-                      style: TextStyle(color: Colors.white),
-                      textAlign: TextAlign.center,
-                      decoration: Inputdec1.inputDecoration.copyWith(
-                        suffixIcon: Icon(Icons.add,color: Colors.white,),
-                        hintText: 'Scholarship',
-                        hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                            fontSize: 16,color: Appcolors.grey2),
-                      ),
-                    ),*/
-
                     SizedBox(
                       height: height*0.03,
                     ),
@@ -1129,25 +1104,6 @@ class _SignUpState extends State<SignUp> {
                         ],
                       ),
                     ),
-
-                    /*TextFormField(
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter Scholarship';
-                        }
-                        return null;
-                      },
-
-                      maxLines: 1,
-                      style: TextStyle(color: Colors.white),
-                      textAlign: TextAlign.center,
-                      decoration: Inputdec1.inputDecoration.copyWith(
-                        suffixIcon: Icon(Icons.add,color: Colors.white,),
-                        hintText: 'Name of the scholarship',
-                        hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                            fontSize: 16,color: Appcolors.grey2),
-                      ),
-                    ),*/
 
                     SizedBox(
                       height: height*0.03,
@@ -1378,7 +1334,9 @@ class _SignUpState extends State<SignUp> {
                           onPressed: () async {
                             /*Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const SignUp3(),),);*/
                             setState(() {
+
                               Utils.signupSelectpage = "page3";
+
                             }
                             );
                           }

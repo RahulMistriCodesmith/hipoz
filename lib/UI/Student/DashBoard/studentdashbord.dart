@@ -56,18 +56,24 @@ class _StudentDashboardState extends State<StudentDashboard> {
                 padding: const EdgeInsets.all(12),
                 child: InkWell(
                     onTap: (){
-
                       setState((){
                         Navigator.push(context,MaterialPageRoute(builder: (context) => const SearchPage()));
                       });
-
-                    },
+                      },
                     child: Image.asset('assets/Iocns/searchicon.png',scale: 4,)),
               ),
             ),
           ],
         ),
-
+        actions: [
+          Builder(
+            builder: (context) => IconButton(
+              icon: ImageIcon(AssetImage('assets/Iocns/drawericon.png'),size: 20,color: Appcolors.grey2,),
+              onPressed: () => Scaffold.of(context).openEndDrawer(),
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            ),
+          ),
+        ],
       ),
 
       endDrawer: Drawer(

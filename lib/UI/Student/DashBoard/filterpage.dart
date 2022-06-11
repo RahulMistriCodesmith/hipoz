@@ -69,15 +69,15 @@ class _FilterPageState extends State<FilterPage> {
                       SizedBox(height: 28,),
 
                       Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text('Job Field ',style: Textstyle1Light18.appbartextstyle.copyWith(
-                  color: Appcolors.grey10,fontSize: 12
-                  ),),
-                      SizedBox(width: width*0.58,),
-                      Icon(Icons.arrow_drop_down,color: Appcolors.grey10,),
-                    ],
-                  ),
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text('Job Field ',style: Textstyle1Light18.appbartextstyle.copyWith(
+                              color: Appcolors.grey10,fontSize: 12
+                          ),),
+                          SizedBox(width: width*0.58,),
+                          Icon(Icons.arrow_drop_down,color: Appcolors.grey10,),
+                        ],
+                      ),
 
                       Divider(color: Appcolors.grey4,),
 
@@ -153,6 +153,7 @@ class _FilterPageState extends State<FilterPage> {
                                 ),),
                               ),
                             ),
+                            SizedBox(height: 20,),
                           ],
                         ),
                       )
@@ -219,9 +220,10 @@ class _FilterPageState extends State<FilterPage> {
                         ],
                       ),
 
-                      Divider(color: Appcolors.grey4,),
-
-
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 20),
+                        child: Divider(color: Appcolors.grey4,),
+                      ),
 
                     ]
                   ),

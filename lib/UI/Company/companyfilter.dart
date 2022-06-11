@@ -127,7 +127,7 @@ class _CompanyFilterState extends State<CompanyFilter> {
                                 padding: EdgeInsets.only(top: 10,bottom: 10),
                                 decoration: BoxDecoration(
                                   color: Appcolors.grey9,
-                                  border: Border.all(color: Appcolors.purple),
+                                  border: Border.all(color: Appcolors.blue1),
                                   borderRadius: BorderRadius.circular(16),
                                 ),
                                 child: Center(
@@ -143,7 +143,7 @@ class _CompanyFilterState extends State<CompanyFilter> {
                                 padding: EdgeInsets.only(top: 10,bottom: 10),
                                 decoration: BoxDecoration(
                                   color: Appcolors.grey9,
-                                  border: Border.all(color: Appcolors.purple),
+                                  border: Border.all(color: Appcolors.blue1),
                                   borderRadius: BorderRadius.circular(16),
                                 ),
                                 child: Center(
@@ -152,6 +152,7 @@ class _CompanyFilterState extends State<CompanyFilter> {
                                   ),),
                                 ),
                               ),
+                              SizedBox(height: 20,),
                             ],
                           ),
                         )
@@ -218,7 +219,10 @@ class _CompanyFilterState extends State<CompanyFilter> {
                           ],
                         ),
 
-                        Divider(color: Appcolors.grey4,),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: Divider(color: Appcolors.grey4,),
+                        ),
 
                       ]
                   ),
