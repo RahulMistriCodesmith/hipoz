@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hipoz/UI/Authorization/landingpage.dart';
-import 'package:hipoz/UI/Authorization/signup.dart';
-import 'package:hipoz/UI/Screens/stackex.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,8 +1,10 @@
-// ignore_for_file: deprecated_member_use, prefer_const_constructors, avoid_print, prefer_interpolation_to_compose_strings, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, non_constant_identifier_names, unused_element, depend_on_referenced_packages
+// ignore_for_file: deprecated_member_use, prefer_const_constructors, avoid_print, prefer_interpolation_to_compose_strings, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, non_constant_identifier_names, unused_element, depend_on_referenced_packages, prefer_final_fields
 
 import 'dart:io';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/services.dart';
 import 'package:hipoz/UI/Authorization/Utils/utils.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +22,61 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+
+  List<PlatformFile>? _paths;
+  String? _extension;
+  String? _directoryPath;
+  String? _fileName;
+  bool _loadingPath = false;
+  bool _multiPick = false;
+  FileType _pickingType = FileType.any;
+  TextEditingController _controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(() => _extension = _controller.text);
+    Utils.signupSelectpage = "page0";
+  }
+
+  void _openFileExplorer() async {
+    try {
+      _paths = (await FilePicker.platform.pickFiles(
+        type: _pickingType,
+        allowMultiple: _multiPick,
+        allowedExtensions: (_extension?.isNotEmpty ?? false)
+            ? _extension?.replaceAll(' ', '').split(',')
+            : null,
+      ))
+          ?.files;
+    } on PlatformException catch (e) {
+      print("Unsupported operation" + e.toString());
+    } catch (ex) {
+      print(ex);
+    }
+    if (!mounted) return;
+    setState(() {
+      print(_paths!.first.extension);
+    });
+  }
+
+  void _clearCachedFiles() {
+    FilePicker.platform.clearTemporaryFiles().then((result) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: result! ? Colors.green : Colors.red,
+          content: Text((result
+              ? 'Temporary files removed with success.'
+              : 'Failed to clean temporary files')),
+        ),
+      );
+    });
+  }
+
+  void _selectFolder() {
+    FilePicker.platform.getDirectoryPath().then((value) {
+    });
+  }
 
   bool collapsed = true;
   bool collapsed1 = true;
@@ -58,11 +115,6 @@ class _SignUpState extends State<SignUp> {
 
   final format = DateFormat("dd-MM-yyyy");
 
-   @override
-   void initState() {
-     Utils.signupSelectpage = "page0";
-     super.initState();
-   }
 
   @override
   void dispose(){
@@ -924,7 +976,7 @@ class _SignUpState extends State<SignUp> {
                       },
 
                       child: AnimatedContainer(
-                        duration: Duration(microseconds: 50),
+                        duration: Duration(microseconds: 5),
                         width: width*0.9,
                         height: height*0.07,
                         decoration: BoxDecoration(
@@ -945,8 +997,8 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                     ),
-                    AnimatedContainer(
-                      duration: Duration(seconds: 1),
+                    Container(
+
                       width: width*0.9,
                       height: collapsed ? 0 : height*0.072,
                       decoration: BoxDecoration(
@@ -1037,7 +1089,7 @@ class _SignUpState extends State<SignUp> {
                         });
                       },
                       child: AnimatedContainer(
-                        duration: Duration(microseconds: 50),
+                        duration: Duration(microseconds: 5),
                         width: width*0.9,
                         height: height*0.07,
                         decoration: BoxDecoration(
@@ -1058,8 +1110,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                     ),
-                    AnimatedContainer(
-                      duration: Duration(seconds: 1),
+                    Container(
                       width: width*0.9,
                       height: collapsed1 ? 0 : height*0.072,
                       decoration: BoxDecoration(
@@ -1172,8 +1223,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                     ),
-                    AnimatedContainer(
-                      duration: Duration(seconds: 1),
+                    Container(
                       width: width*0.9,
                       height: collapsed2 ? 0 : height*0.072,
                       decoration: BoxDecoration(
@@ -1192,24 +1242,6 @@ class _SignUpState extends State<SignUp> {
                         ],
                       ),
                     ),
-
-                    /*TextFormField(
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter Scholarship';
-                        }
-                        return null;
-                      },
-                      maxLines: 1,
-                      style: TextStyle(color: Colors.white),
-                      textAlign: TextAlign.center,
-                      decoration: Inputdec1.inputDecoration.copyWith(
-                        suffixIcon: Icon(Icons.add,color: Colors.white,),
-                        hintText: 'Scholarship Received on',
-                        hintStyle: Textstyle1Light18.appbartextstyle.copyWith(
-                            fontSize: 16,color: Appcolors.grey2),
-                      ),
-                    ),*/
 
                     SizedBox(
                       height: height*0.03,
@@ -1239,11 +1271,60 @@ class _SignUpState extends State<SignUp> {
                               Image.asset('assets/Images/addIcon.png',scale: 3.5,),
                             ],
                           ),
-                          onPressed: (){
-
-                          }
+                        onPressed: () => _openFileExplorer(),
                       ),
                     ),
+
+                    _loadingPath
+                        ? Padding(
+                      padding: const EdgeInsets.only(bottom: 10.0),
+                      child: const CircularProgressIndicator(),
+                    )
+                        : _directoryPath != null
+                        ? ListTile(
+                      title: const Text('Directory path'),
+                      subtitle: Text(_directoryPath!),
+                    )
+                        : _paths != null
+                        ? Container(
+                      padding: const EdgeInsets.only(bottom: 30.0),
+                      height:
+                      MediaQuery.of(context).size.height * 0.08,
+                      child: Scrollbar(
+                          child: ListView.separated(
+                            itemCount:
+                            _paths != null && _paths!.isNotEmpty
+                                ? _paths!.length
+                                : 1,
+                            itemBuilder:
+                                (BuildContext context, int index) {
+                              final bool isMultiPath =
+                                  _paths != null && _paths!.isNotEmpty;
+                              final String name = 'File $index: ' +
+                                  (isMultiPath
+                                      ? _paths!
+                                      .map((e) => e.name)
+                                      .toList()[index]
+                                      : _fileName ?? '...');
+                              final path = _paths!
+                                  .map((e) => e.path)
+                                  .toList()[index]
+                                  .toString();
+
+                              return ListTile(
+                                title: Text(
+                                  name,
+                                ),
+                                subtitle: Text(path),
+                                textColor: Appcolors.grey2,
+                              );
+                            },
+                            separatorBuilder:
+                                (BuildContext context, int index) =>
+                            const Divider(),
+                          )),
+                    )
+                        : const SizedBox(),
 
                     SizedBox(
                       height: height*0.04,
@@ -1347,18 +1428,7 @@ class _SignUpState extends State<SignUp> {
                     child: Container(
                       width: 100,
                       height: 100,
-                      child: _imageFile == null
-
-                          ? Image.asset('assets/Images/iconpdf.png',color: Colors.white,scale: 2,)
-
-                          : Image.file(
-
-
-                        _imageFile!,
-
-                        fit: BoxFit.fitWidth,
-
-                      ),
+                      child: Image.asset('assets/Images/iconpdf.png',scale: 2,)
                     ),
                   ),
 
@@ -1378,11 +1448,59 @@ class _SignUpState extends State<SignUp> {
                         ),
                         child: Text('Upload C.V',style: Textstyle1Light18.appbartextstyle.copyWith(
                             fontSize: 16,color: Appcolors.blue1),),
-                        onPressed: (){
-                          _getFromGallery();
-                        }
+                      onPressed: () => _openFileExplorer(),
                     ),
                   ),
+                  _loadingPath
+                      ? Padding(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: const CircularProgressIndicator(),
+                  )
+                      : _directoryPath != null
+                      ? ListTile(
+                    title: Image.asset('Directory path'),
+                    subtitle: Image.asset(_directoryPath!),
+                  )
+                      : _paths != null
+                      ? Container(
+                    padding: const EdgeInsets.only(bottom: 30.0),
+                    height:
+                    MediaQuery.of(context).size.height * 0.08,
+                    child: Scrollbar(
+                        child: ListView.separated(
+                          itemCount:
+                          _paths != null && _paths!.isNotEmpty
+                              ? _paths!.length
+                              : 1,
+                          itemBuilder:
+                              (BuildContext context, int index) {
+                            final bool isMultiPath =
+                                _paths != null && _paths!.isNotEmpty;
+                            final String name = 'File $index: ' +
+                                (isMultiPath
+                                    ? _paths!
+                                    .map((e) => e.name)
+                                    .toList()[index]
+                                    : _fileName ?? '...');
+                            final path = _paths!
+                                .map((e) => e.path)
+                                .toList()[index]
+                                .toString();
+
+                            return ListTile(
+                              title: Text(
+                                name,
+                              ),
+                              subtitle: Text(path),
+                              textColor: Appcolors.grey2,
+                            );
+                          },
+                          separatorBuilder:
+                              (BuildContext context, int index) =>
+                          const Divider(),
+                        )),
+                  )
+                      : const SizedBox(),
 
                   SizedBox(
                     height: height*0.035,
@@ -1418,8 +1536,8 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
-                  AnimatedContainer(
-                    duration: Duration(seconds: 1),
+                  Container(
+
                     width: width*0.9,
                     height: collapsed3 ? 0 : height*0.072,
                     decoration: BoxDecoration(
@@ -1474,8 +1592,8 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
-                  AnimatedContainer(
-                    duration: Duration(seconds: 1),
+                  Container(
+
                     width: width*0.9,
                     height: collapsed4 ? 0 : height*0.072,
                     decoration: BoxDecoration(
@@ -1529,8 +1647,8 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
-                  AnimatedContainer(
-                    duration: Duration(seconds: 1),
+                  Container(
+
                     width: width*0.9,
                     height: collapsed5 ? 0 : height*0.072,
                     decoration: BoxDecoration(
@@ -1585,8 +1703,8 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
-                  AnimatedContainer(
-                    duration: Duration(seconds: 1),
+                  Container(
+
                     width: width*0.9,
                     height: collapsed6 ? 0 : height*0.072,
                     decoration: BoxDecoration(
@@ -1640,8 +1758,8 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
-                  AnimatedContainer(
-                    duration: Duration(seconds: 1),
+                  Container(
+
                     width: width*0.9,
                     height: collapsed7 ? 0 : height*0.072,
                     decoration: BoxDecoration(
@@ -2128,8 +2246,8 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                     ),
-                    AnimatedContainer(
-                      duration: Duration(seconds: 1),
+                    Container(
+
                       width: width*0.9,
                       height: collapsed8 ? 0 : height*0.072,
                       decoration: BoxDecoration(
@@ -2298,8 +2416,8 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                     ),
-                    AnimatedContainer(
-                      duration: Duration(seconds: 1),
+                    Container(
+
                       width: width*0.9,
                       height: collapsed9 ? 0 : height*0.072,
                       decoration: BoxDecoration(
@@ -2346,8 +2464,8 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                     ),
-                    AnimatedContainer(
-                      duration: Duration(seconds: 1),
+                    Container(
+
                       width: width*0.9,
                       height: collapsed10 ? 0 : height*0.072,
                       decoration: BoxDecoration(
@@ -2394,8 +2512,8 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                     ),
-                    AnimatedContainer(
-                      duration: Duration(seconds: 1),
+                    Container(
+
                       width: width*0.9,
                       height: collapsed11 ? 0 : height*0.072,
                       decoration: BoxDecoration(
@@ -2503,10 +2621,59 @@ class _SignUpState extends State<SignUp> {
                               Image.asset('assets/Images/addIcon.png',scale: 3.5,color: Appcolors.grey1,),
                             ],
                           ),
-                          onPressed: (){}
+                        onPressed: () => _openFileExplorer(),
                       ),
                     ),
+                    _loadingPath
+                        ? Padding(
+                      padding: const EdgeInsets.only(bottom: 10.0),
+                      child: const CircularProgressIndicator(),
+                    )
+                        : _directoryPath != null
+                        ? ListTile(
+                      title: const Text('Directory path'),
+                      subtitle: Text(_directoryPath!),
+                    )
+                        : _paths != null
+                        ? Container(
+                      padding: const EdgeInsets.only(bottom: 30.0),
+                      height:
+                      MediaQuery.of(context).size.height * 0.08,
+                      child: Scrollbar(
+                          child: ListView.separated(
+                            itemCount:
+                            _paths != null && _paths!.isNotEmpty
+                                ? _paths!.length
+                                : 1,
+                            itemBuilder:
+                                (BuildContext context, int index) {
+                              final bool isMultiPath =
+                                  _paths != null && _paths!.isNotEmpty;
+                              final String name = 'File $index: ' +
+                                  (isMultiPath
+                                      ? _paths!
+                                      .map((e) => e.name)
+                                      .toList()[index]
+                                      : _fileName ?? '...');
+                              final path = _paths!
+                                  .map((e) => e.path)
+                                  .toList()[index]
+                                  .toString();
 
+                              return ListTile(
+                                title: Text(
+                                  name,
+                                ),
+                                subtitle: Text(path),
+                                textColor: Appcolors.grey2,
+                              );
+                            },
+                            separatorBuilder:
+                                (BuildContext context, int index) =>
+                            const Divider(),
+                          )),
+                    )
+                        : const SizedBox(),
 
                     SizedBox(
                       height: height*0.04,
