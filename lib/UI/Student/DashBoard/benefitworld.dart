@@ -109,7 +109,9 @@ class _BenefitworldState extends State<Benefitworld> {
                                 onPressed: (){},
                                 child: Text('Learn more',
                                   style: Textstyle3Light18.appbartextstyle.copyWith(fontSize: 12,color: Appcolors.blue1),)),
+
                             SizedBox(width: 16,),
+
                             Container(
                               width: width*0.35,
                               child: RaisedButton(

@@ -230,6 +230,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
           ],
         ),
       ),
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 24.5,right: 23.5,top: 24,bottom: 24),
@@ -322,7 +323,8 @@ class _StudentDashboardState extends State<StudentDashboard> {
                                 fontSize: 14,color: Colors.white
                             ),),
                           ),
-                          onPressed: (){}),
+                          onPressed: (){}
+                      ),
                     ],
                   ),
                 ),
